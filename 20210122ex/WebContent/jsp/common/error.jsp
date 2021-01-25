@@ -6,11 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
+<jsp:include page="menu.jsp" />
 <body>
-	<jsp:include page="jsp/common/menu.jsp" />
 	<div align="center">
-	<h1>환영합니다. 우리집에 온 것을!!!</h1>
+		<h1>서비스에 문제가 발생했습니다.(404)</h1>
+		<h1>관리자에게 문의하세요.</h1>
+		<h1>010-123-4567</h1>
 	</div>
 </body>
 </html>

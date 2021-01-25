@@ -34,6 +34,8 @@ public class LoginResult extends HttpServlet {
 		String pw = request.getParameter("pw");
 		String message = null;
 		
+//		int i = 10/0; //error1.jsp 작동하는지 보기 위해 일부러 오류냄
+		
 		if(id.equals("hong") && pw.equals("1234")) {
 			message = "님 환영합니다.";
 		}else {
