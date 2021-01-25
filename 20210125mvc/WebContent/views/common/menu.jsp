@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,20 +39,25 @@
 </style>
 </head>
 <body>
-<div align="center">
+	<div align="center">
 		<nav id="topMenu">
 			<ul>
 				<li><a class="menuLink" href="#">Home</a></li>
 				<li>|</li>
-				<li><a class="menuLink" href="#">Login</a></li>
-				<li>|</li>
+				<c:if test="${id eq null }">
+					<!-- ne=not equal, eq=equal null값이면 저거만 보여줌 -->
+					<li><a class="menuLink" href="#">Login</a></li>
+					<li>|</li>
+				</c:if>
 				<li><a class="menuLink" href="#">MemberJoin</a></li>
 				<li>|</li>
-				<li><a class="menuLink" href="#">자유게시판</a></li>
+				<li><a class="menuLink" href="/20210125mvc/BoardList.do">자유게시판</a></li>
 				<li>|</li>
 				<li><a class="menuLink" href="#">공지사항</a></li>
-				<li>|</li>
-				<li><a class="menuLink" href="#">Logout</a></li>
+				<c:if test="${id ne null }">
+					<li>|</li>
+					<li><a class="menuLink" href="#">Logout</a></li>
+				</c:if>
 			</ul>
 		</nav>
 	</div>
