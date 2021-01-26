@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.micol.minipro.common.Service;
 import co.micol.minipro.member.service.Login;
 import co.micol.minipro.member.service.LoginForm;
+import co.micol.minipro.member.service.Logout;
 
 /**
  * Servlet implementation class FrontController
@@ -37,6 +38,7 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainService()); //메인화면 호출
 		map.put("/loginForm.do", new LoginForm()); //로그인폼 호출
 		map.put("/login.do", new Login()); //로그인 처리
+		map.put("/logout.do", new Logout());//로그아웃 처리
 	}
 
 	/**

@@ -9,7 +9,7 @@
 <style>
 #topMenu {
 	height: 30px;
-	width: 1000px;
+	width: 850px;
 }
 
 #topMenu ul li {
@@ -56,7 +56,7 @@
 				<li><a class="menuLink" href="#">공지사항</a></li>
 				<c:if test="${mid ne null }">
 					<li>|</li>
-					<li><a class="menuLink" href="#">Logout</a></li>
+					<li><a class="menuLink" href="logout.do">Logout</a></li>
 				</c:if>
 			</ul>
 		</nav>
