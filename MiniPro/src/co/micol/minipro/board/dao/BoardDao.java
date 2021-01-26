@@ -1,5 +1,8 @@
 package co.micol.minipro.board.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import co.micol.minipro.common.DAO;
@@ -7,7 +10,10 @@ import co.micol.minipro.common.DbInterface;
 import co.micol.minipro.board.service.BoardVo;
 
 public class BoardDao extends DAO implements DbInterface<BoardVo> {
-
+	
+	private PreparedStatement psmt;
+	private ResultSet rs;
+	
 	@Override
 	public ArrayList<BoardVo> selectList() {
 		// TODO Auto-generated method stub
@@ -38,4 +44,14 @@ public class BoardDao extends DAO implements DbInterface<BoardVo> {
 		return 0;
 	}
 
+	private void close() {
+		try {
+			if(rs != null) rs.close();
+			if(psmt != null) psmt.close();
+			if(conn != null) conn.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

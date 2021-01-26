@@ -42,7 +42,7 @@
 	<div align="center">
 		<nav id="topMenu">
 			<ul>
-				<li><a class="menuLink" href="#">Home</a></li>
+				<li><a class="menuLink" href="main.do">Home</a></li>
 				<li>|</li>
 				<c:if test="${mid eq null }"> <!-- prefix="c"%>의 c임 --> <!-- ne=not equal, eq=equal null값이면 저거만 보여줌 -->
 					<!-- <li><a class="menuLink" href="/MiniPro/views/member/loginForm.jsp">Login</a></li> 이렇게 경로지정안해주고 *.do로 할 예정 -->

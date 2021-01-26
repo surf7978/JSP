@@ -10,6 +10,7 @@ import co.micol.minipro.common.DbInterface;
 import co.micol.minipro.member.service.MemberVo;
 
 public class MemberDao extends DAO implements DbInterface<MemberVo> {
+	
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
