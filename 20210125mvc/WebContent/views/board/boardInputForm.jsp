@@ -39,7 +39,9 @@
 				<div>
 					<button type="submit">저장하기</button>
 					&nbsp;&nbsp;
-					<button type="reset">취소</button>
+					<button type="reset">초기화</button>
+					&nbsp;&nbsp;
+					<input type="button" value="목록가기" onclick="location.href='BoardList.do'">
 				</div>
 			</form>
 		</div>

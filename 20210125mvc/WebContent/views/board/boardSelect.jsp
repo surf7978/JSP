@@ -28,16 +28,17 @@
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td colspan="5"><textarea rows="7" cols="80">${vo.content }</textarea></td>
+					<td colspan="5"><textarea rows="7" cols="80" readonly>${vo.content }</textarea></td>
 				</tr>
 			</table>
 		</div><br/>
 		<div>
 			<button type="button" onclick="location.href='/20210125mvc/BoardList.do'">목록보기</button>
-		</div>
-		<div>
+			&nbsp; &nbsp;
 			<button type="button" onclick="location.href='/20210125mvc/BoardDelete.do?row='+${vo.boardNo }">삭제</button>
 			<!-- BoardDelete.do?row='+${vo.boardNo }이거해줘야함 row값안주면 못지움 -->
+			&nbsp; &nbsp;
+			<button type="button" onclick="location.href='/20210125mvc/BoardUpadte.do?row='+${vo.boardNo }">수정</button>
 		</div>
 	</div>
 </body>

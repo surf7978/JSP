@@ -17,6 +17,7 @@ public class BoardsDAO extends DAO{ //공용 DAO만들고 extends함
 	private final String BOARDSELECT = "SELECT * FROM BOARDS WHERE BOARD_NO = ?";
 	private final String BOARDINSERT = "INSERT INTO BOARDS VALUES(?,?,?,?,?)";
 	private final String BOARDDELETE = "DELETE FROM BOARDS WHERE BOARD_NO = ?";
+	private final String BOARDUPDATE = "UPDATE BOARDS SET TITLE=?, CONTENT=? WHERE BOARD_NO=?";
 	
 	public ArrayList<BoardVO> selectList(){
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -87,9 +88,17 @@ public class BoardsDAO extends DAO{ //공용 DAO만들고 extends함
 	public int update(BoardVO vo) {
 		int n=0;
 		//여기에 수정작업을 쓴다.
-		
-		
-		
+		try {
+			psmt = conn.prepareStatement(BOARDUPDATE);
+			psmt.setString(1, vo.getTitle());
+			psmt.setString(2, vo.getContent());
+			psmt.setInt(3, vo.getBoardNo());
+			n = psmt.executeUpdate(); 
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
 		return n;
 	}
 	
@@ -105,8 +114,6 @@ public class BoardsDAO extends DAO{ //공용 DAO만들고 extends함
 		} finally {
 			close();
 		}
-		
-		
 		return n;
 	}
 	
