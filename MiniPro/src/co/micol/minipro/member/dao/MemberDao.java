@@ -44,8 +44,22 @@ public class MemberDao extends DAO implements DbInterface<MemberVo> {
 
 	@Override
 	public int insert(MemberVo vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// 회원가입 메소드
+		String sql = "INSERT INTO member(mid, mname, mpassword) VALUES(?,?,?)";
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getmId());
+			psmt.setString(2, vo.getmName());
+			psmt.setString(3, vo.getmPassword());
+			n = psmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return n;
 	}
 
 	@Override
@@ -58,6 +72,26 @@ public class MemberDao extends DAO implements DbInterface<MemberVo> {
 	public int delete(MemberVo vo) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	public boolean isIdCheck(String id) {
+		//id 중복체크 메소드
+		boolean bool = true; //기본 false
+		String sql = "SELECT mid FROM member WHERE mid = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id); //입력한 id값 넣어서 select
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				bool = false;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return bool;
 	}
 	
 	private void close() {

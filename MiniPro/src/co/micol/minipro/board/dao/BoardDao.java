@@ -10,7 +10,7 @@ import co.micol.minipro.common.DbInterface;
 import co.micol.minipro.board.service.BoardVo;
 
 public class BoardDao extends DAO implements DbInterface<BoardVo> {
-	
+	//DAO = Date Access Object
 	private PreparedStatement psmt;
 	private ResultSet rs;
 	

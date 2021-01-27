@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>로그인 성공</title>
 </head>
-<jsp:include page="../common/menu.jsp"></jsp:include>
+<jsp:include page="../common/menu.jsp" />
 <body>
 <div align="center">
 	<h3>로그인 성공</h3>

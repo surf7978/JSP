@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>로그인 폼</title>
 </head>
-		<jsp:include page="../common/menu.jsp" />
+<jsp:include page="../common/menu.jsp" />
 <body>
 	<div align="center">
 	<div><h1>로 그 인</h1></div>

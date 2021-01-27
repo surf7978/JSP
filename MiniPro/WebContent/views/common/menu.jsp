@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><!-- 이거(=스위치 case문) 추가해줘야됨 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,20 +44,20 @@
 			<ul>
 				<li><a class="menuLink" href="main.do">Home</a></li>
 				<li>|</li>
-				<c:if test="${mid eq null }"> <!-- prefix="c"%>의 c임 --> <!-- ne=not equal, eq=equal null값이면 저거만 보여줌 -->
-					<!-- <li><a class="menuLink" href="/MiniPro/views/member/loginForm.jsp">Login</a></li> 이렇게 경로지정안해주고 *.do로 할 예정 -->
-					<li><a class="menuLink" href="loginForm.do">Login</a></li>
+				<c:if test="${mid eq null }"> <!-- prefix="c"%>의 c임(=스위치 case문) -->
+					<!-- 여기서 mid는 Session의 mid속성 값임 -->
+					<!-- ne=not equal, eq=equal null값이면 저거만 보여줌 -->
+					<li><a class="menuLink" href="loginForm.do">로그인</a></li>
 					<li>|</li>
+					<li><a class="menuLink" href="memberJoinForm.do">회원가입</a></li>
 				</c:if>
-				<li><a class="menuLink" href="#">MemberJoin</a></li>
+				<c:if test="${mid ne null }">
+					<li><a class="menuLink" href="logout.do">로그아웃</a></li>
+				</c:if>
 				<li>|</li>
 				<li><a class="menuLink" href="#">자유게시판</a></li>
 				<li>|</li>
 				<li><a class="menuLink" href="#">공지사항</a></li>
-				<c:if test="${mid ne null }">
-					<li>|</li>
-					<li><a class="menuLink" href="logout.do">Logout</a></li>
-				</c:if>
 			</ul>
 		</nav>
 	</div>

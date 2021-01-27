@@ -14,6 +14,10 @@ import co.micol.minipro.common.Service;
 import co.micol.minipro.member.service.Login;
 import co.micol.minipro.member.service.LoginForm;
 import co.micol.minipro.member.service.Logout;
+import co.micol.minipro.member.service.MemberIdCheck;
+import co.micol.minipro.member.service.MemberJoin;
+import co.micol.minipro.member.service.MemberJoinForm;
+
 
 /**
  * Servlet implementation class FrontController
@@ -39,6 +43,9 @@ public class FrontController extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm()); //로그인폼 호출
 		map.put("/login.do", new Login()); //로그인 처리
 		map.put("/logout.do", new Logout());//로그아웃 처리
+		map.put("/memberJoinForm.do", new MemberJoinForm()); //회원가입폼 호출
+		map.put("/memberJoin.do", new MemberJoin()); //회원가입 처리
+		map.put("/idCheck.do", new MemberIdCheck()); //아이디 중복체크 처리
 	}
 
 	/**
