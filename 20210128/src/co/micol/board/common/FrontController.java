@@ -12,7 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.board.web.MainCommand;
-import co.micol.board.web.SelectList;
+import co.micol.board.web.SelectBoard;
+import co.micol.board.web.UpdateBoard;
+import co.micol.board.web.UpdateBoardForm;
+import co.micol.board.web.BoardList;
+import co.micol.board.web.BoardView;
+import co.micol.board.web.DeleteBoard;
+import co.micol.board.web.InsertBoard;
+import co.micol.board.web.InsertBoardForm;
 
 /**
  * Servlet implementation class FrontController
@@ -36,7 +43,14 @@ public class FrontController extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainCommand());
-		map.put("/selectList.do", new SelectList());
+		map.put("/boardList.do", new BoardList());
+		map.put("/insertBoardForm.do", new InsertBoardForm());
+		map.put("/insertBoard.do", new InsertBoard());
+		map.put("/selectBoard.do", new SelectBoard()); //내가한 것 아직 미구현
+		map.put("/boardView.do", new BoardView());
+		map.put("/deleteBoard.do", new DeleteBoard());
+		map.put("/updateBoardForm.do", new UpdateBoardForm());
+		map.put("/updateBoard.do", new UpdateBoard());
 	}
 
 	/**

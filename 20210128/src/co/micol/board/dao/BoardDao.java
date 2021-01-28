@@ -15,7 +15,7 @@ public class BoardDao extends DAO{ //상속 해줘야 DB에 접속함
 	public ArrayList<BoardVo> selectList(){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo;
-		String sql = "SELECT * FROM board";
+		String sql = "SELECT * FROM board ORDER BY bid DESC";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -56,6 +56,7 @@ public class BoardDao extends DAO{ //상속 해줘야 DB에 접속함
 				vo.setbGroup(rs.getInt("bgroup"));
 				vo.setbStep(rs.getInt("bstep"));
 				vo.setbIndent(rs.getInt("bindent"));
+				hitCount(vo.getbId()); //조회수용 인트값 주려고 적음
 			}
 			System.out.println(vo.toString());
 		}catch(SQLException e) {
@@ -107,7 +108,7 @@ public class BoardDao extends DAO{ //상속 해줘야 DB에 접속함
 	
 	public int update(BoardVo vo) {
 		int n = 0;
-		String sql = "UPDATE board SET bcontent = ? WHERE bid = ?";
+		String sql = "UPDATE board SET bcontent = ?, bhit = 0 WHERE bid = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getbContent());
@@ -131,4 +132,18 @@ public class BoardDao extends DAO{ //상속 해줘야 DB에 접속함
 			e.printStackTrace();
 		}
 	}
+	
+	private void hitCount(int hit) { //조회수 올리는 메소드
+		String sql = "UPDATE board SET bhit = bhit + 1 WHERE bid= ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, hit);
+			psmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 }

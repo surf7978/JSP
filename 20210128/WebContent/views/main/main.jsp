@@ -19,7 +19,7 @@
 <body>
 	<div align="center">
 		<h1>여기는 시작페이지 입니다.</h1>
-		<h1> <a href="selectList.do">게시글 목록 보기</a> </h1>
+		<h1> <a href="boardList.do">게시글 목록 보기</a> </h1>
 	</div>
 </body>
 </html>
