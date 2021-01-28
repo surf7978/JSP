@@ -18,7 +18,7 @@ public class UpdateBoardForm implements Command {
 		BoardVo vo = new BoardVo();
 		
 		vo.setbId(Integer.parseInt(request.getParameter("bId1")));
-		vo = dao.select(vo);
+		vo = dao.selectUpdateForm(vo);
 		
 		request.setAttribute("vo", vo);
 		

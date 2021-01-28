@@ -144,6 +144,30 @@ public class BoardDao extends DAO{ //상속 해줘야 DB에 접속함
 		}
 	}
 	
-	
+	public BoardVo selectUpdateForm(BoardVo vo) {
+		String sql = "SELECT * FROM board WHERE bid = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getbId());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				vo.setbId(rs.getInt("bid"));
+				vo.setbName(rs.getString("bname"));
+				vo.setbTitle(rs.getString("btitle"));
+				vo.setbContent(rs.getString("bcontent"));
+				vo.setbDate(rs.getDate("bdate"));
+				vo.setbHit(rs.getInt("bhit"));
+				vo.setbGroup(rs.getInt("bgroup"));
+				vo.setbStep(rs.getInt("bstep"));
+				vo.setbIndent(rs.getInt("bindent"));
+			}
+			System.out.println(vo.toString());
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return vo;
+	}
 	
 }
