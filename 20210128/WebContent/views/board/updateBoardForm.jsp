@@ -45,7 +45,7 @@ textarea {
 					</tr>
 					<tr>
 						<th>내용</th>
-						<td colspan="7"><textarea type="text" id="bContent1"
+						<td colspan="7"><textarea id="bContent1"
 								name="bContent1" rows="7" cols="45">${vo.bContent}</textarea></td>
 					</tr>
 				</table>
