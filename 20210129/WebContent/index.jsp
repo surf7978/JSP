@@ -21,6 +21,16 @@
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "SYSTEM" ;
 
+insert into reply values(1, 1, '댓글');
+insert into reply values(1, 2, '댓글2');
+insert into reply values(1, 3, '댓글3');
+
+select a.bid, b.subject from board a, reply b where a.bid=b.bid;
+
+select * from reply where bid=1;
+
+commit;
+
 댓글 테이블 기본 셋팅
 
  -->
