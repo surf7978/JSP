@@ -9,9 +9,6 @@ public class BoardVo {
 	private String bContent;
 	private Date bDate;
 	private int bHit;
-	private int bGroup;
-	private int bStep;
-	private int bIndent;
 	
 	public BoardVo() {
 		// TODO Auto-generated constructor stub
@@ -64,30 +61,5 @@ public class BoardVo {
 	public void setbHit(int bHit) {
 		this.bHit = bHit;
 	}
-
-	public int getbGroup() {
-		return bGroup;
-	}
-
-	public void setbGroup(int bGroup) {
-		this.bGroup = bGroup;
-	}
-
-	public int getbStep() {
-		return bStep;
-	}
-
-	public void setbStep(int bStep) {
-		this.bStep = bStep;
-	}
-
-	public int getbIndent() {
-		return bIndent;
-	}
-
-	public void setbIndent(int bIndent) {
-		this.bIndent = bIndent;
-	}
-	
 	
 }

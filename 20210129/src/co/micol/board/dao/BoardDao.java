@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import co.micol.board.common.DAO;
 import co.micol.board.vo.BoardVo;
+import co.micol.board.vo.ReplyVo;
 
 public class BoardDao extends DAO {
 	private PreparedStatement psmt;
@@ -27,9 +28,6 @@ public class BoardDao extends DAO {
 				vo.setbContent(rs.getString("bcontent"));
 				vo.setbDate(rs.getDate("bdate"));
 				vo.setbHit(rs.getInt("bhit"));
-				vo.setbGroup(rs.getInt("bgroup"));
-				vo.setbStep(rs.getInt("bstep"));
-				vo.setbIndent(rs.getInt("bindent"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -54,9 +52,6 @@ public class BoardDao extends DAO {
 				vo.setbContent(rs.getString("bcontent"));
 				vo.setbDate(rs.getDate("bdate"));
 				vo.setbHit(rs.getInt("bhit"));
-				vo.setbGroup(rs.getInt("bgroup"));
-				vo.setbStep(rs.getInt("bstep"));
-				vo.setbIndent(rs.getInt("bindent"));
 				//여기에 조회수 올리는 거 추가하기
 				hitCount(rs.getInt("bid"));
 			}
@@ -139,5 +134,28 @@ public class BoardDao extends DAO {
 		}
 	}
 	
+	
+	public ArrayList<ReplyVo> replySelect(ReplyVo vo){
+		ArrayList<ReplyVo> replyList = new ArrayList<>();
+		String sql = "SELECT * FROM reply WHERE bid = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getBid());
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo = new ReplyVo();
+				vo.setBid(rs.getInt("bid"));
+				vo.setRnum(rs.getInt("rnum"));
+				vo.setRdate(rs.getDate("rdate"));
+				vo.setSubject(rs.getString("subject"));
+				replyList.add(vo);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return replyList; 
+	}
 	
 }

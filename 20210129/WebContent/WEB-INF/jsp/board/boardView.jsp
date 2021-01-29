@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <style>
 	textarea{
 		border:0;
@@ -27,13 +29,13 @@
 		<table border="1">
 			<tr>
 				<th>작성번호</th>
-				<td>${vo.bId }</td>
+				<td style="text-align:center;">${vo.bId }</td>
 				<th>작성자</th>
-				<td>${vo.bName }</td>
+				<td style="text-align:center;">${vo.bName }</td>
 				<th>작성일자</th>
-				<td>${vo.bDate }</td>
+				<td style="text-align:center;">${vo.bDate }</td>
 				<th>조회수</th>
-				<td>${vo.bHit }</td>
+				<td style="text-align:center;">${vo.bHit }</td>
 			</tr>
 			<tr>
 				<th>제목</th>
@@ -45,6 +47,21 @@
 					rows="7"cols="45" readonly>${vo.bContent}</textarea></td>
 			</tr>
 		</table>
+		<div>
+		<c:if test="${not empty list }">
+			<c:forEach var="rvo" items="${list }">
+				<table border="1">
+					<tr>
+					</tr>
+					<tr>
+						<td style="text-align:center; width:30;">${rvo.rnum }</td>
+						<td width="319">&nbsp;${rvo.subject }</td>
+						<td style="text-align:center; width:100;">${rvo.rdate }</td>
+					</tr>
+				</table>
+			</c:forEach>
+		</c:if>
+		</div><br />
 		<div>
 			<button type="button" onclick="location.href='boardList.do'">목록가기</button>
 			&nbsp;&nbsp;

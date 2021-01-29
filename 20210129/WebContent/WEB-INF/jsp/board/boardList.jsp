@@ -46,9 +46,6 @@
 					<!-- <th width="300">내용</th> -->
 					<th>작성일</th>
 					<th>조회수</th>
-					<!-- <th>bgroup</th> -->
-					<!-- <th>bstep</th> -->
-					<!-- <th>bindent</th> -->
 				</tr>
 				<c:choose>
 					<c:when test="${empty list }">
@@ -65,9 +62,6 @@
 								<!-- <td align>&nbsp;${vo.bContent }</td> -->
 								<td align="center">${vo.bDate }</td>
 								<td align="center">${vo.bHit }</td>
-								<!-- <td align="center">${vo.bGroup }</td> -->
-								<!-- <td align="center">${vo.bStep }</td> -->
-								<!-- <td align="center">${vo.bIndent }</td> -->
 							</tr>
 						</c:forEach>
 					</c:when>
