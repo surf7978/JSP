@@ -43,7 +43,7 @@
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td colspan="7"><textarea type="text" id="bContent" name="bContent"
+				<td colspan="7"><textarea id="bContent" name="bContent"
 					rows="7"cols="45" readonly>${vo.bContent}</textarea></td>
 			</tr>
 		</table>
