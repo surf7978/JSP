@@ -8,7 +8,7 @@ import co.micol.common.Command;
 import co.micol.dao.BookRentalDao;
 import co.micol.vo.BookRentalVo;
 
-public class Rentalbook implements Command {
+public class RentalBook implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {

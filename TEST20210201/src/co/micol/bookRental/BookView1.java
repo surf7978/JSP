@@ -7,16 +7,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.micol.common.Command;
-import co.micol.dao.BookRentalDao;
-import co.micol.vo.BookRentalVo;
+import co.micol.dao.BookDao;
+import co.micol.vo.BookVo;
 
 public class BookView1 implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		BookRentalDao dao = new BookRentalDao();
-		BookRentalVo vo = new BookRentalVo();
-		vo.setRentalDate(Date.valueOf(request.getParameter("rentalDate")));
+		BookDao dao = new BookDao();
+		BookVo vo = new BookVo();
+		vo.setBookCode(request.getParameter("bookCode"));
 		
 		dao.select(vo);
 		

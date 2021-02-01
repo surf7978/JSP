@@ -71,7 +71,7 @@
 					</c:when>
 					<c:when test="${not empty list1 }">
 						<c:forEach var="vo1" items="${list1 }">
-							<tr onclick="location.href='bookView1.do?rentalDate=${vo1.rentalDate }'">
+							<tr onclick="location.href='bookView2.do?rentalDate=${vo1.rentalDate }'">
 								<td align="center">${vo1.rentalDate }</td>
 								<td align="center">${vo1.bookCode }</td>
 								<td align="center">${vo1.memberId }</td>

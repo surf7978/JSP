@@ -21,7 +21,9 @@ import co.micol.book.UpdateBookForm;
 import co.micol.bookRental.BookRentalList;
 import co.micol.bookRental.BookRentalView;
 import co.micol.bookRental.BookView1;
-import co.micol.bookRental.Rentalbook;
+import co.micol.bookRental.BookView2;
+import co.micol.bookRental.RentalBook;
+import co.micol.bookRental.ReturnBook;
 import co.micol.member.DeleteMember;
 import co.micol.member.InsertMember;
 import co.micol.member.InsertMemberForm;
@@ -65,7 +67,9 @@ public class FrontController extends HttpServlet {
 		map.put("/bookRentalList.do", new BookRentalList());
 		map.put("/bookRentalView.do", new BookRentalView());
 		map.put("/bookView1.do", new BookView1());
-		map.put("/rentalbook.do", new Rentalbook());
+		map.put("/rentalBook.do", new RentalBook());
+		map.put("/bookView2.do", new BookView2());
+		map.put("/returnBook.do", new ReturnBook());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

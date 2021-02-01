@@ -84,6 +84,38 @@ public class BookRentalDao extends DAO {
 		return vo;
 	}
 	
+	public int return(BookRentalVo vo) {
+		int n = 0;
+		String sql1 = "UPDATE book"//
+				+ " SET bcount = bcount+1"//
+				+ " WHERE bookcode = ?";
+		
+		String sql2 = "UPDATE bookrental"//
+				+ "SET returndate = SYSDATE"//
+				+ " WHERE rentaldate =?"//
+				+ " AND bookcode = ?"//
+				+ " AND memberid = ?";
+		try {
+			psmt = conn.prepareStatement(sql1);
+			psmt.setString(1, vo.getBookCode());
+			System.out.println(vo.toString());
+			n = psmt.executeUpdate();
+			
+			psmt = conn.prepareStatement(sql2);
+			psmt.setDate(1, vo.getRentalDate());
+			psmt.setString(2, vo.getBookCode());
+			psmt.setString(3, vo.getMemberId());
+			System.out.println(vo.toString());
+			n = psmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return n;
+	}
+	
 	
 	private void close() {
 		try {
