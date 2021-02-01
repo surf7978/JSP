@@ -53,7 +53,7 @@
 			</table>
 		</div><br />
 		<div>
-			<h1>대여중인 도서 목록</h1>
+			<h1>나의 대여중인 도서 목록</h1>
 		</div>
 		<div>
 			<table border="1">

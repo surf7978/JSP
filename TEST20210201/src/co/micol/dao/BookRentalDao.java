@@ -140,6 +140,29 @@ public class BookRentalDao extends DAO {
 		return list;
 	}
 	
+	public ArrayList<BookRentalVo> selectListNotReturn(){
+		ArrayList<BookRentalVo> list = new ArrayList<>();
+		String sql = "SELECT * FROM bookrental WHERE returndate IS NULL ORDER BY 1";
+		BookRentalVo vo;
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo = new BookRentalVo();
+				vo.setRentalDate(rs.getDate("rentaldate"));
+				vo.setBookCode(rs.getString("bookcode"));
+				vo.setMemberId(rs.getString("memberid"));
+				vo.setReturnDate(rs.getString("returndate"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+	
 	private void close() {
 		try {
 			if(rs != null) rs.close();
