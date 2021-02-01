@@ -6,6 +6,9 @@
 <!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
+		<div>
+			<input type="hidden" value="${memberId }">
+		</div>
 
 </div>
 </body>

@@ -35,13 +35,17 @@
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <c:if test="${memberId eq null }">
     	<a href="loginForm.do" class="w3-bar-item w3-button w3-padding-large">로그인</a>
+    	<a href="insertMemberForm.do" class="w3-bar-item w3-button w3-padding-large">회원가입</a>
     </c:if>
     <c:if test="${memberId ne null }">
     	<a href="logout.do" class="w3-bar-item w3-button w3-padding-large">로그아웃</a>
     	<a href="main.do" class="w3-bar-item w3-button w3-padding-large">홈</a>
-    	<a href="bookList.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">도서 관리</a>
-    	<a href="bookRentalList.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">도서 대여관리</a>
+    	<c:if test="${memberAuth eq 'USER' }">
+    		<a href="bookRentalListUSER.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">도서 대여관리</a>
+    	</c:if>
     	<c:if test="${memberAuth eq 'ADMIN' }">
+    		<a href="bookRentalList.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">도서 대여관리</a>
+    		<a href="bookList.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">도서 관리</a>
     		<a href="memberList.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">멤버 관리</a>
     	</c:if>
     	<a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
@@ -52,9 +56,12 @@
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <c:if test="${memberId ne null }">
-  	<a href="bookList.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">도서 관리</a>
-  	<a href="bookRentalList.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">도서 대여관리</a>
+  	<c:if test="${memberAuth eq 'USER' }">
+  		<a href="bookRentalListUSER.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">도서 대여관리</a>
+  	</c:if>
   	<c:if test="${memberAuth eq 'ADMIN' }">
+  		<a href="bookRentalList.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">도서 대여관리</a>
+  		<a href="bookList.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">도서 관리</a>
   		<a href="memberList.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">맴버 관리</a>
   	</c:if>
   </c:if>

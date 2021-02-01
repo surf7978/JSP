@@ -116,6 +116,29 @@ public class BookRentalDao extends DAO {
 		return n;
 	}
 	
+	public ArrayList<BookRentalVo> selectListUSER(BookRentalVo vo1){
+		ArrayList<BookRentalVo> list = new ArrayList<>();
+		String sql = "SELECT * FROM bookrental WHERE memberid = ? ORDER BY 1";
+		BookRentalVo vo;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo1.getMemberId());
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo = new BookRentalVo();
+				vo.setRentalDate(rs.getDate("rentaldate"));
+				vo.setBookCode(rs.getString("bookcode"));
+				vo.setMemberId(rs.getString("memberid"));
+				vo.setReturnDate(rs.getString("returndate"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
 	
 	private void close() {
 		try {

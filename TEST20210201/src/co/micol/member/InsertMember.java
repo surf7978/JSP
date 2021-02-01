@@ -21,7 +21,7 @@ public class InsertMember implements Command {
 		
 		dao.insert(vo);
 		
-		return "memberList.do";
+		return "loginForm.do";
 	}
 
 }
