@@ -31,7 +31,7 @@
 		<div>
 			<button type="button" onclick="location.href='bookRentalList.do'">목록가기</button>
 			&nbsp;&nbsp;
-			<button type="button" onclick="location.href='rentalbook.do?rentalDate1=${vo.rentalDate }'">반납하기</button>
+			<button type="button" onclick="location.href='returnbook.do?rentalDate3=${vo.rentalDate }&memberId3=${memberId }&bookCode3=${vo.bookCode }'">반납하기</button>
 		</div><br/>
 	</div>
 

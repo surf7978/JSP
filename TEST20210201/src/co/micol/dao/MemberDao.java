@@ -13,7 +13,7 @@ public class MemberDao extends DAO {
 	private ResultSet rs;
 	
 	public MemberVo login(MemberVo vo) {
-		String sql = "SELECT * FROM member1 WHERE memberid = ? AND memberpassword = ?";
+		String sql = "SELECT * FROM member99 WHERE memberid = ? AND memberpassword = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getMemberId());
@@ -38,7 +38,7 @@ public class MemberDao extends DAO {
 	
 	public ArrayList<MemberVo> selectList(){
 		ArrayList<MemberVo> list = new ArrayList<>();
-		String sql = "SELECT * FROM member1 ORDER BY memberauth";
+		String sql = "SELECT * FROM member99 ORDER BY memberauth";
 		MemberVo vo;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -62,7 +62,7 @@ public class MemberDao extends DAO {
 	}
 	
 	public MemberVo select(MemberVo vo) {
-		String sql = "SELECT * FROM member1 WHERE memberid = ?";
+		String sql = "SELECT * FROM member99 WHERE memberid = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getMemberId());
@@ -85,7 +85,7 @@ public class MemberDao extends DAO {
 	
 	public int insert(MemberVo vo) {
 		int n = 0;
-		String sql = "INSERT INTO member1"//
+		String sql = "INSERT INTO member99"//
 				+ "(memberid, membername, memberpassword, membertel, memberaddress)"//
 				+ " VALUES(?,?,?,?,?)";
 		try {
@@ -106,7 +106,7 @@ public class MemberDao extends DAO {
 	
 	public int update(MemberVo vo) {
 		int n = 0;
-		String sql = "UPDATE member1"//
+		String sql = "UPDATE member99"//
 				+ " SET membername = ?"//
 				+ ", memberpassword = ?"//
 				+ ", membertel = ?"//
@@ -130,7 +130,7 @@ public class MemberDao extends DAO {
 	
 	public int delete(MemberVo vo) {
 		int n = 0;
-		String sql = "DELETE FROM member1 WHERE memberid=?";
+		String sql = "DELETE FROM member99 WHERE memberid=?";
 		try {
 			psmt =  conn.prepareStatement(sql);
 			psmt.setString(1, vo.getMemberId());

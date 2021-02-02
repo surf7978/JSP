@@ -5,16 +5,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.micol.dao.BookDao;
 
-
-public class LoginForm implements Command {
+public class Loading implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		BookDao dao = new BookDao();
 		
-		dao.startSetting();
+		dao.endSetting();
 		
-		return "main/loginForm";
+		return "loginForm.do";
 	}
 
 }

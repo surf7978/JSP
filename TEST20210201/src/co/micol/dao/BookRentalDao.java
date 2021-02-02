@@ -14,11 +14,11 @@ public class BookRentalDao extends DAO {
 	
 	public int rental(BookRentalVo vo) {
 		int n = 0;
-		String sql1 = "UPDATE book"//
+		String sql1 = "UPDATE book99"//
 				+ " SET bcount = bcount-1"//
 				+ " WHERE bookcode = ?";
 		
-		String sql2 = "INSERT INTO bookrental"//
+		String sql2 = "INSERT INTO bookrental99"//
 				+ "(bookcode, memberid)"//
 				+ " VALUES(?, ?)";
 		try {
@@ -43,7 +43,7 @@ public class BookRentalDao extends DAO {
 	
 	public ArrayList<BookRentalVo> selectList(){
 		ArrayList<BookRentalVo> list = new ArrayList<>();
-		String sql = "SELECT * FROM bookrental ORDER BY 1 DESC";
+		String sql = "SELECT * FROM bookrental99 ORDER BY 1 DESC";
 		BookRentalVo vo;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class BookRentalDao extends DAO {
 	}
 	
 	public BookRentalVo select(BookRentalVo vo) {
-		String sql = "SELECT * FROM bookrental WHERE rentaldate = ?";
+		String sql = "SELECT * FROM bookrental99 WHERE rentaldate = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getRentalDate());
@@ -87,11 +87,11 @@ public class BookRentalDao extends DAO {
 	
 	public int returnBook(BookRentalVo vo) {
 		int n = 0;
-		String sql1 = "UPDATE book"//
+		String sql1 = "UPDATE book99"//
 				+ " SET bcount = bcount+1"//
 				+ " WHERE bookcode = ?";
 		
-		String sql2 = "UPDATE bookrental"//
+		String sql2 = "UPDATE bookrental99"//
 				+ " SET RETURNDATE = (to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'))"//
 				+ " WHERE rentalDate = ?";
 
@@ -116,7 +116,7 @@ public class BookRentalDao extends DAO {
 	
 	public ArrayList<BookRentalVo> selectListUSER(BookRentalVo vo1){
 		ArrayList<BookRentalVo> list = new ArrayList<>();
-		String sql = "SELECT * FROM bookrental WHERE memberid = ? ORDER BY 1 DESC";
+		String sql = "SELECT * FROM bookrental99 WHERE memberid = ? ORDER BY 1 DESC";
 		BookRentalVo vo;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -141,7 +141,7 @@ public class BookRentalDao extends DAO {
 	
 	public ArrayList<BookRentalVo> selectListNotReturn(){
 		ArrayList<BookRentalVo> list = new ArrayList<>();
-		String sql = "SELECT * FROM bookrental WHERE returndate IS NULL ORDER BY 1";
+		String sql = "SELECT * FROM bookrental99 WHERE returndate IS NULL ORDER BY 1";
 		BookRentalVo vo;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -164,7 +164,7 @@ public class BookRentalDao extends DAO {
 	
 	public int returnBookListDelete(BookRentalVo vo) {
 		int n = 0;
-		String sql = "DELETE FROM bookrental WHERE rentaldate = ?";
+		String sql = "DELETE FROM bookrental99 WHERE rentaldate = ?";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
