@@ -162,6 +162,22 @@ public class BookRentalDao extends DAO {
 		return list;
 	}
 	
+	public int returnBookListDelete(BookRentalVo vo) {
+		int n = 0;
+		String sql = "DELETE FROM bookrental WHERE rentaldate = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getRentalDate());
+			psmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return n;
+	}
+	
 	private void close() {
 		try {
 			if(rs != null) rs.close();

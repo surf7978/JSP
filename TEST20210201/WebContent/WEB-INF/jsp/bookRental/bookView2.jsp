@@ -37,13 +37,19 @@
 		<div>
 			<button type="button" onclick="location.href='bookRentalList.do'">목록가기</button>
 			<c:if test="${vo.returnDate eq null }">
-			&nbsp;&nbsp;
-			<button type="button" onclick="location.href='returnBook.do?bookCode3=${vo.bookCode }&memberId3=${memberId }&rentalDate3=${vo.rentalDate }'">도서반납</button>
+				&nbsp;&nbsp;
+				<button type="button" onclick="location.href='returnBook.do?bookCode3=${vo.bookCode }&memberId3=${memberId }&rentalDate3=${vo.rentalDate }'">도서반납</button>
+			</c:if>
+			<c:if test="${memberId eq 'admin' }">
+				&nbsp;&nbsp;
+				<button type="button" onclick="location.href='returnBookListDelete.do?bookCode3=${vo.bookCode }&memberId3=${memberId }&rentalDate3=${vo.rentalDate }'">삭제</button>
 			</c:if>
 		</div>
 	</div>
 
-
+	<div align="center">
+		<input type="hidden" value="${memberId}">
+	</div>
 
 
 </div>
