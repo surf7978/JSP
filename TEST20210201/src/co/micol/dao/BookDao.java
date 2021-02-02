@@ -17,7 +17,11 @@ public class BookDao extends DAO {
 				+ "(BookCode varchar2(4) not null primary key"//
 				+ ", BookName varchar2(100) not null"//
 				+ ", Quantity number default 5 not null"//
-				+ ", bCount number default 5 not null)";
+				+ ", bCount number default 5 not null"
+				+ ", viewCount number default 0"
+				+ ", rentalCount number default 0"
+				+ ", likeIt number default 0"
+				+ ", hateIt number default 0)";
 		String sql2 = "insert into book99(bookcode, bookname) values('1111','1번책')";
 		String sql3 = "insert into book99(bookcode, bookname) values('222','2번책')";
 		String sql4 = "insert into book99(bookcode, bookname) values('33','3번책')";
@@ -82,7 +86,7 @@ public class BookDao extends DAO {
 	
 	public ArrayList<BookVo> selectList(){
 		ArrayList<BookVo> list = new ArrayList<>();
-		String sql = "SELECT * FROM book99 ORDER BY bookcode";
+		String sql = "SELECT * FROM book99 ORDER BY viewcount DESC";
 		BookVo vo;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -93,6 +97,10 @@ public class BookDao extends DAO {
 				vo.setBookName(rs.getString("bookname"));
 				vo.setQuantity(rs.getInt("quantity"));
 				vo.setbCount(rs.getInt("bcount"));
+				vo.setViewCount(rs.getInt("viewcount"));
+				vo.setRentalCount(rs.getInt("rentalcount"));
+				vo.setLikeIt(rs.getInt("likeit"));
+				vo.setHateIt(rs.getInt("hateit"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -104,9 +112,17 @@ public class BookDao extends DAO {
 	}
 	
 	public BookVo select(BookVo vo) {
-		String sql = "SELECT * FROM book99 WHERE bookcode = ?";
+		String sql1 = "SELECT * FROM book99 WHERE bookcode = ?";
+		String sql2 = "UPDATE book99 SET viewCount = viewCount+1 WHERE bookcode = ?";
 		try {
-			psmt = conn.prepareStatement(sql);
+			psmt = conn.prepareStatement(sql2);
+			psmt.setString(1, vo.getBookCode());
+			rs = psmt.executeQuery();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		try {
+			psmt = conn.prepareStatement(sql1);
 			psmt.setString(1, vo.getBookCode());
 			rs = psmt.executeQuery();
 			if(rs.next()) {

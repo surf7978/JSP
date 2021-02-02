@@ -5,6 +5,10 @@ public class BookVo {
 	private String bookName;
 	private int quantity;
 	private int bCount;
+	private int viewCount;
+	private int rentalCount;
+	private int likeIt;
+	private int hateIt;
 	
 	public BookVo() {
 		
@@ -42,10 +46,44 @@ public class BookVo {
 		this.bCount = bCount;
 	}
 
+	public int getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
+
+	public int getRentalCount() {
+		return rentalCount;
+	}
+
+	public void setRentalCount(int rentalCount) {
+		this.rentalCount = rentalCount;
+	}
+
+	public int getLikeIt() {
+		return likeIt;
+	}
+
+	public void setLikeIt(int likeIt) {
+		this.likeIt = likeIt;
+	}
+
+	public int getHateIt() {
+		return hateIt;
+	}
+
+	public void setHateIt(int hateIt) {
+		this.hateIt = hateIt;
+	}
+
 	@Override
 	public String toString() {
 		return "BookVo [bookCode=" + bookCode + ", bookName=" + bookName + ", quantity=" + quantity + ", bCount="
-				+ bCount + "]";
+				+ bCount + ", viewCount=" + viewCount + ", rentalCount=" + rentalCount + ", likeIt=" + likeIt
+				+ ", hateIt=" + hateIt + "]";
 	}
+
 	
 }

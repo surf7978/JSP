@@ -24,11 +24,11 @@
 				<td>${vo.bookName }</td>
 			</tr>
 			<tr>
-				<th>기본수량</th>
+				<th>총 수량</th>
 				<td>${vo.quantity}</td>
 			</tr>
 			<tr>
-				<th>현재수량</th>
+				<th>재고수량</th>
 				<td>${vo.bCount }</td>
 			</tr>
 		</table>
@@ -40,6 +40,7 @@
 			&nbsp;&nbsp;
 			<button type="button" onclick="location.href='deletebook.do?bookCode2=${vo.bookCode }'">도서삭제</button>
 		</div>
+		<br />
 	</div>
 
 

@@ -21,6 +21,9 @@ public class BookRentalDao extends DAO {
 		String sql2 = "INSERT INTO bookrental99"//
 				+ "(bookcode, memberid)"//
 				+ " VALUES(?, ?)";
+		
+		String sql3 = "UPDATE book99 SET rentalCount = rentalCount + 1 WHERE bookcode = ?";
+		
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.setString(1, vo.getBookCode());
@@ -30,6 +33,11 @@ public class BookRentalDao extends DAO {
 			psmt = conn.prepareStatement(sql2);
 			psmt.setString(1, vo.getBookCode());
 			psmt.setString(2, vo.getMemberId());
+			System.out.println(vo.toString());
+			n = psmt.executeUpdate();
+			
+			psmt = conn.prepareStatement(sql3);
+			psmt.setString(1, vo.getBookCode());
 			System.out.println(vo.toString());
 			n = psmt.executeUpdate();
 			

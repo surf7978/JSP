@@ -15,6 +15,18 @@
 	function canNotRental(){
 		alert("남은 재고가 없어서 대여할 수 없습니다.");
 	}
+	
+	function likeClick(){
+		if(hIt.value == 0){
+			lIt.value = parseInt(lIt.value)+1;
+		}
+	}
+	
+	function hateClick(){
+		if(lIt.value == 0){
+			hIt.value = parseInt(hIt.value)+1;
+		}
+	}
 </script>
 
 <!-- Page content -->
@@ -32,11 +44,11 @@
 				<td>${vo.bookName}</td>
 			</tr>
 			<tr>
-				<th>기본수량</th>
+				<th>총 수량</th>
 				<td>${vo.quantity }</td>
 			</tr>
 			<tr>
-				<th>현재수량</th>
+				<th>재고수량</th>
 				<td>${vo.bCount }</td>
 			</tr>
 		</table>
@@ -50,6 +62,17 @@
 			<c:if test="${vo.bCount eq '0' }">
 				<button type="button" onclick="canNotRental()" style="background-color:red; color:yellow;">대여불가</button>
 			</c:if>
+		</div>
+		<br />
+		<div>
+			<button type="button" onclick="likeClick()" style="background-color:blue; color:white">좋아요</button>
+			&nbsp;&nbsp;
+			<button type="button" onclick="hateClick()" style="background-color:red; color:white">싫어요</button>
+		</div>
+		<div>
+			<input type="text" id="lIt" name="lIt" value="${vo.likeIt }" readonly>
+			&nbsp;&nbsp;
+			<input type="text" id="hIt" name="hIt" value="${vo.hateIt }" readonly>
 		</div>
 		</form>
 	</div>

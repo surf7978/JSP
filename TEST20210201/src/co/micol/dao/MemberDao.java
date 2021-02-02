@@ -130,9 +130,9 @@ public class MemberDao extends DAO {
 	
 	public int delete(MemberVo vo) {
 		int n = 0;
-		String sql = "DELETE FROM member99 WHERE memberid=?";
+		String sql1 = "DELETE FROM member99 WHERE memberid=?";
 		try {
-			psmt =  conn.prepareStatement(sql);
+			psmt =  conn.prepareStatement(sql1);
 			psmt.setString(1, vo.getMemberId());
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {

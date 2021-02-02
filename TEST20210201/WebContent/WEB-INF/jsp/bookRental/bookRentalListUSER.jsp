@@ -12,7 +12,7 @@
 	td:hover{
 		background-color: gold;
 	}
-	td{
+	th, td{
 		padding:10px;
 	}
 </style>
@@ -29,8 +29,8 @@
 				<tr>
 					<th>도서코드</th>
 					<th>도서명</th>
-					<th>기본수량</th>
-					<th>현재수량</th>
+					<th>총 수량</th>
+					<th>재고수량</th>
 				</tr>
 				<c:choose>
 					<c:when test="${empty list }">
