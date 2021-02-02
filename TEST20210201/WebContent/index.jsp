@@ -8,5 +8,11 @@
 </head>
 <body>
 <jsp:forward page="loginForm.do" />
+
+<!-- 
+create table member2(BookCode varchar2(4) not null primary key,
+BookName varchar2(100) not null , Quantity number not null, bCount number not null);
+
+ -->
 </body>
 </html>
