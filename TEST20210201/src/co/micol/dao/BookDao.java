@@ -64,8 +64,6 @@ public class BookDao extends DAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getBookCode());
 			psmt.setString(2, vo.getBookName());
-			//psmt.setInt(3, vo.getQuantity());
-			//psmt.setInt(4, vo.getbCount());
 			n = psmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

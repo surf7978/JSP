@@ -65,6 +65,5 @@ public class MemberVo {
 		return "MemberVo [memberId=" + memberId + ", memberName=" + memberName + ", memberPassword=" + memberPassword
 				+ ", memberTel=" + memberTel + ", memberAddress=" + memberAddress + ", memberAuth=" + memberAuth + "]";
 	}
-
 	
 }

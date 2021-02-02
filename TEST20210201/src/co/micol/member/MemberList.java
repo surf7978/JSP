@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.micol.dao.MemberDao;
 import co.micol.vo.MemberVo;
@@ -20,6 +21,8 @@ public class MemberList implements Command {
 		
 		request.setAttribute("list", list);
 		
+		HttpSession session = request.getSession();
+		session.getAttribute("memberId");
 		
 		return "member/memberList";
 	}

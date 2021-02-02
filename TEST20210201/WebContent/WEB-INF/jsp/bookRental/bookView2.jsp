@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <jsp:include page="../main/menu.jsp" />
 <style>
@@ -27,12 +28,18 @@
 				<th>회원아이디</th>
 				<td>${vo.memberId }</td>
 			</tr>
+			<tr>
+				<th>반납일자</th>
+				<td>${vo.returnDate }</td>
+			</tr>
 		</table>
 		<br />
 		<div>
 			<button type="button" onclick="location.href='bookRentalList.do'">목록가기</button>
+			<c:if test="${vo.returnDate eq null }">
 			&nbsp;&nbsp;
 			<button type="button" onclick="location.href='returnBook.do?bookCode3=${vo.bookCode }&memberId3=${memberId }&rentalDate3=${vo.rentalDate }'">도서반납</button>
+			</c:if>
 		</div>
 	</div>
 

@@ -20,8 +20,6 @@ public class Login implements Command {
 		
 		vo = dao.login(vo); 
 		
-		System.out.println(vo.toString());
-		
 		String viewPage = null;
 		
 		if(vo.getMemberAuth() != null) {

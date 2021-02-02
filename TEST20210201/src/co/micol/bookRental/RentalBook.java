@@ -17,14 +17,18 @@ public class RentalBook implements Command {
 		vo.setBookCode(request.getParameter("bookCode2"));
 		vo.setMemberId(request.getParameter("memberId2"));
 		
-		System.out.println(vo.toString());
+		String filter = request.getParameter("memberId2");
 		
 		dao.rental(vo);
 		
 		HttpSession session = request.getSession();
 		session.getAttribute("memberId");
 		
-		return "bookRentalList.do";
+		if(filter.equals("admin")) {
+			return "bookRentalList.do";
+		}else {
+			return "bookRentalListUSER.do";
+		}
 	}
 
 }

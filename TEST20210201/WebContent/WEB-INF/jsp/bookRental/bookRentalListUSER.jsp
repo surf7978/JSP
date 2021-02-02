@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <jsp:include page="../main/menu.jsp" />
@@ -53,7 +52,7 @@
 			</table>
 		</div><br />
 		<div>
-			<h1>나의 대여중인 도서 목록</h1>
+			<h1>${memberId }님의 대여현황</h1>
 		</div>
 		<div>
 			<table border="1">

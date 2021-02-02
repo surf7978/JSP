@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../main/menu.jsp" />
 
 <script>
@@ -75,12 +76,14 @@
 			<button type="submit">저장</button>
 			&nbsp;&nbsp;
 			<button type="reset">취소</button>
-			&nbsp;&nbsp;
-			<button type="button" onclick="location.href='memberList.do'">뒤로가기</button>
+			<c:if test="${memberId eq 'ADMIN' }">
+				&nbsp;&nbsp;
+				<button type="button" onclick="location.href='loginForm.do'">뒤로가기</button>
+			</c:if>
 		</div>
 		</form>
 	</div>
-
+	
 </div>
 </body>
 </html>

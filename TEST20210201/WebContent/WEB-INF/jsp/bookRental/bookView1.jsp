@@ -33,7 +33,7 @@
 			</tr>
 			<tr>
 				<th>기본수량</th>
-				<td>${vo.quatity }</td>
+				<td>${vo.quantity }</td>
 			</tr>
 			<tr>
 				<th>현재수량</th>
@@ -42,13 +42,13 @@
 		</table>
 		<br />
 		<div>
-			<button type="button" onclick="location.href='bookRentalList.do'">목록가기</button>
+			<button type="button" onclick="location.href='bookRentalListUSER.do'">목록가기</button>
 			&nbsp;&nbsp;
 			<c:if test="${vo.bCount ne '0' }">
 				<button type="button" onclick="location.href='rentalBook.do?bookCode2=${vo.bookCode }&memberId2=${memberId }'">도서대여</button>
 			</c:if>
 			<c:if test="${vo.bCount eq '0' }">
-				<button type="button" onclick="canNotRental()" style="backgrount-color:red; font-color:yellow;">대여불가</button>
+				<button type="button" onclick="canNotRental()" style="background-color:red; color:yellow;">대여불가</button>
 			</c:if>
 		</div>
 		</form>

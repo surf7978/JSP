@@ -15,8 +15,6 @@ public class DeleteMember implements Command {
 		MemberVo vo = new MemberVo();
 		vo.setMemberId(request.getParameter("memberId"));
 		
-		System.out.println(vo.toString());
-		
 		dao.delete(vo);
 		
 		return "memberList.do";

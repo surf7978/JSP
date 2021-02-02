@@ -1,23 +1,20 @@
 package co.micol.vo;
 
-import java.sql.Date;
-
 public class BookRentalVo {
-	private Date rentalDate;
+	private String rentalDate;
 	private String bookCode;
 	private String memberId;
 	private String returnDate;
-	private int rentalNo;
 	
 	public BookRentalVo() {
 		
 	}
 
-	public Date getRentalDate() {
+	public String getRentalDate() {
 		return rentalDate;
 	}
 
-	public void setRentalDate(Date rentalDate) {
+	public void setRentalDate(String rentalDate) {
 		this.rentalDate = rentalDate;
 	}
 
@@ -45,21 +42,10 @@ public class BookRentalVo {
 		this.returnDate = returnDate;
 	}
 
-	public int getRentalNo() {
-		return rentalNo;
-	}
-
-	public void setRentalNo(int rentalNo) {
-		this.rentalNo = rentalNo;
-	}
-
 	@Override
 	public String toString() {
 		return "BookRentalVo [rentalDate=" + rentalDate + ", bookCode=" + bookCode + ", memberId=" + memberId
-				+ ", returnDate=" + returnDate + ", rentalNo=" + rentalNo + "]";
+				+ ", returnDate=" + returnDate + "]";
 	}
-
-	
-	
 	
 }

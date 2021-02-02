@@ -48,7 +48,8 @@
     		<a href="bookList.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">도서 관리</a>
     		<a href="memberList.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">멤버 관리</a>
     	</c:if>
-    	<a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    	<a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">연결계정:&nbsp;${memberId }</a>
+    	<!-- <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a> -->
     </c:if>
   </div>
 </div>
@@ -64,8 +65,13 @@
   		<a href="bookList.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">도서 관리</a>
   		<a href="memberList.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">맴버 관리</a>
   	</c:if>
+  	<a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">연결계정:&nbsp;${memberId }</a>
   </c:if>
 </div>
+
+		<div>
+			<input type="hidden" value="${memberId }">
+		</div>
 
 <script>
 // Used to toggle the menu on small screens when clicking on the menu button

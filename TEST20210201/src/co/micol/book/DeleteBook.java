@@ -15,7 +15,6 @@ public class DeleteBook implements Command {
 		BookVo vo = new BookVo();
 		vo.setBookCode(request.getParameter("bookCode2"));
 		
-		System.out.println(vo.toString());
 		
 		dao.delete(vo);
 		

@@ -18,8 +18,6 @@ public class UpdateBook implements Command {
 		vo.setQuantity(Integer.parseInt(request.getParameter("qnT")));
 		vo.setbCount(Integer.parseInt(request.getParameter("bCt")));
 		
-		System.out.println(vo.toString());
-		
 		dao.update(vo);
 		
 		return "bookList.do";

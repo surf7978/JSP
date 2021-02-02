@@ -19,8 +19,6 @@ public class UpdateMember implements Command {
 		vo.setMemberTel(request.getParameter("mTel"));
 		vo.setMemberAddress(request.getParameter("mAddress"));
 		
-		System.out.println(vo.toString());
-		
 		dao.update(vo);
 		
 		return "memberList.do";

@@ -3,11 +3,24 @@
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<style>
+	tr:hover{
+		background-color: yellow;
+	}
+	td:hover{
+		background-color: gold;
+	}
+	td{
+		padding:10px;
+	}
+</style>
+
 <jsp:include page="menu.jsp" />
 
 <!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
+		<div align="center">
 		<div>
 			<h1>미반납 도서 목록</h1>
 		</div>
@@ -41,6 +54,7 @@
 
 		<div>
 			<input type="hidden" value="${memberId }">
+		</div>
 		</div>
 
 </div>

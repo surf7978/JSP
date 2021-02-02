@@ -19,8 +19,8 @@ public class BookRentalDao extends DAO {
 				+ " WHERE bookcode = ?";
 		
 		String sql2 = "INSERT INTO bookrental"//
-				+ "(rentaldate, bookcode, memberid)"//
-				+ " VALUES(SYSDATE, ?, ?)";
+				+ "(bookcode, memberid)"//
+				+ " VALUES(?, ?)";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.setString(1, vo.getBookCode());
@@ -43,18 +43,19 @@ public class BookRentalDao extends DAO {
 	
 	public ArrayList<BookRentalVo> selectList(){
 		ArrayList<BookRentalVo> list = new ArrayList<>();
-		String sql = "SELECT * FROM bookrental ORDER BY 1";
+		String sql = "SELECT * FROM bookrental ORDER BY 1 DESC";
 		BookRentalVo vo;
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				vo = new BookRentalVo();
-				vo.setRentalDate(rs.getDate("rentaldate"));
+				vo.setRentalDate(rs.getString("rentaldate"));
 				vo.setBookCode(rs.getString("bookcode"));
 				vo.setMemberId(rs.getString("memberid"));
-				vo.setReturnDate(rs.getString("returndate"));
+				vo.setReturnDate(rs.getString("RETURNDATE"));
 				list.add(vo);
+				System.out.println(vo.toString());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -68,13 +69,13 @@ public class BookRentalDao extends DAO {
 		String sql = "SELECT * FROM bookrental WHERE rentaldate = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setDate(1, vo.getRentalDate());
+			psmt.setString(1, vo.getRentalDate());
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				vo.setRentalDate(rs.getDate("rentaldate"));
+				vo.setRentalDate(rs.getString("rentaldate"));
 				vo.setBookCode(rs.getString("bookcode"));
 				vo.setMemberId(rs.getString("memberid"));
-				vo.setReturnDate(rs.getString("returndate"));
+				vo.setReturnDate(rs.getString("RETURNDATE"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,17 +85,16 @@ public class BookRentalDao extends DAO {
 		return vo;
 	}
 	
-	public int return(BookRentalVo vo) {
+	public int returnBook(BookRentalVo vo) {
 		int n = 0;
 		String sql1 = "UPDATE book"//
 				+ " SET bcount = bcount+1"//
 				+ " WHERE bookcode = ?";
 		
 		String sql2 = "UPDATE bookrental"//
-				+ "SET returndate = SYSDATE"//
-				+ " WHERE rentaldate =?"//
-				+ " AND bookcode = ?"//
-				+ " AND memberid = ?";
+				+ " SET RETURNDATE = (to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'))"//
+				+ " WHERE rentalDate = ?";
+
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.setString(1, vo.getBookCode());
@@ -102,9 +102,7 @@ public class BookRentalDao extends DAO {
 			n = psmt.executeUpdate();
 			
 			psmt = conn.prepareStatement(sql2);
-			psmt.setDate(1, vo.getRentalDate());
-			psmt.setString(2, vo.getBookCode());
-			psmt.setString(3, vo.getMemberId());
+			psmt.setString(1, vo.getRentalDate());
 			System.out.println(vo.toString());
 			n = psmt.executeUpdate();
 			
@@ -118,7 +116,7 @@ public class BookRentalDao extends DAO {
 	
 	public ArrayList<BookRentalVo> selectListUSER(BookRentalVo vo1){
 		ArrayList<BookRentalVo> list = new ArrayList<>();
-		String sql = "SELECT * FROM bookrental WHERE memberid = ? ORDER BY 1";
+		String sql = "SELECT * FROM bookrental WHERE memberid = ? ORDER BY 1 DESC";
 		BookRentalVo vo;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -126,11 +124,12 @@ public class BookRentalDao extends DAO {
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				vo = new BookRentalVo();
-				vo.setRentalDate(rs.getDate("rentaldate"));
+				vo.setRentalDate(rs.getString("rentaldate"));
 				vo.setBookCode(rs.getString("bookcode"));
 				vo.setMemberId(rs.getString("memberid"));
-				vo.setReturnDate(rs.getString("returndate"));
+				vo.setReturnDate(rs.getString("RETURNDATE"));
 				list.add(vo);
+				System.out.println(vo.toString());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -149,10 +148,10 @@ public class BookRentalDao extends DAO {
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				vo = new BookRentalVo();
-				vo.setRentalDate(rs.getDate("rentaldate"));
+				vo.setRentalDate(rs.getString("rentaldate"));
 				vo.setBookCode(rs.getString("bookcode"));
 				vo.setMemberId(rs.getString("memberid"));
-				vo.setReturnDate(rs.getString("returndate"));
+				vo.setReturnDate(rs.getString("RETURNDATE"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {

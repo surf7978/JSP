@@ -64,7 +64,7 @@
 		</table>
 		<br />
 		<div>
-			<button type="button" onclick="location.href='BookList.do'">목록가기</button>
+			<button type="button" onclick="location.href='bookList.do'">목록가기</button>
 			&nbsp;&nbsp;
 			<button type="submit">변경</button>
 		</div>
