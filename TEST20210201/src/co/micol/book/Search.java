@@ -34,6 +34,7 @@ public class Search implements Command {
 		ArrayList<BookVo> list = new ArrayList<BookVo>();
 		vo.setBookName(request.getParameter("search"));
 		
+		System.out.println(vo.toString());
 		list = dao.search(vo);
 		
 		request.setAttribute("list", list);

@@ -1,0 +1,150 @@
+
+
+body, html {
+
+	background: #f1f1f1;
+}
+
+.menu {
+	display: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.leftcolumn {
+	float: left;
+	width: 75%;
+}
+
+.rightcolumn {
+	float: left;
+	width: 25%;
+	background-color: #f1f1f1;
+	padding-left: 20px;
+}
+
+.fakeimg {
+	background-color: #aaa;
+	width: 100%;
+	padding: 20px;
+}
+
+.card {
+	background-color: white;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.row {
+	background: #f1f1f1;
+}
+
+.login {
+	padding: 5px;
+	border: 0;
+}
+
+.bname {
+	min-width: 300px;
+	text-align: left;
+	text-indent: 3em;
+}
+
+.date {
+	min-width: 150px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+button {
+	min-width: 80px;
+	border: 0;
+	padding: 5px;
+	color: white;
+	background-color: black;
+	border: 0;
+}
+
+th {
+	padding: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border: 1px solid #ddd;
+}
+
+td {
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+@media screen and (max-width: 800px) {
+	.leftcolumn, .rightcolumn {
+		width: 100%;
+		padding: 0;
+	}
+}
+
+form {
+	margin: 0;
+}
+
+@media screen and (max-width: 400px) {
+	.topnav a {
+		float: none;
+		width: 100%;
+	}
+}
+
+.rolling_box {
+	width: 400px;
+	height: 80px;
+	text-align: center;
+}
+
+.rolling_box ul {
+	list-style: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.rolling_box ul li {
+	list-style: none;
+	width: 100%;
+	height: 100%;
+	transition: .5s;
+	position: absolute;
+	transition: top .75s;
+	top: 100%;
+	z-index: 1;
+	background-color: #ffffff;
+}
+
+.card_sliding {
+	top: 0 !important;
+	z-index: 100 !important;
+}
+
+.card_sliding_after {
+	top: -100% !important;
+	z-index: 10 !important;
+}
+
+.rolling_box ul li p {
+	font-size: 25px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+.before_slide {
+	transform: translateY(100%);
+}
+
+.after_slide {
+	transform: translateY(0);
+}
