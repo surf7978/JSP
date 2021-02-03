@@ -194,6 +194,40 @@ public class BookDao extends DAO {
 		return n;
 	}
 	
+	public void updateLike(BookVo vo) {
+		String sql = "UPDATE book99"//
+				+ " SET likeIt = likeIt + ?"//
+				+ " WHERE bookcode = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getLikeIt());
+			psmt.setString(2, vo.getBookCode());
+			System.out.println(vo.toString());
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+	
+	public void updateHate(BookVo vo) {
+		String sql = "UPDATE book99"//
+				+ " SET hateIt = hateIt + ?"//
+				+ " WHERE bookcode = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getHateIt());
+			psmt.setString(2, vo.getBookCode());
+			System.out.println(vo.toString());
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+	
 	private void close() {
 		try {
 			if(rs != null) rs.close();

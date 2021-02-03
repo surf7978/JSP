@@ -26,7 +26,7 @@
 		</div>
 		<div>
 			<table border="1">
-				<tr>
+				<tr style="background-color:beige;">
 					<th>도서코드</th>
 					<th>도서명</th>
 					<th>총 수량</th>
@@ -56,7 +56,7 @@
 		</div>
 		<div>
 			<table border="1">
-				<tr>
+				<tr style="background-color:beige;">
 					<th>대여일자</th>
 					<th>도서코드</th>
 					<th>회원아이디</th>

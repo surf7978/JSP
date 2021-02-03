@@ -35,8 +35,8 @@
 					<th align="center">도서명</th>
 					<th align="center">총 수량</th>
 					<th align="center">재고수량</th>
-					<th style="color:blue; text-algin:center;">좋아요</th>
-					<th style="color:red; text-algin:center;">싫어요</th>
+					<th style="text-align:center; color:blue;">좋아요</th>
+					<th style="text-align:center; color:red;">싫어요</th>
 				</tr>
 				<c:choose>
 					<c:when test="${empty list }">

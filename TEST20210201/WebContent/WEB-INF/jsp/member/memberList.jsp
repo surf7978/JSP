@@ -13,7 +13,7 @@
 	td:hover{
 		background-color: gold;
 	}
-	td{
+	th, td{
 		padding:10px;
 	}
 </style>
@@ -27,7 +27,7 @@
 		</div>
 		<div>
 			<table border="1">
-				<tr>
+				<tr style="background-color:beige;">
 					<th>회원아이디</th>
 					<th>회원명</th>
 					<th>회원패스워드</th>

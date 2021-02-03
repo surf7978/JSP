@@ -18,6 +18,8 @@ import co.micol.book.InsertBook;
 import co.micol.book.InsertBookForm;
 import co.micol.book.UpdateBook;
 import co.micol.book.UpdateBookForm;
+import co.micol.book.UpdateHate;
+import co.micol.book.UpdateLike;
 import co.micol.bookRental.BookRentalList;
 import co.micol.bookRental.BookRentalListUSER;
 import co.micol.bookRental.BookRentalView;
@@ -66,6 +68,8 @@ public class FrontController extends HttpServlet {
 		map.put("/insertBookForm.do", new InsertBookForm());
 		map.put("/insertBook.do", new InsertBook());
 		map.put("/deletebook.do", new DeleteBook());
+		map.put("/updateLike.do", new UpdateLike());
+		map.put("/updateHate.do", new UpdateHate());
 
 		map.put("/bookRentalList.do", new BookRentalList());
 		map.put("/bookRentalView.do", new BookRentalView());

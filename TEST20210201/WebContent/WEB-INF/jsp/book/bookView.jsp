@@ -8,6 +8,9 @@
 		padding: 10px;
 		text-align: center;
 	}
+	th{
+		background-color:beige;
+	}
 </style>
 
 <!-- Page content -->

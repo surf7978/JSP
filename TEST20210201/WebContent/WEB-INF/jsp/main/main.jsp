@@ -10,7 +10,7 @@
 	td:hover{
 		background-color: gold;
 	}
-	td{
+	th, td{
 		padding:10px;
 	}
 </style>
@@ -26,7 +26,7 @@
 		</div>
 		<div>
 			<table border="1">
-				<tr>
+				<tr style="background-color:beige;">
 					<th>대여일자</th>
 					<th>도서코드</th>
 					<th>회원아이디</th>

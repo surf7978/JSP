@@ -9,6 +9,9 @@
 		padding: 10px;
 		text-align: center;
 	}
+	th{
+		background-color:beige;
+	}
 </style>
 
 <script type="text/javascript">
@@ -17,14 +20,42 @@
 	}
 	
 	function likeClick(){
-		if(hIt.value == 0){
-			lIt.value = parseInt(lIt.value)+1;
+		if(lIt.value == 0){
+			var YnN = confirm("좋아요?")
+			if(YnN){
+				lIt.value = parseInt(lIt.value)+1;
+				hItB.type = "hidden";
+				lItB.value = "좋아요 취소";
+				location.href="updateLike.do?like="+lIt.value+"&bCode="+bCode.value;
+			}
+		}else{
+			var YnN = confirm("취소?")
+			if(YnN){
+				lIt.value = parseInt(lIt.value)-1;
+				hItB.type = "button";
+				lItB.value = "좋아요";
+				location.href="updateLike.do?like=-1&bCode="+bCode.value;
+			}
 		}
 	}
 	
 	function hateClick(){
-		if(lIt.value == 0){
-			hIt.value = parseInt(hIt.value)+1;
+		if(hIt.value == 0){
+			var YnN = confirm("싫어요?")
+			if(YnN){
+				hIt.value = parseInt(hIt.value)+1;
+				lItB.type = "hidden";
+				hItB.value = "싫어요 취소";
+				location.href="updateHate.do?hate="+hIt.value+"&bCode="+bCode.value;
+			}
+		}else{
+			var YnN = confirm("취소?")
+			if(YnN){
+				hIt.value = parseInt(hIt.value)-1;
+				lItB.type = "button";
+				hItB.value = "싫어요";
+				location.href="updateHate.do?hate=-1&bCode="+bCode.value;
+			}
 		}
 	}
 </script>
@@ -37,7 +68,7 @@
 		<table border="1">
 			<tr>
 				<th>도서코드</th>
-				<td>${vo.bookCode }</td>
+				<td><input type="text" id="bCode" name="bCode" value="${vo.bookCode }" style="border:0; text-align:center;" readonly></td>
 			</tr>
 			<tr>
 				<th>도서명</th>
@@ -45,11 +76,11 @@
 			</tr>
 			<tr>
 				<th>총 수량</th>
-				<td>${vo.quantity }</td>
+				<td>${vo.quantity }권</td>
 			</tr>
 			<tr>
 				<th>재고수량</th>
-				<td>${vo.bCount }</td>
+				<td>${vo.bCount }권</td>
 			</tr>
 		</table>
 		<br />
@@ -64,16 +95,18 @@
 			</c:if>
 		</div>
 		<br />
+		<c:if test="${memberId ne 'admin' }">
 		<div>
-			<button type="button" onclick="likeClick()" style="background-color:blue; color:white">좋아요</button>
+			<input type="button" id="lItB" name="lItB" onclick="likeClick()" style="background-color:blue; color:white" value="좋아요">
 			&nbsp;&nbsp;
-			<button type="button" onclick="hateClick()" style="background-color:red; color:white">싫어요</button>
+			<input type="button" id="hItB" name="hItB" onclick="hateClick()" style="background-color:red; color:white" value="싫어요">
 		</div>
 		<div>
-			<input type="text" id="lIt" name="lIt" value="${vo.likeIt }" readonly>
+			<input type="hidden" id="lIt" name="lIt" value=0 readonly>
 			&nbsp;&nbsp;
-			<input type="text" id="hIt" name="hIt" value="${vo.hateIt }" readonly>
+			<input type="hidden" id="hIt" name="hIt" value=0 readonly>
 		</div>
+		</c:if>
 		</form>
 	</div>
 

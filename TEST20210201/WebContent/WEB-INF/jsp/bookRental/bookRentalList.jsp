@@ -27,7 +27,7 @@
 		</div>
 		<div>
 			<table border="1">
-				<tr>
+				<tr style="background-color:beige;">
 					<th>도서코드</th>
 					<th>도서명</th>
 					<th>총 수량</th>
@@ -41,7 +41,7 @@
 					</c:when>
 					<c:when test="${not empty list }">
 						<c:forEach var="vo" items="${list }">
-							<tr onclick="location.href='bookView1.do?bookCode=${vo.bookCode }'">
+							<tr  onclick="location.href='bookView1.do?bookCode=${vo.bookCode }'">
 								<td align="center">${vo.bookCode }</td>
 								<td align="center">${vo.bookName }</td>
 								<td align="center">${vo.quantity }</td>
@@ -57,7 +57,7 @@
 		</div>
 		<div>
 			<table border="1">
-				<tr>
+				<tr style="background-color:beige;">
 					<th>대여일자</th>
 					<th>도서코드</th>
 					<th>회원아이디</th>
