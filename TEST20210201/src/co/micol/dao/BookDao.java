@@ -228,6 +228,33 @@ public class BookDao extends DAO {
 		}
 	}
 	
+	public ArrayList<BookVo> search(BookVo vo) {
+		ArrayList<BookVo> list = new ArrayList<>();
+		String sql = "SELECT * FROM book99 WHERE bookname = ? ORDER BY viewcount DESC";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getBookName());
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo = new BookVo();
+				vo.setBookCode(rs.getString("bookcode"));
+				vo.setBookName(rs.getString("bookname"));
+				vo.setQuantity(rs.getInt("quantity"));
+				vo.setbCount(rs.getInt("bcount"));
+				vo.setViewCount(rs.getInt("viewcount"));
+				vo.setRentalCount(rs.getInt("rentalcount"));
+				vo.setLikeIt(rs.getInt("likeit"));
+				vo.setHateIt(rs.getInt("hateit"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+	
 	private void close() {
 		try {
 			if(rs != null) rs.close();

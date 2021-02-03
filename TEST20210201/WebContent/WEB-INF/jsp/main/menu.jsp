@@ -27,6 +27,21 @@
 	}
 	.mySlides {display: none}
 </style>
+
+<script type="text/javascript">
+	function search(){
+		var YnN = confirm("검색할까요?");
+		if(YnN){
+			location.href="search.do?search="+searchBookName.value;
+		}
+	}
+	function search1(){
+		var YnN = confirm("검색할까요?");
+		if(YnN){
+			location.href="search.do?search="+searchBookName1.value;
+		}
+	}
+</script>
 <body>
 
 <!-- Navbar -->
@@ -48,8 +63,10 @@
     		<a href="bookList.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">도서 관리</a>
     		<a href="memberList.do" class="w3-bar-item w3-button w3-padding-large w3-hide-small">멤버 관리</a>
     	</c:if>
-    	<a href="#" class="w3-bar-item w3-button w3-padding-large w3-hide-small">연결계정:&nbsp;${memberId }</a>
-    	<!-- <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a> -->
+    	<a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-red w3-hide-small">연결계정:&nbsp;${memberId }</a>
+    	<button onclick="search()" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></button>
+    	<a class="w3-padding-small w3-hide-small w3-right"><input type="text" id="searchBookName" class="searchBookName"></a>
+    	<a class="w3-padding-large w3-hide-small w3-right">도서명 검색</a>
     </c:if>
   </div>
 </div>
@@ -65,7 +82,9 @@
   		<a href="bookList.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">도서 관리</a>
   		<a href="memberList.do" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">맴버 관리</a>
   	</c:if>
-  	<a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">연결계정:&nbsp;${memberId }</a>
+  	<a href="#" class="w3-bar-item w3-button w3-hover-red w3-padding-large" onclick="myFunction()">연결계정:&nbsp;${memberId }</a>
+  	<a style="background-color:gray;" class="w3-bar-item w3-button w3-padding-large"><input type="text" id="searchBookName1" class="searchBookName1"></a>
+  	<button style="background-color:gray;" class="w3-bar-item w3-button w3-hover-red w3-padding-large" onclick="search1()"><i class="fa fa-search"></i>&nbsp;&nbsp;도서명검색</button>
   </c:if>
 </div>
 

@@ -56,9 +56,6 @@
 				</c:choose>
 			</table>
 		</div><br />
-		<div>
-			<button type="button" onclick="location.href='insertMemberForm.do'">회원등록</button>
-		</div>
 	</div>
 
 
