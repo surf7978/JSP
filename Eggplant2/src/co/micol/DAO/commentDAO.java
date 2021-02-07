@@ -120,6 +120,21 @@ public class commentDAO extends DAO {
 //		return n;
 //	}
 	
+	public int countComment(int n) {
+		String sql = "select count(memberid) from comment99";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				n++;
+			}
+			System.out.println(n);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+	
 	private void close() {
 		try {
 			conn.close();

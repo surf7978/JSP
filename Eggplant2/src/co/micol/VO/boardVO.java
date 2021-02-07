@@ -15,6 +15,8 @@ public class boardVO {
 	private String memberGuAddress;
 	private String memberPhoneNumber;
 	
+	private String tradeProcess;
+	
 	public boardVO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -100,13 +102,22 @@ public class boardVO {
 		this.memberPhoneNumber = memberPhoneNumber;
 	}
 
+	public String getTradeProcess() {
+		return tradeProcess;
+	}
+
+	public void setTradeProcess(String tradeProcess) {
+		this.tradeProcess = tradeProcess;
+	}
+
 	@Override
 	public String toString() {
 		return "boardVO [boardTitle=" + boardTitle + ", boardContent=" + boardContent + ", boardDate=" + boardDate
 				+ ", boardView=" + boardView + ", price=" + price + ", productName=" + productName + ", memberId="
 				+ memberId + ", memberSiAddress=" + memberSiAddress + ", memberGuAddress=" + memberGuAddress
-				+ ", memberPhoneNumber=" + memberPhoneNumber + "]";
+				+ ", memberPhoneNumber=" + memberPhoneNumber + ", tradeProcess=" + tradeProcess + "]";
 	}
+
 
 
 

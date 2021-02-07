@@ -30,6 +30,7 @@ public class boardDAO extends DAO {
 				vo.setMemberGuAddress(rs.getString("memberGuAddress"));
 				vo.setMemberId(rs.getString("memberId"));
 				vo.setBoardDate(rs.getString("boardDate"));
+				vo.setTradeProcess(rs.getString("tradeProcess"));
 				list.add(vo);				
 			}			
 		} catch (Exception e) {
@@ -58,6 +59,7 @@ public class boardDAO extends DAO {
 				vo.setMemberSiAddress(rs.getString("memberSiAddress"));
 				vo.setMemberGuAddress(rs.getString("memberGuAddress"));
 				vo.setMemberPhoneNumber(rs.getString("memberPhoneNumber"));
+				vo.setTradeProcess(rs.getString("tradeProcess"));
 				updateView(vo);
 			}
 		} catch (Exception e) {
@@ -114,14 +116,15 @@ public class boardDAO extends DAO {
 //수정
 	public int updateBoard(boardVO vo) { //제목,내용,가격,사진,주소,할인
 		int n =0;
-		String sql="UPDATE board99 SET BoardTitle= ?, BoardContent =?, price =? WHERE BoardDate =?";
+		String sql="UPDATE board99 SET BoardTitle= ?, BoardContent =?, price =?, tradeProcess =? WHERE BoardDate =?";
 	
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1,vo.getBoardTitle());
 			psmt.setString(2, vo.getBoardContent());
 			psmt.setInt(3, vo.getPrice());
-			psmt.setString(4, vo.getBoardDate());
+			psmt.setString(4, vo.getTradeProcess());
+			psmt.setString(5, vo.getBoardDate());
 			n = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -146,6 +149,35 @@ public class boardDAO extends DAO {
 //		return n;
 //	}
 	
+	public int countBoard(int n) {
+		String sql = "select memberid from board99";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				n++;
+			}
+			System.out.println(n);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		return n;
+	}
+	
+	public int sumPrice(int n) {
+		String sql = "select sum(price) from board99";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				System.out.println(rs.getInt("sum(price)"));
+				n = rs.getInt("sum(price)");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		return n;
+	}
 	private void close() {
 		try {
 			conn.close();

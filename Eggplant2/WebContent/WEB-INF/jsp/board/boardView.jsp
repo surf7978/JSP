@@ -21,12 +21,34 @@
                                 <div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input readonly style="text-align:left; border:0; background-color:white;" type="hidden" class="form-control form-control-user" id="exampleFirstName"
+                                                value="공란용">
+                                        </div>
+                                        <div class="col-sm-3" style="text-align: right; color:black;">
+                                            <h5>조회수&nbsp;&nbsp;:</h5>
+                                        </div>
+                                        <div class="col-sm-3" style="text-align: center; color:black;">
+                                            <h5>${vo.boardView }&nbsp;</h5>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input readonly style="text-align:center; background-color:white;" type="hidden" class="form-control form-control-user" id="exampleFirstName"
                                                 value="통신사">
                                         </div>
-                                        <div class="col-sm-6" style="text-align: right; color:black;">
-                                            <h5>조회수&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;${vo.boardView }&nbsp;</h5>
+                                        <div class="col-sm-3" style="text-align: right; color: black;">
+                                            <h6>거래상태 : </h6>
                                         </div>
+                                        <c:if test="${vo.tradeProcess eq 'NotComplete' }">
+                                        <div class="col-sm-3" style="text-align: center; color: red;">
+                                            <h6>${vo.tradeProcess }</h6>
+                                        </div>
+                                        </c:if>
+                                        <c:if test="${vo.tradeProcess eq 'Complete' }">
+                                        <div class="col-sm-3" style="text-align: center; color: green;">
+                                            <h6>${vo.tradeProcess }</h6>
+                                        </div>
+                                        </c:if>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
@@ -160,18 +182,41 @@
                         <div class="p-5">
                             <form action="updateBoard.do" method="post">
                             <div class="text-center">
+                            	<input readonly style="text-align:center; border:0;" value="제목">
                                 <input name="updateBoardTitle" class="h1 text-gray-900 mb-4" style="text-align:center;" value="${vo.boardTitle }">
                             </div>
                             <div class="text-right">
                                 <div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input readonly style="text-align:left; border:0; background-color:white;" type="hidden" class="form-control form-control-user" id="exampleFirstName"
+                                                value="공란용">
+                                        </div>
+                                        <div class="col-sm-3" style="text-align: right; color:black;">
+                                            <h5>조회수&nbsp;&nbsp;:</h5>
+                                        </div>
+                                        <div class="col-sm-3" style="text-align: center; color:black;">
+                                            <h5>${vo.boardView }&nbsp;</h5>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3 mb-3 mb-sm-0">
                                             <input readonly style="text-align:center; background-color:white;" type="hidden" class="form-control form-control-user" id="exampleFirstName"
                                                 value="통신사">
                                         </div>
-                                        <div class="col-sm-6" style="text-align: right; color:black;">
-                                            <h5>조회수&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;${vo.boardView }&nbsp;</h5>
+                                        <div class="col-sm-3" style="text-align: right; color: black;">
+                                            <input readonly style="text-align:left; border:0;" value="  거래상태 : ">
                                         </div>
+                                        <c:if test="${vo.tradeProcess eq 'NotComplete' }">
+                                        <div class="col-sm-3" style="text-align: center; color: red;">
+                                            <input name="tradeProcess" style="text-align:center;" value="${vo.tradeProcess }">
+                                        </div>
+                                        </c:if>
+                                        <c:if test="${vo.tradeProcess eq 'Complete' }">
+                                        <div class="col-sm-3" style="text-align: center; color: green;">
+                                            <input name="tradeProcess" style="text-align:center;" value="${vo.tradeProcess }">
+                                        </div>
+                                        </c:if>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">

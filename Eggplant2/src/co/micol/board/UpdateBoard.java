@@ -17,6 +17,7 @@ public class UpdateBoard implements Command {
 		vo.setBoardTitle(request.getParameter("updateBoardTitle"));
 		vo.setBoardContent(request.getParameter("updateBoardContent"));
 		vo.setPrice(Integer.parseInt(request.getParameter("updatePrice")));
+		vo.setTradeProcess(request.getParameter("tradeProcess"));
 		
 		dao.updateBoard(vo);
 		

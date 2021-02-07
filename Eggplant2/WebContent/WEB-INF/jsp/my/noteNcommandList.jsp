@@ -41,9 +41,8 @@
 								<th>판매자연락처</th>
 								<th>판매지역</th>
 								<th>판매날짜</th>
-								<c:if test="${memberAuth eq 'ADMIN'}">
-									<th>진행상태</th>
-								</c:if>
+								<!-- <c:if test="${memberAuth eq 'ADMIN'}"></c:if> -->
+								<th>진행상태</th>
 							</tr>
 							<c:choose>
 					<c:when test="${empty list1 }">
@@ -63,6 +62,12 @@
 								<td align="center">${vo.memberPhoneNumber }</td>
 								<td align="center">${vo.memberSiAddress }&nbsp;&nbsp;${vo.memberGuAddress }</td>
 								<td align="center">${vo.boardDate }</td>
+								<c:if test="${vo.tradeProcess eq 'NotComplete' }">
+									<td style="text-align:center; color:red;">${vo.tradeProcess }</td>
+								</c:if>
+								<c:if test="${vo.tradeProcess eq 'Complete' }">
+									<td style="text-align:center; color:green;">${vo.tradeProcess }</td>
+								</c:if>
 							</tr>
 						</c:forEach>
 					</c:if>
@@ -80,6 +85,12 @@
 								<td align="center">${vo.memberPhoneNumber }</td>
 								<td align="center">${vo.memberSiAddress }&nbsp;&nbsp;${vo.memberGuAddress }</td>
 								<td align="center">${vo.boardDate }</td>
+								<c:if test="${vo.tradeProcess eq 'NotComplete' }">
+									<td style="text-align:center; color:red;">${vo.tradeProcess }</td>
+								</c:if>
+								<c:if test="${vo.tradeProcess eq 'Complete' }">
+									<td style="text-align:center; color:green;">${vo.tradeProcess }</td>
+								</c:if>
 							</tr>
 							</c:if>
 						</c:forEach>

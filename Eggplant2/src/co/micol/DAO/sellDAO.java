@@ -111,12 +111,19 @@ public class sellDAO extends DAO {
 	
 //수정
 	public void updateTradeProcess(sellVO vo) { //제목,내용,가격,사진,주소,할인
-		String sql="UPDATE sell99 SET tradeProcess =?  WHERE BuyDate =?";
+		String sql1 = "UPDATE sell99 SET tradeProcess = ?  WHERE BuyDate =?";
+		String sql2 = "UPDATE buy99 SET tradeProcess = ?  WHERE BuyDate =?";
 		try {
-			psmt = conn.prepareStatement(sql);
+			psmt = conn.prepareStatement(sql1);
 			psmt.setString(1,vo.getTradeProcess());
 			psmt.setString(2, vo.getBuyDate());
 			psmt.executeUpdate();
+			
+			psmt = conn.prepareStatement(sql2);
+			psmt.setString(1,vo.getTradeProcess());
+			psmt.setString(2, vo.getBuyDate());
+			psmt.executeUpdate();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -138,6 +145,35 @@ public class sellDAO extends DAO {
 //		}		
 //		return n;
 //	}
+	
+	public int averageTradeComplete(int n) {
+		String sql1 ="select tradeProcess from sell99";
+		String sql2 ="select tradeProcess from sell99 WHERE tradeProcess = 'Complete'";
+		int a = 0;
+		int b = 0;
+		double c = 0;
+		try {
+			psmt = conn.prepareStatement(sql1);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				a++;
+			}
+			System.out.println(a);
+			psmt = conn.prepareStatement(sql2);
+			rs= psmt.executeQuery();
+			while(rs.next()) {
+				b++;
+			}
+			System.out.println(b);
+			c = b*100;
+			System.out.println(c);
+			n =(int) c/a;
+			System.out.println(n);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
 	
 	private void close() {
 		try {

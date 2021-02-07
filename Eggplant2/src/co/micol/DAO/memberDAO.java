@@ -33,7 +33,9 @@ public class memberDAO extends DAO {
 				+ ", BoardView number default 0 not null, price number default 100 not null"
 				+ ", ProductName varchar2(100) not null, MemberId varchar2(10) not null"
 				+ ", MemberSiAddress varchar2(100) not null, MemberGuAddress varchar2(100) not null"
-				+ ", MemberPhoneNumber varchar2(20) not null )";
+				+ ", MemberPhoneNumber varchar2(20) not null"
+				+ ", tradeProcess varchar2(20) default 'NotComplete' not null"
+				+ " )";
 		String sql6 = "insert into board99"//
 				+ "(BoardTitle, BoardContent, ProductName, MemberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber)"//
 				+ " values('폰팝니다','제곧내', '갤럭시s9', 'park', '대구시', '서구', '010-2222-2222')";
@@ -42,9 +44,12 @@ public class memberDAO extends DAO {
 				+ "(BuyDate varchar2(20) default to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') not null"//
 				+ ", BuyMemberId varchar2(20) not null"// 
 				+ ", BoardDate varchar2(20) not null"// 
-				+ ", price number default 100 not null"
-				+ ", ProductName varchar2(100) not null, MemberId varchar2(10) not null"
-				+ ", MemberSiAddress varchar2(100) not null, MemberGuAddress varchar2(100) not null"
+				+ ", price number default 100 not null"//
+				+ ", ProductName varchar2(100) not null"//
+				+ ", MemberId varchar2(10) not null"//
+				+ ", MemberSiAddress varchar2(100) not null"//
+				+ ", MemberGuAddress varchar2(100) not null"//
+				+ ", tradeProcess varchar2(20) default 'NotComplete' not null"//
 				+ ", MemberPhoneNumber varchar2(20) not null )";
 		
 		String sql8 = "create table product99"//
@@ -84,6 +89,13 @@ public class memberDAO extends DAO {
 				+ ", tradeProcess varchar2(20) default 'NotComplete' not null"
 				+ ", ProductName varchar2(100) not null"//
 				+ " )";
+		String sql15 = "insert into Sell99(BuyDate, BuyMemberId, price, MemberId, productName)"//
+				+ " VALUES (to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'), 'kim' , 100, 'park', '갤럭시s9')";
+		
+		String sql16 = "insert into buy99(BuyMemberId, BoardDate, price, ProductName"//
+				+ ", MemberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber)"//
+				+ " VALUES ('kim', to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'), 100, '갤럭시s9'"
+				+ ", 'park', '대구시', '서구', '010-2222-2222')";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.executeQuery();
@@ -112,6 +124,10 @@ public class memberDAO extends DAO {
 			psmt = conn.prepareStatement(sql13);
 			psmt.executeQuery();
 			psmt = conn.prepareStatement(sql14);
+			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql15);
+			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql16);
 			psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -196,18 +212,25 @@ public class memberDAO extends DAO {
 //		}
 //		return vo;
 //	}
-//
+
 //// 관리자-수정
-//	public int adminUpdate(memberVO vo) { // 아이디, 이름, 생년월일 제외 / 권한은 관리자만 수정
-//		String sql = "UPDATE member SET mpassword=?, mauth=?, mnumber=?, mAddress=? WHERE mid=?";
+//	public int updateMember(memberVO vo) { // 아이디, 이름, 생년월일 제외 / 권한은 관리자만 수정
+//		String sql = "UPDATE member99 SET"//
+//				+ " memberPassword=?"//
+//				+ ", memberName=?"//
+//				+ ", memberSiAddress=?"//
+//				+ ", memberGuAddress=?"//
+//				+ ", memberPhoneNumber=?"//
+//				+ " WHERE memberid=?";
 //		int n = 0;
 //		try {
 //			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, vo.getmPassword());
-//			psmt.setString(2, vo.getmAuth());
-//			psmt.setString(3, vo.getmNumber());
-//			psmt.setString(4, vo.getmAddress());
-//			psmt.setString(5, vo.getmId());
+//			psmt.setString(1, vo.getMemberPassword());
+//			psmt.setString(2, vo.getMemberName());
+//			psmt.setString(3, vo.getMemberSiAddress());
+//			psmt.setString(4, vo.getMemberGuAddress());
+//			psmt.setString(5, vo.getMemberPhoneNumber());
+//			psmt.setString(6, vo.getMemberId());
 //			n = psmt.executeUpdate();
 //			System.out.println(n + "건 업데이트.");
 //		} catch (Exception e) {
@@ -267,11 +290,10 @@ public class memberDAO extends DAO {
 //	}
 //
 //수정
-	public int updateProfile(memberVO vo) { 
+	public void updateProfile(memberVO vo) { 
 		String sql = "UPDATE member99 SET memberPassword=?, memberName=?"
 				+ ", memberPhoneNumber=?, memberSiAddress=?, memberGuAddress=?"//
 				+ " WHERE memberId=?";
-		int n = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getMemberPassword());
@@ -280,32 +302,28 @@ public class memberDAO extends DAO {
 			psmt.setString(4, vo.getMemberSiAddress());
 			psmt.setString(5, vo.getMemberGuAddress());
 			psmt.setString(6, vo.getMemberId());
-			n = psmt.executeUpdate();
+			psmt.executeUpdate();
 		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			close();
 		}
-
-		return n;
 	}
-//
-////삭제
-//	public int delete(memberVO vo) {
-//		String sql = "DELETE FROM member WHERE mid=?";
-//		int n = 0;
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, vo.getmId());
-//			n = psmt.executeUpdate();
-//			System.out.println(n + "건 삭제.");
-//		} catch (Exception e) {
-//		} finally {
-//			close();
-//		}
-//
-//		return n;
-//	}
-//
+
+//삭제
+	public void deleteMember(memberVO vo) {
+		String sql = "DELETE FROM member99 WHERE memberid=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getMemberId());
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
+
 ////아이디채크
 //	public int isIdCheck(String id) {
 //		int cnt = 0;

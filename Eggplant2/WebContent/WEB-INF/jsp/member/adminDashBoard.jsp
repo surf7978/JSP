@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <jsp:include page="../main/main.jsp" />
 
 
@@ -22,7 +24,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" style="font-size:20px;">
                                     판매글 수</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" style="padding:10px; font-size:30px;">${countBoard }개</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-clipboard-list fa-2x"></i>
@@ -40,7 +42,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1" style="font-size:20px;">
                                     거래진행 중인 금액 합계</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" style="padding:10px; font-size:30px;">${sumPrice }원</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-dollar-sign fa-2x"></i>
@@ -60,12 +62,12 @@
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" style="padding:10px; font-size:30px;">${averageTradeComplete }%</div>
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-sm mr-2">
                                             <div class="progress-bar bg-info" role="progressbar"
-                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                style="width: ${averageTradeComplete }%" aria-valuenow="50" aria-valuemin="0"
                                                 aria-valuemax="100"></div>
                                         </div>
                                     </div>
@@ -87,7 +89,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1" style="font-size:20px;">
                                     댓글 수</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" style="padding:10px; font-size:30px;">${countComment }개</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x"></i>
@@ -185,37 +187,44 @@
                 <!-- Project Card Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">판매글 비율</h6>
                     </div>
                     <div class="card-body" style="padding-bottom: 35px;">
-                        <h4 class="small font-weight-bold">Server Migration <span
+                        <h4 class="small font-weight-bold">상의 <span
                                 class="float-right">20%</span></h4>
                         <div class="progress mb-4">
                             <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <h4 class="small font-weight-bold">Sales Tracking <span
+                        <h4 class="small font-weight-bold">하의 <span
                                 class="float-right">40%</span></h4>
                         <div class="progress mb-4">
                             <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <h4 class="small font-weight-bold">Customer Database <span
+                        <h4 class="small font-weight-bold">신발 <span
                                 class="float-right">60%</span></h4>
                         <div class="progress mb-4">
                             <div class="progress-bar" role="progressbar" style="width: 60%"
                                 aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <h4 class="small font-weight-bold">Payout Details <span
+                        <h4 class="small font-weight-bold">모자 <span
                                 class="float-right">80%</span></h4>
                         <div class="progress mb-4">
                             <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
                                 aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <h4 class="small font-weight-bold">Account Setup <span
+                        <h4 class="small font-weight-bold">스마트폰 <span
                                 class="float-right">Complete!</span></h4>
                         <div class="progress">
                             <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <br/><br/>
+                        <h4 class="small font-weight-bold">컴퓨터 <span
+                                class="float-right">Complete!</span></h4>
+                        <div class="progress">
+                            <div class="progress-bar bg-dark" role="progressbar" style="width: 100%"
                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
@@ -230,13 +239,13 @@
                 <!-- Illustrations -->
                 <div class="card shadow mb-4" >
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">분류</h6>
                     </div>
                     <div class="row" style="padding:10px;">
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-danger text-white shadow" >
                                 <div class="card-body">
-                                    Danger
+                                    상의
                                     <div class="text-white-50 small">#e74a3b</div>
                                 </div>
                             </div>
@@ -244,7 +253,7 @@
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-warning text-white shadow">
                                 <div class="card-body">
-                                    Warning
+                                    하의
                                     <div class="text-white-50 small">#f6c23e</div>
                                 </div>
                             </div>
@@ -252,7 +261,7 @@
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-primary text-white shadow">
                                 <div class="card-body">
-                                    Primary
+                                    신발
                                     <div class="text-white-50 small">#4e73df</div>
                                 </div>
                             </div>
@@ -260,7 +269,7 @@
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-info text-white shadow">
                                 <div class="card-body">
-                                    Info
+                                    모자
                                     <div class="text-white-50 small">#36b9cc</div>
                                 </div>
                             </div>
@@ -268,7 +277,7 @@
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-success text-white shadow">
                                 <div class="card-body">
-                                    Success
+                                    스마트폰
                                     <div class="text-white-50 small">#1cc88a</div>
                                 </div>
                             </div>
@@ -276,7 +285,7 @@
                         <div class="col-lg-6 mb-4">
                             <div class="card bg-dark text-white shadow">
                                 <div class="card-body">
-                                    Dark
+                                    컴퓨터
                                     <div class="text-white-50 small">#5a5c69</div>
                                 </div>
                             </div>

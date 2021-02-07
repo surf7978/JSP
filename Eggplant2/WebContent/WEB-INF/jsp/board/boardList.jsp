@@ -35,6 +35,7 @@
 								<th>판매지역</th>
 								<th>작성자</th>
 								<th>작성날짜</th>
+								<th>진행상태</th>
 							</tr>
 							<c:choose>
 					<c:when test="${empty list1 }">
@@ -52,6 +53,12 @@
 								<td align="center">${vo.memberSiAddress }&nbsp;&nbsp;${vo.memberGuAddress }</td>
 								<td align="center">${vo.memberId }</td>
 								<td align="center">${vo.boardDate }</td>
+								<c:if test="${vo.tradeProcess eq 'NotComplete' }">
+									<td style="text-align:center; color:red;">${vo.tradeProcess }</td>
+								</c:if>
+								<c:if test="${vo.tradeProcess eq 'Complete' }">
+									<td style="text-align:center; color:green;">${vo.tradeProcess }</td>
+								</c:if>
 							</tr>
 						</c:forEach>
 					</c:when>

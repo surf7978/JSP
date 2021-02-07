@@ -83,7 +83,9 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="insertBoardForm.do"><i class="fas fa-pen-alt"></i>&nbsp;&nbsp;판매글 작성</a>
+                    	<c:if test="${memberAuth ne 'ADMIN' }">
+                        	<a class="collapse-item" href="insertBoardForm.do"><i class="fas fa-pen-alt"></i>&nbsp;&nbsp;판매글 작성</a>
+                        </c:if>
                         <a class="collapse-item" href="BoardList.do"><i class="fas fa-list-ul"></i>&nbsp;&nbsp;판매글 조회</a>
                     </div>
                 </div>

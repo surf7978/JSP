@@ -31,6 +31,7 @@ public class buyDAO extends DAO {
 				vo.setMemberSiAddress(rs.getString("memberSiAddress"));
 				vo.setMemberGuAddress(rs.getString("memberGuAddress"));
 				vo.setMemberPhoneNumber(rs.getString("MemberPhoneNumber"));
+				vo.setTradeProcess(rs.getString("tradeProcess"));
 				list.add(vo);				
 			}			
 		} catch (Exception e) {
@@ -60,6 +61,7 @@ public class buyDAO extends DAO {
 				vo1.setMemberSiAddress(rs.getString("memberSiAddress"));
 				vo1.setMemberGuAddress(rs.getString("memberGuAddress"));
 				vo1.setMemberPhoneNumber(rs.getString("MemberPhoneNumber"));
+				vo.setTradeProcess(rs.getString("tradeProcess"));
 				list.add(vo1);				
 			}			
 		} catch (Exception e) {

@@ -23,6 +23,7 @@ import co.micol.customerCenter.FrequentlyQuestion;
 import co.micol.customerCenter.QnAList;
 import co.micol.customerCenter.ReportList;
 import co.micol.member.AdminDashBoard;
+import co.micol.member.DeleteMember;
 import co.micol.member.InsertMemberForm;
 import co.micol.member.MemberList;
 import co.micol.member.UpdateProfile;
@@ -53,7 +54,8 @@ public class FrontController extends HttpServlet {
 		map.put("/logout.do", new Logout());
 		
 		map.put("/memberList.do", new MemberList());
-		
+		map.put("/deleteMember.do", new DeleteMember());
+				
 		map.put("/boardList.do", new BoardList());
 		map.put("/insertBoardForm.do", new InsertBoardForm());
 		map.put("/insertBoard.do", new InsertBoard());

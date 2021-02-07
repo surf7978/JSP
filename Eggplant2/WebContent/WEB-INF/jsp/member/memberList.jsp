@@ -28,13 +28,13 @@
 						cellspacing="0">
 						<thead>
 							<tr>
+								<th>권한</th>
 								<th>아이디</th>
 								<th>비밀번호</th>
 								<th>이름</th>
-								<th>권한</th>
-								<th>주소(시)</th>
-								<th>주소(구)</th>
+								<th>주소</th>
 								<th>전화번호</th>
+								<th>관리</th>
 							</tr>
 							<c:choose>
 					<c:when test="${empty list }">
@@ -44,14 +44,20 @@
 					</c:when>
 					<c:when test="${not empty list }">
 						<c:forEach var="vo" items="${list }">
-							<tr onclick="location.href='memberView.do?memberId=${vo.memberId }'">
+							<tr>
+								<td align="center" width="10%">${vo.memberAuth }</td>
 								<td align="center">${vo.memberId }</td>
 								<td align="center">${vo.memberPassword }</td>
 								<td align="center">${vo.memberName }</td>
-								<td align="center">${vo.memberAuth }</td>
-								<td align="center">${vo.memberSiAddress }</td>
-								<td align="center">${vo.memberGuAddress }</td>
+								<td align="center">${vo.memberSiAddress }  ${vo.memberGuAddress }</td>
 								<td align="center">${vo.memberPhoneNumber }</td>
+								<td align="center">
+									<!-- <button style="background-color: yellow; padding:3px; font-size:15px;" onclick="location.href='updateMember.do?memberId=${vo.memberId }&memberPassword=${vo.memberPassword }&memberName=${vo.memberName }&memberSiAddress=${vo.memberSiAddress }&memberGuAddress=${vo.memberGuAddress }&memberPhoneNumber=${vo.memberPhoneNumber }'">
+									수정</button>
+									&nbsp;&nbsp;&nbsp;&nbsp; -->
+									<button style="background-color: red; padding:3px; color:white; font-size:15px;" onclick="location.href='deleteMember.do?memberId=${vo.memberId }'">
+									삭제</button>
+								</td>
 							</tr>
 						</c:forEach>
 					</c:when>
