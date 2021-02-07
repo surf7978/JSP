@@ -58,6 +58,7 @@ public class boardDAO extends DAO {
 				vo.setMemberSiAddress(rs.getString("memberSiAddress"));
 				vo.setMemberGuAddress(rs.getString("memberGuAddress"));
 				vo.setMemberPhoneNumber(rs.getString("memberPhoneNumber"));
+				updateView(vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -96,30 +97,39 @@ public class boardDAO extends DAO {
 		}		
 		return n;
 	}
-//	
-////수정
-//	public int update(boardVO vo) { //제목,내용,가격,사진,주소,할인
-//		int n =0;
-//		String sql="UPDATE text SET tTitle= ?, tContent =?, tprice =?, timage=?, taddress=?, tdiscount=? WHERE tNumber=?";
-//	
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1,vo.gettTitle());
-//			psmt.setString(2, vo.gettContent());
-//			psmt.setInt(3, vo.gettPrice());
-//			psmt.setString(4, vo.gettImage());
-//			psmt.setString(5, vo.gettAddress());
-//			psmt.setInt(6, vo.gettDiscount());
-//			psmt.setString(7, vo.gettNumber());
-//			n = psmt.executeUpdate();
-//			System.out.println(n + "건 수정");
-//		} catch (Exception e) {
-//		} finally {
-//			close();
-//		}
-//		
-//		return n;
-//	}
+
+	public void updateView(boardVO vo) {
+		String sql = "UPDATE board99 SET boardView = boardView + 1 WHERE boardDate = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getBoardDate());
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+	}
+	
+//수정
+	public int updateBoard(boardVO vo) { //제목,내용,가격,사진,주소,할인
+		int n =0;
+		String sql="UPDATE board99 SET BoardTitle= ?, BoardContent =?, price =? WHERE BoardDate =?";
+	
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1,vo.getBoardTitle());
+			psmt.setString(2, vo.getBoardContent());
+			psmt.setInt(3, vo.getPrice());
+			psmt.setString(4, vo.getBoardDate());
+			n = psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return n;
+	}
 ////삭제
 //	public int delete(boardVO vo) {
 //		int n =0;

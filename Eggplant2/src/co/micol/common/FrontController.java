@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.board.InsertBoardForm;
+import co.micol.board.UpdateBoard;
 import co.micol.comment.InsertComment;
 import co.micol.board.BoardList;
 import co.micol.board.BoardView;
@@ -56,6 +57,7 @@ public class FrontController extends HttpServlet {
 		map.put("/insertBoardForm.do", new InsertBoardForm());
 		map.put("/insertBoard.do", new InsertBoard());
 		map.put("/boardView.do", new BoardView());
+		map.put("/updateBoard.do", new UpdateBoard());
 		
 		map.put("/insertComment.do", new InsertComment());
 		

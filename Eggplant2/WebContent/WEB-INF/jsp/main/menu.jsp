@@ -39,10 +39,8 @@
 									<li class="go-back"><a href="#0">의류</a></li>
 									<li class="see-all"><a href="http://codyhouse.co/?p=748">All 상의</a></li>
 									
-									<li><a href="http://codyhouse.co/?p=748">Glasses</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Gloves</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Jewellery</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Scarves</a></li>
+									<li><a href="http://codyhouse.co/?p=748">패딩</a></li>
+									<li><a href="http://codyhouse.co/?p=748">T셔츠</a></li>
 								</ul>
 							</li>
 
@@ -52,9 +50,8 @@
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">의류</a></li>
 									<li class="see-all"><a href="http://codyhouse.co/?p=748">ALL 하의</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Casual Trousers</a></li>
-									<li><a href="#0">Leggings</a></li>
-									<li><a href="#0">Shorts</a></li>
+									<li><a href="#0">바지</a></li>
+									<li><a href="#0">치마</a></li>
 								</ul>
 							</li>
 
@@ -64,12 +61,8 @@
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">의류</a></li>
 									<li class="see-all"><a href="http://codyhouse.co/?p=748">All 신발</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Blazers</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Bomber jackets</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Denim Jackets</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Duffle Coats</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Leather Jackets</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Parkas</a></li>
+									<li><a href="http://codyhouse.co/?p=748">운동화</a></li>
+									<li><a href="http://codyhouse.co/?p=748">구두</a></li>
 								</ul>
 							</li>
 
@@ -79,11 +72,8 @@
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">의류</a></li>
 									<li class="see-all"><a href="http://codyhouse.co/?p=748">All 모자</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Cardigans</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Coats</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Polo Shirts</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Shirts</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Vests</a></li>
+									<li><a href="http://codyhouse.co/?p=748">캡</a></li>
+									<li><a href="http://codyhouse.co/?p=748">비니</a></li>
 								</ul>
 							</li>
 						</ul> <!-- .cd-secondary-dropdown -->
@@ -96,59 +86,39 @@
 							<li class="go-back"><a href="#0">Menu</a></li>
 							<li class="see-all"><a href="http://codyhouse.co/?p=748">All 전자기기</a></li>
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">상의</a>
+								<a href="http://codyhouse.co/?p=748">스마트폰</a>
 
 								<ul class="is-hidden">
-									<li class="go-back"><a href="#0">의류</a></li>
-									<li class="see-all"><a href="http://codyhouse.co/?p=748">All 상의</a></li>
+									<li class="go-back"><a href="#0">전자기기</a></li>
+									<li class="see-all"><a href="http://codyhouse.co/?p=748">All 스마트폰</a></li>
 									
-									<li><a href="http://codyhouse.co/?p=748">Glasses</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Gloves</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Jewellery</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Scarves</a></li>
+									<li><a href="http://codyhouse.co/?p=748">갤럭시</a></li>
+									<li><a href="http://codyhouse.co/?p=748">아이폰</a></li>
 								</ul>
 							</li>
 
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">하의</a>
+								<a href="http://codyhouse.co/?p=748">컴퓨터</a>
 
 								<ul class="is-hidden">
-									<li class="go-back"><a href="#0">의류</a></li>
-									<li class="see-all"><a href="http://codyhouse.co/?p=748">ALL 하의</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Casual Trousers</a></li>
-									<li><a href="#0">Leggings</a></li>
-									<li><a href="#0">Shorts</a></li>
+									<li class="go-back"><a href="#0">전자기기</a></li>
+									<li class="see-all"><a href="http://codyhouse.co/?p=748">ALL 컴퓨터</a></li>
+									<li><a href="#0">삼성</a></li>
+									<li><a href="#0">LG</a></li>
 								</ul>
 							</li>
 
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">신발</a>
+								<a href="http://codyhouse.co/?p=748">주변기기</a>
 
 								<ul class="is-hidden">
-									<li class="go-back"><a href="#0">의류</a></li>
-									<li class="see-all"><a href="http://codyhouse.co/?p=748">All 신발</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Blazers</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Bomber jackets</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Denim Jackets</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Duffle Coats</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Leather Jackets</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Parkas</a></li>
+									<li class="go-back"><a href="#0">전자기기</a></li>
+									<li class="see-all"><a href="http://codyhouse.co/?p=748">All 주변기기</a></li>
+									<li><a href="http://codyhouse.co/?p=748">키보드</a></li>
+									<li><a href="http://codyhouse.co/?p=748">마우스</a></li>
 								</ul>
 							</li>
 
-							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">모자</a>
-
-								<ul class="is-hidden">
-									<li class="go-back"><a href="#0">의류</a></li>
-									<li class="see-all"><a href="http://codyhouse.co/?p=748">All 모자</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Cardigans</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Coats</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Polo Shirts</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Shirts</a></li>
-									<li><a href="http://codyhouse.co/?p=748">Vests</a></li>
-								</ul>
-							</li>
 						</ul> <!-- .cd-secondary-dropdown -->
 					</li> <!-- .has-children -->
 

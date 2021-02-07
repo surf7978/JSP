@@ -53,22 +53,7 @@
                                 </div>
                                 
                                 <hr>
-                                <!-- 
-                                <div class="form-group row">
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            value="통신사">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleLastName"
-                                            value="제조사">
-                                    </div>
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user"
-                                            id="exampleInputPassword" value="색상">
-                                    </div>
-                                </div>
-                                 -->
+                                
                                 <div class="form-group row">
                                     <div class="col-sm-3">
                                         <input readonly style="text-align:center; background-color:white; color:#9400d3;" type="text" class="form-control form-control-user" id="exampleLastName"
@@ -134,13 +119,6 @@
                                     </button>
                                 </div>
                                 </c:if>
-                                <c:if test="${vo.memberId eq memberId }">
-                                <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        수정하기
-                                    </button>
-                                </div>
-                                </c:if>
                                 <div class="col-sm-1 mb-3 mb-sm-0">
                                     <input type="hidden" >
                                 </div>
@@ -180,8 +158,9 @@
                     <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
+                            <form action="updateBoard.do" method="post">
                             <div class="text-center">
-                                <h1 class="h1 text-gray-900 mb-4">${vo.boardTitle }</h1>
+                                <input name="updateBoardTitle" class="h1 text-gray-900 mb-4" style="text-align:center;" value="${vo.boardTitle }">
                             </div>
                             <div class="text-right">
                                 <div>
@@ -205,7 +184,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <form action="buySend.do" method="post">
                                 <hr>
                                 <div class="form-group row">
                                 	<div class="col-sm-3 mb-3 mb-sm-0">
@@ -213,35 +191,20 @@
                                             value="내 용">
                                     </div>
                                     <div class="col-sm-9 mb-3 mb-sm-0">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" name="updateBoardContent"
                                             value="${vo.boardContent }">
                                     </div>
                                 </div>
                                 
                                 <hr>
-                                <!-- 
-                                <div class="form-group row">
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            value="통신사">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleLastName"
-                                            value="제조사">
-                                    </div>
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user"
-                                            id="exampleInputPassword" value="색상">
-                                    </div>
-                                </div>
-                                 -->
+                                
                                 <div class="form-group row">
                                     <div class="col-sm-3">
                                         <input readonly style="text-align:center; background-color:white; color:#9400d3;" type="text" class="form-control form-control-user" id="exampleLastName"
                                         value="품 명">
                                     </div>
                                     <div class="col-sm-9">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input readonly style="text-align:center;" type="text" class="form-control form-control-user" id="exampleLastName"
                                             value="${vo.productName }">
                                     </div>
                                 </div>
@@ -251,7 +214,7 @@
                                             value="가 격">
                                     </div>
                                     <div class="col-sm-9">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" name="updatePrice"
                                             value="${vo.price }">
                                     </div>
                                 </div>
@@ -264,7 +227,7 @@
                                             value="판 매 자">
                                     </div>
                                     <div class="col-sm-9">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input readonly style="text-align:center;" type="text" class="form-control form-control-user" id="exampleLastName"
                                             value="${vo.memberId }">
                                     </div>
                                 </div>
@@ -274,7 +237,7 @@
                                             value="연 락 처">
                                     </div>
                                     <div class="col-sm-9">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input readonly style="text-align:center;" type="text" class="form-control form-control-user" id="exampleLastName"
                                             value="${vo.memberPhoneNumber }">
                                     </div>
                                 </div>
@@ -284,7 +247,7 @@
                                             value="주 소">
                                     </div>
                                     <div class="col-sm-9">
-                                        <input readonly style="text-align:center; background-color:white;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input readonly style="text-align:center;" type="text" class="form-control form-control-user" id="exampleLastName"
                                             value="${vo.memberSiAddress }  ${vo.memberGuAddress }">
                                     </div>
                                 </div>

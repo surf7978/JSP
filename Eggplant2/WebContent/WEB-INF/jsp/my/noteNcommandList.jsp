@@ -26,7 +26,9 @@
 						cellspacing="0">
 						<thead>
 							<tr>
-								<th>구매자</th>
+								<c:if test="${memberAuth ne 'USER'}">
+									<th>구매자</th>
+								</c:if>
 								<th>구매날짜</th>
 								<th>품명</th>
 								<th>판매가격</th>
@@ -60,7 +62,9 @@
 						<c:forEach var="vo" items="${list1 }">
 							<c:if test="${vo.buyMemberId eq memberId }">
 							<tr>
-								<td align="center">${vo.buyMemberId }</td>
+								<c:if test="${memberAuth ne 'USER'}">
+									<td align="center">${vo.buyMemberId }</td>
+								</c:if>
 								<td align="center">${vo.buyDate }</td>
 								<td align="center">${vo.productName }</td>
 								<td align="center">${vo.price }</td>
@@ -81,6 +85,56 @@
 				</div>
 			</div>
 		</div>
+		
+		<c:if test="${memberAuth ne 'ADMIN' }">
+		<div class="card shadow mb-4">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary">판매 내역</h6>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%"
+						cellspacing="0">
+						<thead>
+							<tr>
+								<th>구매자</th>
+								<th>구매날짜</th>
+								<th>품명</th>
+								<th>판매가격</th>
+								<th colspan="2">진행상태</th>
+							</tr>
+							<c:choose>
+					<c:when test="${empty list1 }">
+						<tr>
+							<td colspan="9">판매한 제품이 없습니다.</td>
+						</tr>
+					</c:when>
+					<c:when test="${not empty list1 }">
+					<c:if test="${memberAuth ne 'ADMIN'}">
+						<c:forEach var="vo" items="${list1 }">
+							<c:if test="${vo.buyMemberId eq memberId }">
+							<tr>
+								<td align="center" width="10%">${vo.memberId }</td>
+								<td align="center" width="15%">${vo.buyDate }</td>
+								<td align="center">${vo.productName }</td>
+								<td align="center">${vo.price }</td>
+								<td align="center" width="20%"></td>
+								<td align="center" width="10%"><button class="btn btn-google btn-user btn-block">판매완료</button></td>
+							</tr>
+							</c:if>
+						</c:forEach>
+					</c:if>
+					</c:when>
+				</c:choose>
+						</thead>
+						<tbody id="show">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		</c:if>
+		
 		<!-- DataTales Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
