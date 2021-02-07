@@ -18,7 +18,12 @@
 	<!-- DataTales Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
+				<c:if test="${memberAuth ne 'ADMIN'}">
 				<h6 class="m-0 font-weight-bold text-primary">구매 내역</h6>
+				</c:if>
+				<c:if test="${memberAuth eq 'ADMIN'}">
+				<h6 class="m-0 font-weight-bold text-primary">유저 거래 내역</h6>
+				</c:if>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -36,6 +41,9 @@
 								<th>판매자연락처</th>
 								<th>판매지역</th>
 								<th>판매날짜</th>
+								<c:if test="${memberAuth eq 'ADMIN'}">
+									<th>진행상태</th>
+								</c:if>
 							</tr>
 							<c:choose>
 					<c:when test="${empty list1 }">
@@ -104,22 +112,33 @@
 								<th colspan="2">진행상태</th>
 							</tr>
 							<c:choose>
-					<c:when test="${empty list1 }">
+					<c:when test="${empty list3 }">
 						<tr>
 							<td colspan="9">판매한 제품이 없습니다.</td>
 						</tr>
 					</c:when>
-					<c:when test="${not empty list1 }">
+					<c:when test="${not empty list3 }">
 					<c:if test="${memberAuth ne 'ADMIN'}">
-						<c:forEach var="vo" items="${list1 }">
-							<c:if test="${vo.buyMemberId eq memberId }">
+						<c:forEach var="vo" items="${list3 }">
+							<c:if test="${vo.memberId eq memberId }">
 							<tr>
-								<td align="center" width="10%">${vo.memberId }</td>
+								<td align="center" width="10%">${vo.buyMemberId }</td>
 								<td align="center" width="15%">${vo.buyDate }</td>
 								<td align="center">${vo.productName }</td>
 								<td align="center">${vo.price }</td>
-								<td align="center" width="20%"></td>
-								<td align="center" width="10%"><button class="btn btn-google btn-user btn-block">판매완료</button></td>
+								<c:if test="${vo.tradeProcess eq 'NotComplete'}">
+								<td align="center" style="width=20%; color:red">${vo.tradeProcess }</td>
+								<td align="center" width="10%">
+									<button style="background-color: green; color:white; font-size:15px;" onclick="location.href='updateTradeProcess.do?tradeProcess=Complete&buyDate=${vo.buyDate }'">
+									판매완료</button>
+								</td>
+								</c:if>
+								<c:if test="${vo.tradeProcess eq 'Complete'}">
+								<td align="center" style="width=20%; color:green;">${vo.tradeProcess }</td>
+								<td align="center" width="10%">
+									판매완료
+								</td>
+								</c:if>
 							</tr>
 							</c:if>
 						</c:forEach>

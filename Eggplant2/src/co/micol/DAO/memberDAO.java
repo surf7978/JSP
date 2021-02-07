@@ -74,6 +74,16 @@ public class memberDAO extends DAO {
 				+ ", BoardDate varchar2(20) not null"//
 				+ ", CommentDate varchar2(20) default to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') not null"
 				+ " )";
+		
+		String sql14 = "create table sell99"//
+				+ "("//
+				+ "BuyMemberId varchar2(20) not null"//
+				+ ", BuyDate varchar2(20) not null"//
+				+ ", price number default 100 not null"//
+				+ ", MemberId varchar2(10) not null"//
+				+ ", tradeProcess varchar2(20) default 'NotComplete' not null"
+				+ ", ProductName varchar2(100) not null"//
+				+ " )";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.executeQuery();
@@ -101,6 +111,8 @@ public class memberDAO extends DAO {
 			psmt.executeQuery();
 			psmt = conn.prepareStatement(sql13);
 			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql14);
+			psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -114,6 +126,7 @@ public class memberDAO extends DAO {
 		String sql3 ="drop table buy99";
 		String sql4 ="drop table product99";
 		String sql5 ="drop table comment99";
+		String sql6 ="drop table sell99";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.executeQuery();
@@ -124,6 +137,8 @@ public class memberDAO extends DAO {
 			psmt = conn.prepareStatement(sql4);
 			psmt.executeQuery();
 			psmt = conn.prepareStatement(sql5);
+			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql6);
 			psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();

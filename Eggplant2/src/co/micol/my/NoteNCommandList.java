@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import co.micol.DAO.boardDAO;
 import co.micol.DAO.buyDAO;
 import co.micol.DAO.commentDAO;
+import co.micol.DAO.sellDAO;
 import co.micol.VO.boardVO;
 import co.micol.VO.buyVO;
 import co.micol.VO.commentVO;
+import co.micol.VO.sellVO;
 import co.micol.common.Command;
 
 public class NoteNCommandList implements Command {
@@ -41,6 +43,15 @@ public class NoteNCommandList implements Command {
 		list2 = dao2.selectCommentList();
 		
 		request.setAttribute("list2", list2);
+		
+		
+		
+		sellDAO dao3 = new sellDAO();
+		ArrayList<sellVO> list3 = new ArrayList<>();
+		
+		list3 = dao3.selectSellList();
+		
+		request.setAttribute("list3", list3);
 		
 		return "my/noteNcommandList";
 	}

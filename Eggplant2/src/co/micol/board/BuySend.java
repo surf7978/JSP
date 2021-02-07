@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.DAO.buyDAO;
+import co.micol.DAO.sellDAO;
 import co.micol.VO.buyVO;
+import co.micol.VO.sellVO;
 import co.micol.common.Command;
 
 public class BuySend implements Command {
@@ -28,6 +30,14 @@ public class BuySend implements Command {
 		
 		System.out.println(vo.toString());
 
+		sellDAO dao1 = new sellDAO();
+		sellVO vo1 = new sellVO();
+		vo1.setBuyMemberId(request.getParameter("buyMemberId"));
+		vo1.setPrice(Integer.parseInt(request.getParameter("price")));
+		vo1.setMemberId(request.getParameter("memberId"));
+		vo1.setProductName(request.getParameter("productName"));
+		System.out.println(vo1.toString());
+		dao1.insertSell(vo1);
 		
 		return "noteNcommandList.do";
 	}
