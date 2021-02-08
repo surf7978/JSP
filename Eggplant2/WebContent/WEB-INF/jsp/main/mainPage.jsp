@@ -8,8 +8,11 @@
 		<h3>메인페이지</h3>
 		<h3>현재 계정 : ${memberId }, 권한 : ${memberAuth }</h3>
 	</div>
-
+	
+	<div>
+	<a target="_blank" href="https://www.google.co.kr/maps/place/${memberSiAddress }+${memberGuAddress }/">지도보기</a>
             </div>
+            
             <!-- End of Main Content -->
 
             <!-- Footer -->
