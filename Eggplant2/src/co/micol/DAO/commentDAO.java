@@ -121,7 +121,7 @@ public class commentDAO extends DAO {
 //	}
 	
 	public int countComment(int n) {
-		String sql = "select count(memberid) from comment99";
+		String sql = "select memberid from comment99";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();

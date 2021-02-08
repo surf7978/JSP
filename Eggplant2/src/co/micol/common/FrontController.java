@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.micol.board.InsertBoardForm;
+import co.micol.board.Search;
+import co.micol.board.SearchCategory1;
+import co.micol.board.SearchCategory2;
 import co.micol.board.UpdateBoard;
 import co.micol.board.UpdateTradeProcess;
 import co.micol.comment.InsertComment;
@@ -61,6 +64,9 @@ public class FrontController extends HttpServlet {
 		map.put("/insertBoard.do", new InsertBoard());
 		map.put("/boardView.do", new BoardView());
 		map.put("/updateBoard.do", new UpdateBoard());
+		map.put("/search.do", new Search());
+		map.put("/searchCategory2.do", new SearchCategory2());
+		map.put("/searchCategory1.do", new SearchCategory1());
 		
 		map.put("/insertComment.do", new InsertComment());
 		
@@ -71,6 +77,8 @@ public class FrontController extends HttpServlet {
 		map.put("/noteNcommandList.do", new NoteNCommandList());
 		
 		map.put("/updateTradeProcess.do", new UpdateTradeProcess());
+		
+
 		
 		
 		

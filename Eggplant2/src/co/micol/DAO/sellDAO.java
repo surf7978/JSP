@@ -175,6 +175,23 @@ public class sellDAO extends DAO {
 		return n;
 	}
 	
+	public int alertTrade(sellVO vo) {
+		String sql ="select tradeProcess from sell99 WHERE tradeProcess = 'NotComplete' AND memberId = ?";
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getMemberId());
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				n++;
+			}
+			System.out.println(n);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+	
 	private void close() {
 		try {
 			conn.close();

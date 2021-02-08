@@ -101,13 +101,17 @@
         </div>
 
         <!-- Content Row -->
-
+<!-- 
         <div class="row">
+ -->
 
             <!-- Area Chart -->
+<!-- 
             <div class="col-xl-8 col-lg-7">
                 <div class="card shadow mb-4">
+ -->
                     <!-- Card Header - Dropdown -->
+<!-- 
                     <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
@@ -126,7 +130,9 @@
                             </div>
                         </div>
                     </div>
+ -->
                     <!-- Card Body -->
+<!-- 
                     <div class="card-body">
                         <div class="chart-area">
                             <canvas id="myAreaChart"></canvas>
@@ -134,11 +140,15 @@
                     </div>
                 </div>
             </div>
+ -->                    
 
             <!-- Pie Chart -->
+<!-- 
             <div class="col-xl-4 col-lg-5">
                 <div class="card shadow mb-4">
+ -->            
                     <!-- Card Header - Dropdown -->
+<!-- 
                     <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
@@ -157,7 +167,9 @@
                             </div>
                         </div>
                     </div>
+ -->                    
                     <!-- Card Body -->
+<!-- 
                     <div class="card-body">
                         <div class="chart-pie pt-4 pb-2">
                             <canvas id="myPieChart"></canvas>
@@ -177,6 +189,7 @@
                 </div>
             </div>
         </div>
+ -->                    
 
         <!-- Content Row -->
         <div class="row">
@@ -191,41 +204,41 @@
                     </div>
                     <div class="card-body" style="padding-bottom: 35px;">
                         <h4 class="small font-weight-bold">상의 <span
-                                class="float-right">20%</span></h4>
+                                class="float-right">${shirt }%</span></h4>
                         <div class="progress mb-4">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: ${shirt }%"
+                                aria-valuenow="${shirt }" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <h4 class="small font-weight-bold">하의 <span
-                                class="float-right">40%</span></h4>
+                                class="float-right">${pants }%</span></h4>
                         <div class="progress mb-4">
-                            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: ${pants }%"
+                                aria-valuenow="${pants }" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <h4 class="small font-weight-bold">신발 <span
-                                class="float-right">60%</span></h4>
+                                class="float-right">${shoes }%</span></h4>
                         <div class="progress mb-4">
-                            <div class="progress-bar" role="progressbar" style="width: 60%"
-                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: ${shoes }%"
+                                aria-valuenow="${shoes }" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <h4 class="small font-weight-bold">모자 <span
-                                class="float-right">80%</span></h4>
+                                class="float-right">${cap }%</span></h4>
                         <div class="progress mb-4">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
-                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-info" role="progressbar" style="width: ${cap }%"
+                                aria-valuenow="${cap }" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <h4 class="small font-weight-bold">스마트폰 <span
-                                class="float-right">Complete!</span></h4>
+                                class="float-right">${phone }%</span></h4>
                         <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width: ${phone }%"
+                                aria-valuenow="${phone }" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <br/><br/>
                         <h4 class="small font-weight-bold">컴퓨터 <span
-                                class="float-right">Complete!</span></h4>
+                                class="float-right">${pc }%</span></h4>
                         <div class="progress">
-                            <div class="progress-bar bg-dark" role="progressbar" style="width: 100%"
-                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-dark" role="progressbar" style="width: ${pc }%"
+                                aria-valuenow="${pc }" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -243,6 +256,7 @@
                     </div>
                     <div class="row" style="padding:10px;">
                         <div class="col-lg-6 mb-4">
+             <br/>
                             <div class="card bg-danger text-white shadow" >
                                 <div class="card-body">
                                     상의
@@ -251,6 +265,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-4">
+            <br/>
                             <div class="card bg-warning text-white shadow">
                                 <div class="card-body">
                                     하의
@@ -259,6 +274,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-4">
+            <br/>
                             <div class="card bg-primary text-white shadow">
                                 <div class="card-body">
                                     신발
@@ -267,6 +283,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-4">
+            <br/>
                             <div class="card bg-info text-white shadow">
                                 <div class="card-body">
                                     모자
@@ -275,6 +292,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-4">
+			<br/>                        
                             <div class="card bg-success text-white shadow">
                                 <div class="card-body">
                                     스마트폰
@@ -283,6 +301,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-4">
+			<br/>                        
                             <div class="card bg-dark text-white shadow">
                                 <div class="card-body">
                                     컴퓨터

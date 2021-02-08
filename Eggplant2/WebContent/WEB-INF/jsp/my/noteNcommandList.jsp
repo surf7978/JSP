@@ -183,6 +183,7 @@
 								<th>판매지역</th>
 								<th>작성자</th>
 								<th>작성날짜</th>
+								<th>진행상태</th>
 							</tr>
 							<c:choose>
 					<c:when test="${empty list }">
@@ -201,6 +202,12 @@
 								<td align="center">${vo1.memberSiAddress }&nbsp;&nbsp;${vo1.memberGuAddress }</td>
 								<td align="center">${vo1.memberId }</td>
 								<td align="center">${vo1.boardDate }</td>
+								<c:if test="${vo1.tradeProcess eq 'NotComplete'}">
+								<td align="center" style="width=20%; color:red">${vo1.tradeProcess }</td>
+								</c:if>
+								<c:if test="${vo1.tradeProcess eq 'Complete'}">
+								<td align="center" style="width=20%; color:green;">${vo1.tradeProcess }</td>
+								</c:if>
 							</tr>
 						</c:forEach>
 						</c:if>
@@ -215,6 +222,12 @@
 								<td align="center">${vo1.memberSiAddress }&nbsp;&nbsp;${vo1.memberGuAddress }</td>
 								<td align="center">${vo1.memberId }</td>
 								<td align="center">${vo1.boardDate }</td>
+								<c:if test="${vo1.tradeProcess eq 'NotComplete'}">
+								<td align="center" style="width=20%; color:red">${vo1.tradeProcess }</td>
+								</c:if>
+								<c:if test="${vo1.tradeProcess eq 'Complete'}">
+								<td align="center" style="width=20%; color:green;">${vo1.tradeProcess }</td>
+								</c:if>
 							</tr>
 						</c:if>
 						</c:forEach>

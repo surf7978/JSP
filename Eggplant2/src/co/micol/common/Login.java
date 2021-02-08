@@ -5,7 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.micol.DAO.memberDAO;
+import co.micol.DAO.sellDAO;
 import co.micol.VO.memberVO;
+import co.micol.VO.sellVO;
 
 public class Login implements Command {
 
@@ -36,7 +38,22 @@ public class Login implements Command {
 		session.setAttribute("memberSiAddress", vo.getMemberSiAddress());
 		session.setAttribute("memberGuAddress", vo.getMemberGuAddress());
 		session.setAttribute("memberPhoneNumber", vo.getMemberPhoneNumber());
-
+		
+		//현재 미확인 알림 출력 메소드
+		sellDAO dao1 = new sellDAO();
+		sellVO vo1 = new sellVO();
+		vo1.setMemberId(vo.getMemberId());
+		
+		int n = 0;
+		
+		n = dao1.alertTrade(vo1);
+		
+		System.out.println(n);
+		
+		session = request.getSession();
+		session.setAttribute("alertTrade", n);
+		
+		
 		// 유저 or 관리자로그인 실패 순서 설정하기 
 		//비교연산자로 null대신에 == 하고 getmAuth값이 USER,ADMIN인 것만으로 바꾸고 싶음
 		if (vo.getMemberAuth() != null) {

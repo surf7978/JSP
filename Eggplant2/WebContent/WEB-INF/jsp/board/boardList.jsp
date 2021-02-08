@@ -48,7 +48,7 @@
 							<tr onclick="location.href='boardView.do?boardDate=${vo.boardDate }'">
 								<td align="center">${vo.boardView }</td>
 								<td align="center">${vo.boardTitle }</td>
-								<td align="center">${vo.productName }</td>
+								<td align="center">${vo.category1 } > ${vo.category2 } > ${vo.productName }</td>
 								<td align="center">${vo.price }</td>
 								<td align="center">${vo.memberSiAddress }&nbsp;&nbsp;${vo.memberGuAddress }</td>
 								<td align="center">${vo.memberId }</td>

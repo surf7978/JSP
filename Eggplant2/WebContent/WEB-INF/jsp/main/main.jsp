@@ -59,16 +59,14 @@
         </c:if>
  		<c:if test="${memberId ne null }">
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+			<li class="nav-item active">
                 <a class="nav-link" href="mainPage.do">
                     <i class="fas fa-home"></i>
                     <span>&nbsp;&nbsp;홈</span></a>
             </li>
-
             <!-- Divider -->
 
         <hr class="sidebar-divider">
-
             <!-- Heading -->
             <div class="sidebar-heading">
                 메뉴
@@ -194,28 +192,37 @@
                     <c:if test="${memberId ne null }">
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+					<jsp:include page="menu.jsp" />
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="검색할 제품 입력"
-                                aria-label="Search" aria-describedby="basic-addon2">
+                            <!-- <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="검색할 제품 입력"
+                                aria-label="Search" aria-describedby="basic-addon2"> -->
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
+                                <!--  <button class="btn btn-primary">
+                                   <i class="fas fa-search fa-sm"></i>
+                                </button> -->
                             </div>
                         </div>
-					<jsp:include page="menu.jsp" />
                     </form>
-
+                    
+                    <form action="search.do" method="post">
+                    <button class="btn btn-primary" onclick="submit">
+                    	<i class="fas fa-search fa-sm"></i>
+                    </button>
+                    <input name="searchProductName" class="bg-light border-0 small" placeholder="검색할 제품 입력">
+					</form>
+					
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
+                    
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        
+						<!--
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
+                            
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -232,6 +239,8 @@
                                 </form>
                             </div>
                         </li>
+						 -->
+						 
 						<!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -273,7 +282,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">99+</span>
+                                <span class="badge badge-danger badge-counter">${alertTrade }</span>
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -383,8 +392,6 @@
                                 <a class="dropdown-item text-center small text-gray-500" href="noteList.do">모든 메세지 내역</a>
                             </div>
                         </li>
-
-                        
 
                         
                         </c:if>

@@ -35,10 +35,14 @@ public class memberDAO extends DAO {
 				+ ", MemberSiAddress varchar2(100) not null, MemberGuAddress varchar2(100) not null"
 				+ ", MemberPhoneNumber varchar2(20) not null"
 				+ ", tradeProcess varchar2(20) default 'NotComplete' not null"
+				+ ", Image varchar2(100)"
+				+ ", Category1 varchar2(100)"
+				+ ", Category2 varchar2(100)"
 				+ " )";
 		String sql6 = "insert into board99"//
-				+ "(BoardTitle, BoardContent, ProductName, MemberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber)"//
-				+ " values('폰팝니다','제곧내', '갤럭시s9', 'park', '대구시', '서구', '010-2222-2222')";
+				+ "(BoardTitle, BoardContent, ProductName, MemberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber"
+				+ ", Category1, Category2)"//
+				+ " values('폰팝니다','제곧내', '갤럭시s9', 'park', '대구시', '서구', '010-2222-2222', '전자기기', '스마트폰')";
 		
 		String sql7 = "create table buy99"//
 				+ "(BuyDate varchar2(20) default to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') not null"//
@@ -56,9 +60,10 @@ public class memberDAO extends DAO {
 				+ "("//
 				+ "ProductName varchar2(100) not null"
 				+ ", Image varchar2(100)"
-				+ ", Category1 varchar2(100) not null"
-				+ ", Category2 varchar2(100) not null"
+				+ ", Category1 varchar2(100)"
+				+ ", Category2 varchar2(100)"
 				+ " )";
+		
 		String sql9 = "insert into product99"//
 				+ "(ProductName, Image, Category1, Category2 )"//
 				+ " values('갤럭시s9','갤럭시s9.png', '전자기기', '스마트폰')";
@@ -96,6 +101,7 @@ public class memberDAO extends DAO {
 				+ ", MemberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber)"//
 				+ " VALUES ('kim', to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'), 100, '갤럭시s9'"
 				+ ", 'park', '대구시', '서구', '010-2222-2222')";
+		
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.executeQuery();

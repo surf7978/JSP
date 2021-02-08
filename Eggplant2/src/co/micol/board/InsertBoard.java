@@ -23,6 +23,9 @@ public class InsertBoard implements Command {
 		vo.setMemberGuAddress(request.getParameter("memberGuAddress"));
 		vo.setMemberPhoneNumber(request.getParameter("memberPhoneNumber"));
 		
+		vo.setCategory1(request.getParameter("category1"));
+		vo.setCategory2(request.getParameter("category2"));
+		
 		System.out.println(vo.toString());
 		
 		dao.insertBoard(vo);
