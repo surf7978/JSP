@@ -291,8 +291,8 @@ public class boardDAO extends DAO {
 		int n = 0;
 		String sql1 = "select Category2 from board99";
 		String sql2 = "select Category2 from board99 where Category2 = ?";
-		int total = 0;
-		int category2 = 0;
+		double total = 0;
+		double category2 = 0;
 		try {
 			psmt = conn.prepareStatement(sql1);
 			rs = psmt.executeQuery();
@@ -305,7 +305,7 @@ public class boardDAO extends DAO {
 			while(rs.next()) {
 				category2++;
 			}
-			n = category2/total*100;
+			n = (int) (category2/total*100);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
