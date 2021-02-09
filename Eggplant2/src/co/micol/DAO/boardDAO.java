@@ -33,6 +33,7 @@ public class boardDAO extends DAO {
 				vo.setTradeProcess(rs.getString("tradeProcess"));
 				vo.setCategory1(rs.getString("category1"));
 				vo.setCategory2(rs.getString("category2"));
+				vo.setProductImage(rs.getString("productImage"));
 				list.add(vo);				
 			}			
 		} catch (Exception e) {
@@ -64,6 +65,7 @@ public class boardDAO extends DAO {
 				vo.setTradeProcess(rs.getString("tradeProcess"));
 				vo.setCategory1(rs.getString("category1"));
 				vo.setCategory2(rs.getString("category2"));
+				vo.setProductImage(rs.getString("productImage"));
 				updateView(vo);
 			}
 		} catch (Exception e) {
@@ -77,14 +79,12 @@ public class boardDAO extends DAO {
 
 	
 //등록
-	public int insertBoard(boardVO vo) {	// 뷰, 라이크는 제외
+	public int insertBoard(boardVO vo) {
 		String sql1="INSERT INTO board99"//
 				+ " (boardTitle, boardContent, price, productName"//
-				+ ", memberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber"
-				+ ", boardView, category1, category2)"//
-				+ " VALUES (?,?,?,?"//
-				+ ",?,?,?,?,?"
-				+ ",?,?)";
+				+ ", memberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber, ProductImage)"//
+				+ " VALUES (?,?,?,?"
+				+ ",?,?,?,?,?)";
 		
 		String sql2="INSERT INTO product99"//
 				+ " (productName, category1, category2)"//
@@ -101,13 +101,8 @@ public class boardDAO extends DAO {
 			psmt.setString(6, vo.getMemberSiAddress());
 			psmt.setString(7, vo.getMemberGuAddress());
 			psmt.setString(8, vo.getMemberPhoneNumber());
-			psmt.setInt(9, vo.getBoardView());
-			
-			psmt.setString(10, vo.getCategory1());
-			psmt.setString(11, vo.getCategory2());
+			psmt.setString(9, vo.getProductImage());
 			n = psmt.executeUpdate();
-			
-			
 			
 			
 			psmt = conn.prepareStatement(sql2);
@@ -137,9 +132,9 @@ public class boardDAO extends DAO {
 	}
 	
 //수정
-	public int updateBoard(boardVO vo) { //제목,내용,가격,사진,주소,할인
+	public int updateBoard(boardVO vo) { 
 		int n =0;
-		String sql="UPDATE board99 SET BoardTitle= ?, BoardContent =?, price =?, tradeProcess =? WHERE BoardDate =?";
+		String sql="UPDATE board99 SET BoardTitle= ?, BoardContent =?, price =?, tradeProcess =? ProductImage =? WHERE BoardDate =?";
 	
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -147,7 +142,8 @@ public class boardDAO extends DAO {
 			psmt.setString(2, vo.getBoardContent());
 			psmt.setInt(3, vo.getPrice());
 			psmt.setString(4, vo.getTradeProcess());
-			psmt.setString(5, vo.getBoardDate());
+			psmt.setString(5, vo.getProductImage());
+			psmt.setString(6, vo.getBoardDate());
 			n = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -156,26 +152,26 @@ public class boardDAO extends DAO {
 		}
 		return n;
 	}
-////삭제
-//	public int delete(boardVO vo) {
-//		int n =0;
-//		String sql="DELETE FROM text WHERE tNUMBER=?";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, vo.gettNumber());
-//			n = psmt.executeUpdate();
-//			System.out.println(n + "건이 삭제");
-//		} catch (Exception e) {
-//		} finally {
-//			close();
-//		}		
-//		return n;
-//	}
+	
+//삭제
+	public int deleteBoard(boardVO vo) {
+		int n =0;
+		String sql="DELETE FROM board99 WHERE boardDate=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getBoardDate());
+			n = psmt.executeUpdate();
+		} catch (Exception e) {
+		} finally {
+			close();
+		}		
+		return n;
+	}
 	
 	public ArrayList<boardVO> search(boardVO vo) {
 		ArrayList<boardVO> list = new ArrayList<>();
 		String sql = "select * from board99 where productName like ?";
-		//String sql2 = "select * from board99 where boardTitle like %?%";
+		//String sql2 = "select * from board99 where boardTitle like %?%"; //양옆에 %붙이면 안되고 값줄때 %달아서 와야함
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getProductName());
@@ -193,6 +189,7 @@ public class boardDAO extends DAO {
 				vo.setTradeProcess(rs.getString("tradeProcess"));
 				vo.setCategory1(rs.getString("category1"));
 				vo.setCategory2(rs.getString("category2"));
+				vo.setProductImage(rs.getString("productImage"));
 				list.add(vo);
 			}	
 		} catch (SQLException e) {

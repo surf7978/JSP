@@ -26,6 +26,8 @@ public class InsertBoard implements Command {
 		vo.setCategory1(request.getParameter("category1"));
 		vo.setCategory2(request.getParameter("category2"));
 		
+		vo.setProductImage(request.getParameter("productImage"));
+		
 		System.out.println(vo.toString());
 		
 		dao.insertBoard(vo);

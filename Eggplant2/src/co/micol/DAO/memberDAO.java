@@ -34,15 +34,19 @@ public class memberDAO extends DAO {
 				+ ", ProductName varchar2(100) not null, MemberId varchar2(10) not null"
 				+ ", MemberSiAddress varchar2(100) not null, MemberGuAddress varchar2(100) not null"
 				+ ", MemberPhoneNumber varchar2(20) not null"
+				+ ", ProductImage varchar2(100) not null"//
+				+ ", ProductVolume number"//
+				+ ", ProductColor varchar2(100)"//
+				+ ", Category1 varchar2(20)"//
+				+ ", Category2 varchar2(20)"//
 				+ ", tradeProcess varchar2(20) default 'NotComplete' not null"
-				+ ", Image varchar2(100)"
-				+ ", Category1 varchar2(100)"
-				+ ", Category2 varchar2(100)"
 				+ " )";
+		
 		String sql6 = "insert into board99"//
 				+ "(BoardTitle, BoardContent, ProductName, MemberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber"
-				+ ", Category1, Category2)"//
-				+ " values('폰팝니다','제곧내', '갤럭시s9', 'park', '대구시', '서구', '010-2222-2222', '전자기기', '스마트폰')";
+				+ ", Category1, Category2, productImage)"//
+				+ " values('폰팝니다','제곧내', '갤럭시s9', 'park', '대구시', '서구', '010-2222-2222', '전자기기', '스마트폰'"
+				+ ", '콩이.jpg')";
 		
 		String sql7 = "create table buy99"//
 				+ "(BuyDate varchar2(20) default to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') not null"//

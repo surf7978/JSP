@@ -27,25 +27,25 @@
 					
 					<li class="cd-divider">분류</li>
 					<li class="has-children">
-						<a href="searchCategory1.do?searchCategory1=의류">의류</a>
+						<a href="#">의류</a>
 
 						<ul class="cd-secondary-dropdown is-hidden">
 							<li class="go-back"><a href="#0">Menu</a></li>
 							<li class="see-all"><a href="searchCategory1.do?searchCategory1=의류">All 의류</a></li>
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">상의</a>
+								<a href="#">상의</a>
 
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">의류</a></li>
 									<li class="see-all"><a href="searchCategory2.do?searchCategory2=상의">All 상의</a></li>
 									
-									<li><a href="http://codyhouse.co/?p=748">패딩</a></li>
-									<li><a href="http://codyhouse.co/?p=748">T셔츠</a></li>
+									<li><a href="#">패딩</a></li>
+									<li><a href="#">T셔츠</a></li>
 								</ul>
 							</li>
 
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">하의</a>
+								<a href="#">하의</a>
 
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">의류</a></li>
@@ -56,66 +56,66 @@
 							</li>
 
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">신발</a>
+								<a href="#">신발</a>
 
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">의류</a></li>
 									<li class="see-all"><a href="searchCategory2.do?searchCategory2=신발">All 신발</a></li>
-									<li><a href="http://codyhouse.co/?p=748">운동화</a></li>
-									<li><a href="http://codyhouse.co/?p=748">구두</a></li>
+									<li><a href="#">운동화</a></li>
+									<li><a href="#">구두</a></li>
 								</ul>
 							</li>
 
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">모자</a>
+								<a href="#">모자</a>
 
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">의류</a></li>
 									<li class="see-all"><a href="searchCategory2.do?searchCategory2=모자">All 모자</a></li>
-									<li><a href="http://codyhouse.co/?p=748">캡</a></li>
-									<li><a href="http://codyhouse.co/?p=748">비니</a></li>
+									<li><a href="#">캡</a></li>
+									<li><a href="#">비니</a></li>
 								</ul>
 							</li>
 						</ul> <!-- .cd-secondary-dropdown -->
 					</li> <!-- .has-children -->
 					
 					<li class="has-children">
-						<a href="searchCategory1.do?searchCategory1=전자기기">전자기기</a>
+						<a href="#">전자기기</a>
 
 						<ul class="cd-secondary-dropdown is-hidden">
 							<li class="go-back"><a href="#0">Menu</a></li>
 							<li class="see-all"><a href="searchCategory1.do?searchCategory1=전자기기">All 전자기기</a></li>
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">스마트폰</a>
+								<a href="#">스마트폰</a>
 
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">전자기기</a></li>
 									<li class="see-all"><a href="searchCategory2.do?searchCategory2=스마트폰">All 스마트폰</a></li>
 									
-									<li><a href="http://codyhouse.co/?p=748">갤럭시</a></li>
-									<li><a href="http://codyhouse.co/?p=748">아이폰</a></li>
+									<li><a href="#">갤럭시</a></li>
+									<li><a href="#">아이폰</a></li>
 								</ul>
 							</li>
 
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">컴퓨터</a>
+								<a href="#">컴퓨터</a>
 
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">전자기기</a></li>
 									<li class="see-all"><a href="searchCategory2.do?searchCategory2=컴퓨터">ALL 컴퓨터</a></li>
-									<li><a href="#0">삼성</a></li>
-									<li><a href="#0">LG</a></li>
+									<li><a href="#">삼성</a></li>
+									<li><a href="#">LG</a></li>
 								</ul>
 							</li>
 
 							<li class="has-children">
-								<a href="http://codyhouse.co/?p=748">주변기기</a>
+								<a href="#">주변기기</a>
 
 								<ul class="is-hidden">
 									<li class="go-back"><a href="#0">전자기기</a></li>
 									<li class="see-all"><a href="searchCategory2.do?searchCategory2=주변기기">All 주변기기</a></li>
-									<li><a href="http://codyhouse.co/?p=748">키보드</a></li>
-									<li><a href="http://codyhouse.co/?p=748">마우스</a></li>
+									<li><a href="#">키보드</a></li>
+									<li><a href="#">마우스</a></li>
 								</ul>
 							</li>
 
