@@ -273,28 +273,29 @@ public class memberDAO extends DAO {
 		return vo;
 	}
 
-////등록
-//	public int insert(memberVO vo) { // 권한 제외
-//		String sql = "INSERT INTO member (mid,mpassword, mname, mbirth, mnumber, mAddress) VALUES (?,?,?,?,?,?)";
-//		int n = 0;
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, vo.getmId());
-//			psmt.setString(2, vo.getmPassword());
-//			psmt.setString(3, vo.getmName());
-//			psmt.setString(4, vo.getmBirth());
-//			psmt.setString(5, vo.getmNumber());
-//			psmt.setString(6, vo.getmAddress());
-//			n = psmt.executeUpdate();
-//			System.out.println(n + "건 등록.");
-//		} catch (Exception e) {
-//		} finally {
-//			close();
-//		}
-//
-//		return n;
-//	}
-//
+//등록
+	public void insertMember(memberVO vo) { 
+		String sql = "INSERT INTO member99"
+				+"(MemberId, MemberPassword, MemberName"
+				+ ", MemberPhoneNumber, MemberSiAddress, MemberGuAddress)"
+				+ " VALUES(?,?,?"
+				+ ",?,?,?)";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getMemberId());
+			psmt.setString(2, vo.getMemberPassword());
+			psmt.setString(3, vo.getMemberName());
+			psmt.setString(4, vo.getMemberPhoneNumber());
+			psmt.setString(5, vo.getMemberSiAddress());
+			psmt.setString(6, vo.getMemberGuAddress());
+			psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
+
 //수정
 	public void updateProfile(memberVO vo) { 
 		String sql = "UPDATE member99 SET memberPassword=?, memberName=?"

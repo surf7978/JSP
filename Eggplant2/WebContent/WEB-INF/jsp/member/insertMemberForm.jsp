@@ -13,18 +13,18 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" action="insertMember.do" method="post">
                                 <div class="form-group row">
                                		 <div class="col-sm-2 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user"
                                             style="text-align:center; font-size:15px; color: #9400d3; background-color:white;" value="아이디 입력" readonly>
                                     </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="exampleFirstName"
+                                        <input type="text" class="form-control form-control-user" name="memberId"
                                             placeholder="아이디 입력">
                                     </div>
                                     <div class="col-sm-1 mb-3 mb-sm-0">
-                                        <input type="hidden" class="form-control form-control-user" name="exampleFirstName"
+                                        <input type="hidden" class="form-control form-control-user" 
                                             placeholder="아이디 입력">
                                     </div>
                                     <div class="col-sm-3 mb-3 mb-sm-0">
@@ -39,7 +39,7 @@
                                             style="text-align:center; font-size:15px; color: #9400d3; background-color:white;" value="패스워드 입력" readonly>
                                     </div>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input type="text" class="form-control form-control-user" name="memberPassword"
                                             placeholder="패스워드 입력">
                                     </div>
                                     <div class="col-sm-5">
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="홍길동">
+                                            name="memberName" placeholder="홍길동">
                                     </div>
                                     <div class="col-sm-2 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user"
@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="010-XXXX-YYYY">
+                                            name="memberPhoneNumber" placeholder="010-XXXX-YYYY">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -73,22 +73,21 @@
                                     </div>
                                     <div class="col-sm-5 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="대구시">
+                                            name="memberSiAddress" placeholder="대구시">
                                     </div>
                                     <div class="col-sm-5 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="달서구">
+                                            name="memberGuAddress" placeholder="달서구">
                                     </div>
                                 </div>
                                 <hr>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                <button onclick="submit" class="btn btn-primary btn-user btn-block">
                                     가입하기
-                                </a>
+                                </button>
                                 <hr>
                                 <a href="loginForm.do" class="btn btn-google btn-user btn-block">
                                     로그인
                                 </a>
-                                
                             </form>
                         </div>
                     </div>

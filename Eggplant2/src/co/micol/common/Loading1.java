@@ -10,9 +10,9 @@ public class Loading1 implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		memberDAO dao = new memberDAO();
 		
-		dao.endSetting();
+		//memberDAO dao = new memberDAO();
+		//dao.endSetting();
 		
 		return "loading2.do";
 	}

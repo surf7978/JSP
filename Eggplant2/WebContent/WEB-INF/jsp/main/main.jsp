@@ -50,14 +50,14 @@
             <!-- Divider -->
 
         <hr class="sidebar-divider my-0">
-        <c:if test="${memberId eq null }">
+        <c:if test="${memberAuth eq null }">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="loginForm.do">
                     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;로그인이 필요합니다.</span></a>
             </li>
         </c:if>
- 		<c:if test="${memberId ne null }">
+ 		<c:if test="${memberAuth ne null }">
             <!-- Nav Item - Dashboard -->
 			<li class="nav-item active">
                 <a class="nav-link" href="mainPage.do">
@@ -189,7 +189,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <c:if test="${memberId ne null }">
+                    <c:if test="${memberAuth ne null }">
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 					<jsp:include page="menu.jsp" />
@@ -395,7 +395,7 @@
 
                         
                         </c:if>
-                        <c:if test="${memberId eq null }">
+                        <c:if test="${memberAuth eq null }">
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <div>
                             <a class="collapse-item" href="loginForm.do" >로그인</a>
