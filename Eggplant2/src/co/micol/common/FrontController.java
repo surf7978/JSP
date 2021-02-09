@@ -33,6 +33,14 @@ import co.micol.member.MemberList;
 import co.micol.member.UpdateProfile;
 import co.micol.my.CartList;
 import co.micol.my.Profile;
+import co.micol.servlet.MainForm;
+import co.micol.servlet.NoticeDelete;
+import co.micol.servlet.NoticeInsert;
+import co.micol.servlet.NoticeInsertForm;
+import co.micol.servlet.NoticeUpdate;
+import co.micol.servlet.NoticeUpdateForm;
+import co.micol.servlet.NoticeView;
+import co.micol.servlet.notice;
 import co.micol.my.NoteList;
 import co.micol.my.NoteNCommandList;
 import co.micol.my.NoticeList;
@@ -59,6 +67,7 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/memberList.do", new MemberList());
 		map.put("/deleteMember.do", new DeleteMember());
+		map.put("/insertMemberForm.do", new InsertMemberForm());
 		map.put("/insertMember.do", new InsertMember());
 				
 		map.put("/boardList.do", new BoardList());
@@ -79,25 +88,32 @@ public class FrontController extends HttpServlet {
 		map.put("/noteNcommandList.do", new NoteNCommandList());
 		
 		map.put("/updateTradeProcess.do", new UpdateTradeProcess());
+		map.put("/adminDashBoard.do", new AdminDashBoard());
 		
-
+		map.put("/noticeList.do", new NoticeList());
+		
+		//유진이꺼
+		map.put("/main.do", new MainForm());
+		map.put("/notice.do", new notice());
+		map.put("/noticeView.do", new NoticeView());
+		map.put("/noticedelete.do", new NoticeDelete());
+		map.put("/noticeInsertForm.do", new NoticeInsertForm());
+		map.put("/noticeInsert.do", new NoticeInsert());
+		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
+		map.put("/noticeUpdate.do", new NoticeUpdate());
 		
 		
 		
 		
-		
-		
-		map.put("/insertMemberForm.do", new InsertMemberForm());
+		//버린 거
 		map.put("/idCheck.do", new IdCheck());
 		
 		map.put("/BoardList.do", new BoardList());
 		map.put("/BoardView.do", new BoardView());
 			
-		map.put("/adminDashBoard.do", new AdminDashBoard());
 			
 		map.put("/cartList.do", new CartList());
 		map.put("/noteList.do", new NoteList());
-		map.put("/noticeList.do", new NoticeList());
 		
 		map.put("/frequentlyQuestion.do", new FrequentlyQuestion());
 		map.put("/QnAList.do", new QnAList());

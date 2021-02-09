@@ -20,6 +20,7 @@
     <!-- Custom fonts for this template-->
     <link href="startbootstrap-sb-admin-2-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="startbootstrap-sb-admin-2-gh-pages/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="startbootstrap-sb-admin-2-gh-pages/css/menu_style.css"> <!-- Resource style -->
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -40,11 +41,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="main.do">
                 <div class="sidebar-brand-icon rotate-n-19">
                     <i class="fas fa-pepper-hot"></i>
                 </div>
-                <div style="padding-top:10px;"><h4><div class="sidebar-brand-text mx-3">가<sup>지</sup>마<sup>켓</sup></div></h4></div>
+                <div style="padding-top:10px;" id="logo"><h4><div class="sidebar-brand-text mx-3" ><img src="image/logo.png" /></div></h4></div>
             </a>
 
             <!-- Divider -->
@@ -60,7 +61,7 @@
  		<c:if test="${memberAuth ne null }">
             <!-- Nav Item - Dashboard -->
 			<li class="nav-item active">
-                <a class="nav-link" href="mainPage.do">
+                <a class="nav-link" href="main.do">
                     <i class="fas fa-home"></i>
                     <span>&nbsp;&nbsp;홈</span></a>
             </li>
@@ -127,7 +128,7 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="frequentlyQuestion.do">&nbsp;&nbsp;&nbsp;<i class="fas fa-list-ul"></i>&nbsp;&nbsp;자주 묻는 질문</a>
-                    <a class="collapse-item" href="QnAList.do">&nbsp;&nbsp;&nbsp;<i class="fas fa-question"></i>&nbsp;&nbsp;Q & A</a>
+                    <a class="collapse-item" href="notice.do">&nbsp;&nbsp;&nbsp;<i class="fas fa-question"></i>&nbsp;&nbsp;공지사항</a>
                     <a class="collapse-item" href="reportList.do">&nbsp;&nbsp;&nbsp;<i class="fas fa-bug"></i>&nbsp;&nbsp;신고 센터</a>
                 </div>
             </div>

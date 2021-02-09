@@ -121,33 +121,6 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-    <script type="text/javascript">
-	$(function(){
-		$.ajax({		
-			type:'post',
-			url:'<%=request.getContextPath()%>/memberList',
-			dataType : "json",
-			success : function(result) {
-				console.log(result);
-				console.log('ajax GET 통신 성공');
-				for (let i = 0; i < result.length; i++) {
-	                let tr = document.createElement('tr');
-	                console.log(result[i]);
-	                tr.setAttribute("id", result[i].mId);
-	                tr.setAttribute("name", result[i].mId);
-	                tr.setAttribute("onclick", "myPage.do");
-	                let tbody = document.getElementById("show").append(tr);
-	                console.log(result[i]);
-	                for(filed in result[i]){	    
-	                	let td = document.createElement('td');
-	                	td.innerHTML = result[i][filed];
-                        tr.appendChild(td);	                	
-	                }
-                }
-			}
-		})
-	})
-</script>
 
 </body>
 
