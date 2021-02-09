@@ -19,13 +19,13 @@ public class memberDAO extends DAO {
 				+ ", MemberGuAddress varchar2(100) not null, MemberPhoneNumber varchar2(20) not null)";
 		String sql2 = "insert into member99"//
 				+ "(MemberId, MemberPassword, MemberName, MemberAuth, MemberSiAddress, MemberGuAddress, MemberPhoneNumber)"//
-				+ " values('admin','admin', '관리자', 'ADMIN', '대구시', '달서구', '010-1111-1111')";
+				+ " values('admin','admin', '관리자', 'ADMIN', '대구광역시', '달서구', '010-1111-1111')";
 		String sql3 = "insert into member99"//
 				+ "(MemberId, MemberPassword, MemberName, MemberAuth, MemberSiAddress, MemberGuAddress, MemberPhoneNumber)"//
-				+ " values('park','1234', '박', 'USER', '대구시', '서구', '010-2222-2222')";
+				+ " values('park','1234', '박', 'USER', '대구광역시', '서구', '010-2222-2222')";
 		String sql4 = "insert into member99"//
 				+ "(MemberId, MemberPassword, MemberName, MemberAuth, MemberSiAddress, MemberGuAddress, MemberPhoneNumber)"//
-				+ " values('kim','1234', '김', 'USER', '대구시', '달성군', '010-3333-3333')";
+				+ " values('kim','1234', '김', 'USER', '대구광역시', '달성군', '010-3333-3333')";
 		
 		String sql5 = "create table board99(BoardTitle varchar2(100) not null"//
 				+ ", BoardContent varchar2(1000) not null"//
@@ -46,7 +46,7 @@ public class memberDAO extends DAO {
 				+ "(BoardTitle, BoardContent, ProductName, MemberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber"
 				+ ", Category1, Category2, productImage)"//
 				+ " values('폰팝니다','제곧내', '갤럭시s9', 'park', '대구시', '서구', '010-2222-2222', '전자기기', '스마트폰'"
-				+ ", '콩이.jpg')";
+				+ ", '01.jpg')";
 		
 		String sql7 = "create table buy99"//
 				+ "(BuyDate varchar2(20) default to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') not null"//

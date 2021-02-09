@@ -24,6 +24,7 @@
 								<div class="col-sm-12 mb-3 mb-sm-0">
 									<input type="text" class="form-control form-control-user"
 										id="boardTitle" name="boardTitle" readonly="readonly"
+										style="text-align:center; font-size:40px;"
 										value="${vo.boardTitle }">
 								</div>
 							</div>
@@ -36,10 +37,15 @@
 								<div class="col-sm-12 mb-3 mb-sm-0">
 									<textarea class="form-control" name="boardContent"
 										readonly="readonly" 
-										style="margin-top: 0px; margin-bottom: 0px; height: 300px;">${vo.boardContent }</textarea>
+										style="margin-top: 0px; margin-bottom: 0px; height: 340px;">${vo.boardContent }</textarea>
 								</div>
 							</div>
-
+							<!-- 
+							<div class="form-group row">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51727.01416109143!2d128.51365602113924!3d35.875026768137076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565e469c3001c79%3A0xfceaf22c62461ab4!2z64yA6rWs6rSR7Jet7IucIOyEnOq1rA!5e0!3m2!1sko!2skr!4v1612883064148!5m2!1sko!2skr" 
+							width="430" height="300" frameborder="0" style="border:0; padding-left:15px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+							</div>
+							 -->
 						</div>
 						<div class="col-lg-7">
 							<div class="p-5">
@@ -52,8 +58,8 @@
 													type="hidden" class="form-control form-control-user"
 													id="exampleFirstName" value="#">
 											</div>
-											<div class="col-sm-3" style="text-align: left; color: black;">
-												<h5>조회수&nbsp;&nbsp;:</h5>
+											<div class="col-sm-3" style="text-align: right; color: black;">
+												<h5>조회수&nbsp;&nbsp;:&nbsp;&nbsp;</h5>
 											</div>
 											<div class="col-sm-3"
 												style="text-align: center; color: black;">
@@ -62,24 +68,29 @@
 										</div>
 									</div>
 									<div class="form-group row">
-										<div class="col-sm-6">
+										<div class="col-sm-3">
 											<input readonly
 												style="text-align: center; background-color: white;"
 												type="hidden" class="form-control form-control-user"
 												id="exampleFirstName" value="#">
+										</div><div class="col-sm-6">
+											<input readonly
+												style="text-align: right; background-color: white; border:0; color:black;"
+												type="text" class="form-control form-control-user"
+												id="exampleFirstName" value="판매상태  :">
 										</div>
 										<c:if test="${vo.tradeProcess eq 'NotComplete' }">
-											<div class="col-sm-1" style="text-align: center; color: red;">
-												<input name="tradeProcess" style="text-align: center;"
-													value="${vo.tradeProcess }">
+											<div class="col-sm-1" style="text-align: center;">
+												<input name="tradeProcess" style="text-align: left; border:0; color: red; padding-top:7px;"
+													value="${vo.tradeProcess }" readonly>
 
 											</div>
 										</c:if>
 										<c:if test="${vo.tradeProcess eq 'Complete' }">
 											<div class="col-sm-3"
-												style="text-align: center; color: green;">
-												<input name="tradeProcess" style="text-align: center;"
-													value="${vo.tradeProcess }">
+												style="text-align: center;">
+												<input name="tradeProcess" style="text-align: left; border:0; color: green; padding-top:7px;"
+													value="${vo.tradeProcess }" readonly>
 											</div>
 										</c:if>
 									</div>
@@ -102,37 +113,18 @@
 									<input readonly
 										style="text-align: center; background-color: white; color: #9400d3;"
 										type="text" class="form-control form-control-user"
-										id="exampleLastName" value="지역">
+										id="exampleLastName" value="지 역">
 								</div>
-								<div class="col-sm-4">
-									<label> <input type="text"
-										class="form-control form-control-user" readonly="readonly"
-										list="siAddress" name="memberSiAddress"
-										value="${vo.memberSiAddress }"> <datalist
-											id="siAddress">
-											<option value="서울특별시"></option>
-											<option value="부산광역시"></option>
-											<option value="대구광역시"></option>
-											<option value="인천광역시"></option>
-											<option value="광주광역시"></option>
-											<option value="대전광역시"></option>
-											<option value="울산광역시"></option>
-											<option value="세종특별자치시"></option>
-											<option value="경기도"></option>
-											<option value="강원도"></option>
-											<option value="충청북도"></option>
-											<option value="충청남도"></option>
-											<option value="전라북도"></option>
-											<option value="전라남도"></option>
-											<option value="경상북도"></option>
-											<option value="경상남도"></option>
-											<option value="제주특별자치도"></option>
-										</datalist>
-									</label>
+								<div class="col-sm-6">
+									<input type="text"
+										class="form-control form-control-user" style="text-align:center;"
+										readonly
+										value="${vo.memberSiAddress }  ${vo.memberGuAddress }">
 								</div>
-								<div class="col-sm-4">
-									<input type="text" class="form-control form-control-user"
-										name="memberGuAddress" value="${vo.memberGuAddress }">
+								<div class="col-sm-3">
+									<a target="_blank" onClick="window.open(this.href, '', 'width=1000, height=430'); return false;"
+									class="btn btn-facebook btn-user btn-block"  
+									href="https://www.google.co.kr/maps/place/${vo.memberSiAddress }+${vo.memberGuAddress }/">지도보기</a>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -142,7 +134,7 @@
 										type="text" class="form-control form-control-user"
 										id="exampleLastName" value="연 락 처">
 								</div>
-								<div class="col-sm-9">
+								<div class="col-sm-8">
 									<input type="text" class="form-control form-control-user"
 										name="memberPhoneNumber" readonly="readonly"
 										value="${vo.memberPhoneNumber }">
@@ -155,7 +147,20 @@
 									<input readonly
 										style="text-align: center; background-color: white; color: #9400d3;"
 										type="text" class="form-control form-control-user"
-										id="exampleLastName" value="기종">
+										id="exampleLastName" value="분 류">
+								</div>
+								<div class="col-sm-9">
+									<input type="text" class="form-control form-control-user"
+										 readonly="readonly"
+										value="${vo.category1} > ${vo.category2}">
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-2">
+									<input readonly
+										style="text-align: center; background-color: white; color: #9400d3;"
+										type="text" class="form-control form-control-user"
+										id="exampleLastName" value="품 명">
 								</div>
 								<div class="col-sm-9">
 									<input type="text" class="form-control form-control-user"
@@ -168,7 +173,7 @@
 									<input readonly
 										style="text-align: center; background-color: white; color: #9400d3;"
 										type="text" class="form-control form-control-user"
-										id="exampleLastName" value="색상">
+										id="exampleLastName" value="색 상">
 								</div>
 								<div class="col-sm-6">
 									<input type="text" class="form-control form-control-user"
@@ -181,7 +186,7 @@
 									<input readonly
 										style="text-align: center; background-color: white; color: #9400d3;"
 										type="text" class="form-control form-control-user"
-										id="exampleLastName" value="용량">
+										id="exampleLastName" value="용 량">
 								</div>
 								
 								<div class="col-sm-6">
@@ -206,7 +211,7 @@
 									<input readonly
 										style="text-align: center; background-color: white; color: #9400d3;"
 										type="text" class="form-control form-control-user"
-										id="exampleLastName" value="가격">
+										id="exampleLastName" value="가 격">
 								</div>
 								<div class="col-sm-9">
 									<input type="text" class="form-control form-control-user"

@@ -137,6 +137,8 @@ public class boardDAO extends DAO {
 		String sql="UPDATE board99 SET"//
 				+ " BoardTitle= ?, BoardContent =?, price =?"//
 				+ ", tradeProcess =?, ProductImage =?"//
+				+ ",memberSiAddress =?, memberGuAddress =?"//
+				+ ", category1 =?, category2 =?"//
 				+ " WHERE BoardDate =?";
 	
 		try {
@@ -146,7 +148,11 @@ public class boardDAO extends DAO {
 			psmt.setInt(3, vo.getPrice());
 			psmt.setString(4, vo.getTradeProcess());
 			psmt.setString(5, vo.getProductImage());
-			psmt.setString(6, vo.getBoardDate());
+			psmt.setString(6, vo.getMemberSiAddress());
+			psmt.setString(7, vo.getMemberGuAddress());
+			psmt.setString(8, vo.getCategory1());
+			psmt.setString(9, vo.getCategory2());
+			psmt.setString(10, vo.getBoardDate());
 			n = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

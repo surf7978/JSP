@@ -20,6 +20,11 @@ public class UpdateBoard implements Command {
 		vo.setTradeProcess(request.getParameter("tradeProcess"));
 		vo.setProductImage(request.getParameter("productImage"));
 		
+		vo.setMemberSiAddress(request.getParameter("memberSiAddress"));
+		vo.setMemberGuAddress(request.getParameter("memberGuAddress"));
+		vo.setCategory1(request.getParameter("category1"));
+		vo.setCategory2(request.getParameter("category2"));
+		
 		System.out.println(vo.toString());
 		
 		dao.updateBoard(vo);

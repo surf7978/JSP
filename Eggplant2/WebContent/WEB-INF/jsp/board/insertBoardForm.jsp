@@ -2,8 +2,11 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="../main/main.jsp" />
-
-
+<style>
+	textarea{
+		resize:none;
+	}
+</style>
 <div class="container">
 	<div class="card o-hidden border-0 shadow-lg my-5">
 		<div class="card-body p-0">
@@ -21,7 +24,7 @@
 						</div>
 						<div class="form-group row">
 							<div class="col-sm-12 mb-3 mb-sm-0">
-								<textarea class="form-control"
+								<textarea class="form-control" 
 									name="boardContent" placeholder="내용 입력"
 									style="margin-top: 0px; margin-bottom: 0px; height: 500px;"></textarea>
 							</div>
@@ -72,16 +75,10 @@
 								</div>
 								<hr>
 								<div class="form-group row">
-									<div class="col-sm-12">
-										<input type="text" class="form-control form-control-user"
-											name="productName" placeholder="제품명">
-									</div>
-								</div>
-								<div class="form-group row">
 									<div class="col-sm-6">
 										<input type="text" class="form-control form-control-user"
-											name="category1" list="volume" placeholder="분류1">
-											<datalist id="volume">
+											name="category1" list="category1" placeholder="분류1">
+											<datalist id="category1">
 											<option value="의류"></option>
 											<option value="전자기기"></option>
 											</datalist>
@@ -89,6 +86,32 @@
 									<div class="col-sm-6">
 										<input type="text" class="form-control form-control-user"
 											name="category2" placeholder="분류2">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-12">
+										<input type="text" class="form-control form-control-user"
+											name="productName" placeholder="제품명">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-6">
+									<input type="text" class="form-control form-control-user"
+										name="productColor" 
+										value="색상 입력">
+									</div>
+									<div class="col-sm-6">
+									<input type="text" class="form-control form-control-user"
+										name="productVolume" list="volume"
+										value="용량 입력">
+									<datalist id="volume">
+										<option value="16">GB</option>
+										<option value="32">GB</option>
+										<option value="64">GB</option>
+										<option value="128">GB</option>
+										<option value="256">GB</option>
+										<option value="512">GB</option>
+									</datalist>
 									</div>
 								</div>
 								
@@ -115,7 +138,7 @@
 									<form action="FileUpload" method="post" enctype="multipart/form-data">
 										<!-- FileUpLoad 서블릿 실행 -->
 
-										<input type="file" class="form-control"
+										<input type="file" class="form-control" style="padding-bottom:35px;"
 											id="productImage" name="productImage"><br> 
 										<p>
 									</form>
@@ -127,7 +150,7 @@
 											class="btn btn-primary btn-user btn-block">판매글등록</button>
 									</div>
 									<div class="col-sm-4 mb-3 mb-sm-0">
-										<a href="main.do"
+										<a href="boardList.do"
 											class="btn btn-google btn-user btn-block"> 뒤로가기 </a>
 									</div>
 									<div class="col-sm-4">
