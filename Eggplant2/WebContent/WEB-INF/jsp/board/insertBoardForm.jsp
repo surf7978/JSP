@@ -8,7 +8,7 @@
 	<div class="card o-hidden border-0 shadow-lg my-5">
 		<div class="card-body p-0">
 			<!-- Nested Row within Card Body -->
-			<form class="user" action="insertBoard.do" method="post">
+			<form action="insertBoard.do" method="post">
 			<div class="row">
 				
 					<div class="col-lg-5 d-none d-lg-block">
@@ -91,6 +91,7 @@
 											name="category2" placeholder="분류2">
 									</div>
 								</div>
+								
 								<hr>
 
 								<div class="form-group row">

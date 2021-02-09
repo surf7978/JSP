@@ -14,10 +14,13 @@ public class UpdateBoard implements Command {
 		boardDAO dao = new boardDAO();
 		boardVO vo = new boardVO();
 		vo.setBoardDate(request.getParameter("boardDate"));
-		vo.setBoardTitle(request.getParameter("updateBoardTitle"));
-		vo.setBoardContent(request.getParameter("updateBoardContent"));
+		vo.setBoardTitle(request.getParameter("boardTitle"));
+		vo.setBoardContent(request.getParameter("boardContent"));
 		vo.setPrice(Integer.parseInt(request.getParameter("updatePrice")));
 		vo.setTradeProcess(request.getParameter("tradeProcess"));
+		vo.setProductImage(request.getParameter("productImage"));
+		
+		System.out.println(vo.toString());
 		
 		dao.updateBoard(vo);
 		

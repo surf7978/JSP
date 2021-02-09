@@ -134,7 +134,10 @@ public class boardDAO extends DAO {
 //수정
 	public int updateBoard(boardVO vo) { 
 		int n =0;
-		String sql="UPDATE board99 SET BoardTitle= ?, BoardContent =?, price =?, tradeProcess =? ProductImage =? WHERE BoardDate =?";
+		String sql="UPDATE board99 SET"//
+				+ " BoardTitle= ?, BoardContent =?, price =?"//
+				+ ", tradeProcess =?, ProductImage =?"//
+				+ " WHERE BoardDate =?";
 	
 		try {
 			psmt = conn.prepareStatement(sql);

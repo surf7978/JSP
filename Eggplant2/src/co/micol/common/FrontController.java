@@ -19,12 +19,14 @@ import co.micol.board.UpdateBoard;
 import co.micol.board.UpdateTradeProcess;
 import co.micol.comment.InsertComment;
 import co.micol.board.BoardList;
+import co.micol.board.BoardUpdateForm;
 import co.micol.board.BoardView;
 import co.micol.board.BuySend;
 import co.micol.board.InsertBoard;
 import co.micol.customerCenter.FrequentlyQuestion;
 import co.micol.customerCenter.QnAList;
 import co.micol.customerCenter.ReportList;
+import co.micol.file.FileUpload;
 import co.micol.member.AdminDashBoard;
 import co.micol.member.DeleteMember;
 import co.micol.member.InsertMember;
@@ -58,6 +60,7 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
+		//공통
 		map.put("/loading1.do", new Loading1());
 		map.put("/loading2.do", new Loading2());
 		map.put("/loginForm.do", new LoginForm());
@@ -102,7 +105,9 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
 		map.put("/noticeUpdate.do", new NoticeUpdate());
 		
-		
+		//현정이꺼
+		map.put("/boardUpdateForm.do", new BoardUpdateForm());
+		map.put("/fileUpload.do", new FileUpload());
 		
 		
 		//버린 거
@@ -110,7 +115,6 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/BoardList.do", new BoardList());
 		map.put("/BoardView.do", new BoardView());
-			
 			
 		map.put("/cartList.do", new CartList());
 		map.put("/noteList.do", new NoteList());
