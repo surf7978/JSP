@@ -12,7 +12,7 @@ background-repeat: no-repeat;background-position: 650px 0;position:relative;}
 #main_text{position:absolute;top:40px;left:60px;}
 #button {
   border-radius: 7px;
-  background-color: #d434e2;
+  background-color: #a754ca;
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -33,7 +33,6 @@ background-repeat: no-repeat;background-position: 650px 0;position:relative;}
   position: relative;
   transition: 0.5s;
 }
-
 #button span:after {
   content: '\00bb';
   position: absolute;
@@ -62,12 +61,12 @@ background-repeat: no-repeat;background-position: 650px 0;position:relative;}
 .news .open-event ul{position:absolute; top:0px;margin:0;padding:0;width:100%;}
 .news .open-event ul#notice1 {left:0;}
 .news .open-event ul#notice2 {right:20px;}
-.news .open-event ul li {height:50px;line-height:60px;position: relative;width:100%;cursor:pointer;}
-.news .open-event ul li div{position: absolute;}
+.news .open-event ul li {height:50px;line-height:60px;position: relative;width:100%;cursor:pointer;display:block;}
+.news .open-event ul li span{position: absolute;}
 .notice_contents{left:0;}
 .notice_date{right:0;}
-.news .open-event ul li a {display:inline-block;}
-.news .open-event ul li a strong {margin-right:10px;}
+.news .open-event ul li a strong {margin-right:10px;float:none;}
+.news .open-event ul li a{width:100%;height:auto;}
 .news .open-event ul li span.date {display:inline-block; width:60px;}
 #show tr{cursor: pointer;}
 #show tr:hover{background: #f4f4f4;}

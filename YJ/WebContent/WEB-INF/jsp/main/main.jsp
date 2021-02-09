@@ -36,7 +36,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="main.do">
                 <div class="sidebar-brand-icon rotate-n-19">
-                    <i class="fas fa-pepper-hot"></i>
+                    <img src="image/logoimg.png" style="width:50px;">
                 </div>
                 <div style="padding-top:10px;" id="logo"><h4><div class="sidebar-brand-text mx-3" ><img src="image/logo.png" /></div></h4></div>
             </a>
@@ -366,11 +366,11 @@
                             </div>
                         </li>
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        <div style="padding-top: 20px;">
+                        <div style="line-height:70px;">
                             <a class="collapse-item" href="loginForm.do" >로그인</a>
                         </div>
                             <div class="topbar-divider d-none d-sm-block"></div>
-                        <div style="padding-top: 20px;">
+                        <div style="line-height:70px;">
                             <a class="collapse-item" href="signUpForm.do">회원가입</a>
                         </div>
                     </ul>

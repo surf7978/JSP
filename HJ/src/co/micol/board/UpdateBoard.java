@@ -31,7 +31,7 @@ public class UpdateBoard implements Command {
 		if(n != 0) {
 			String msg = "정상적으로 수정되었습니다. ";
 			request.setAttribute("msg", msg);
-			viewPage = "bookList.do";
+			viewPage = "boardList.do";
 		} else {
 			viewPage = "error1";
 		}

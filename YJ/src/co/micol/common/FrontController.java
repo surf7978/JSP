@@ -19,6 +19,7 @@ import co.micol.my.MyPage;
 import co.micol.my.NoteList;
 import co.micol.my.NoteNCommandList;
 import co.micol.my.NoticeList;
+import co.micol.servlet.ImageInsert;
 import co.micol.servlet.MainForm;
 import co.micol.servlet.NoticeDelete;
 import co.micol.servlet.NoticeInsert;
@@ -79,6 +80,7 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeInsert.do", new NoticeInsert());
 		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
 		map.put("/noticeUpdate.do", new NoticeUpdate());
+		map.put("/imageInsert.do", new ImageInsert());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

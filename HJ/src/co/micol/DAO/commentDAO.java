@@ -80,7 +80,7 @@ public class commentDAO extends DAO {
 		}		
 		return n;
 	}
-//	
+	
 ////수정
 //	public int update(commentVO vo) { //제목,내용,가격,사진,주소,할인
 //		int n =0;
@@ -104,21 +104,21 @@ public class commentDAO extends DAO {
 //		
 //		return n;
 //	}
-////삭제
-//	public int delete(commentVO vo) {
-//		int n =0;
-//		String sql="DELETE FROM text WHERE tNUMBER=?";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, vo.gettNumber());
-//			n = psmt.executeUpdate();
-//			System.out.println(n + "건이 삭제");
-//		} catch (Exception e) {
-//		} finally {
-//			close();
-//		}		
-//		return n;
-//	}
+//삭제
+	public int delete(commentVO vo) {
+		int n =0;
+		String sql="DELETE FROM comment99 WHERE commentDate=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getCommentDate());
+			n = psmt.executeUpdate();
+			System.out.println(n + "건이 삭제");
+		} catch (Exception e) {
+		} finally {
+			close();
+		}		
+		return n;
+	}
 	
 	public int countComment(int n) {
 		String sql = "select memberid from comment99";

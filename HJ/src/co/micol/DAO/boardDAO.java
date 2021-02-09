@@ -82,8 +82,8 @@ public class boardDAO extends DAO {
 	public int insertBoard(boardVO vo) {	// 뷰, 라이크는 제외
 		String sql="INSERT INTO board99"//
 				+ " (boardTitle, boardContent, price, productName"//
-				+ ", memberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber,ProductImage,ProductVolume,ProductColor, boardView, boardDate)"//
-				+ " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+				+ ", memberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber,ProductImage,ProductVolume,ProductColor)"//
+				+ " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 		int n =0;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -98,7 +98,6 @@ public class boardDAO extends DAO {
 			psmt.setString(9, vo.getProductImage());
 			psmt.setInt(10, vo.getProductVolume());
 			psmt.setString(11, vo.getProductColor());
-			psmt.setInt(12, vo.getBoardView());
 			n = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

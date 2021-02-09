@@ -40,7 +40,7 @@ function insert(){
 					<tr>
 						<th>CONTENT</th>
 						<td colspan="5"><textarea rows="20"style="width: 100%; max-width: 100%;" name="nContent" id="nContent"></textarea></td>
-					</tr>
+					</tr>	
 				</table>
 				</div></div>
 				<div align="center" id="noticebtn">

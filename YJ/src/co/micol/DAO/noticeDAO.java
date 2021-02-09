@@ -15,7 +15,7 @@ public class noticeDAO extends DAO {
 	public ArrayList<noticeVO> selectList(){
 		ArrayList<noticeVO> list = new ArrayList<noticeVO>();
 		noticeVO vo;
-		String sql = "SELECT * FROM NOTICE ORDER BY NDATE DESC";
+		String sql = "SELECT * FROM NOTICE ORDER BY NNUMBER DESC";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();

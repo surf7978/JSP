@@ -24,6 +24,8 @@ import co.micol.board.InsertBoard;
 import co.micol.customerCenter.FrequentlyQuestion;
 import co.micol.customerCenter.QnAList;
 import co.micol.customerCenter.ReportList;
+import co.micol.file.FileUpload;
+import co.micol.file.FileUploadServlet;
 import co.micol.member.AdminDashBoard;
 import co.micol.member.DeleteMember;
 import co.micol.member.InsertMemberForm;
@@ -48,8 +50,6 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
-		map.put("/loading1.do", new Loading1());
-		map.put("/loading2.do", new Loading2());
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
 		map.put("/mainPage.do", new MainPage());
@@ -60,6 +60,7 @@ public class FrontController extends HttpServlet {
 				
 		map.put("/boardList.do", new BoardList());
 		map.put("/insertBoardForm.do", new InsertBoardForm());
+		map.put("/fileUpload.do", new FileUpload());
 		map.put("/insertBoard.do", new InsertBoard());
 		map.put("/boardView.do", new BoardView());
 		map.put("/boardUpdateForm.do", new BoardUpdateForm());

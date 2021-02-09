@@ -17,18 +17,20 @@
 				for (let i = 0; i < 4; i++) {
 	                let li = document.createElement('li');
 	                document.getElementById("show").append(li);
+	                let a = document.createElement('a');
+	                li.append(a);
 	                for(field in result[i]){
 	                	if([field] == "nContent"){
 	                		console.log("테스트: " + result[i][field]);
-	                		let div = document.createElement('div');
-	                		$(div).attr('class','notice_contents');
-	                		div.innerHTML = result[i][field];
-	                		li.append(div);
+	                		let span = document.createElement('span');
+	                		$(span).attr('class','notice_contents');
+	                		span.innerHTML = result[i][field];
+	                		a.append(span);
 	                	}else if([field] == "nDate"){
-	                		let div = document.createElement('div');
-	                		$(div).attr('class','notice_date');
-	                		div.innerHTML = result[i][field];
-	                		li.append(div);
+	                		let span = document.createElement('span');
+	                		$(span).attr('class','notice_date');
+	                		span.innerHTML = result[i][field];
+	                		a.append(span);
 	                		console.log("테스트: " + result[i][field]);
 	                	}else if([field] == "nNumber"){
 	                		let input = document.createElement('input');
@@ -36,17 +38,108 @@
 	                		$(input).attr('id', field);
 	                		$(input).attr('type', "hidden");
 	                		input.value = result[i][field];
-	                		li.append(input);
+	                		a.append(input);
 	                		console.log("테스트: " + result[i][field]);	                		
 	                	}
 	                }
               }
+
+				function fn_article3(containerID, buttonID, autoStart){
+					var $element = $('#'+containerID).find('.notice-list');
+					var autoPlay = autoStart;
+					var auto = null;
+					var speed = 3000;
+					var timer = null;
+
+					var move = $element.children().outerHeight();
+					var first = false;
+					var lastChild;
+
+					lastChild = $element.children().eq(-1).clone(true);
+					lastChild.prependTo($element);
+					$element.children().eq(-1).remove();
+
+					if($element.children().length==1){
+						$element.css('top','0px');
+					}else{
+						$element.css('top','-'+move+'px');
+					}
+
+					if(autoPlay){
+						timer = setInterval(moveNextSlide, speed);
+						auto = true;
+					}else{
+						$play.hide();
+						$stop.hide();
+					}
+
+					$element.find('>li').bind({
+						'mouseenter': function(){
+							if(auto){
+								clearInterval(timer);
+							}
+						},
+						'mouseleave': function(){
+							if(auto){
+								timer = setInterval(moveNextSlide, speed);
+							}
+						}
+					});
+
+					function movePrevSlide(){
+						$element.each(function(idx){
+							if(!first){
+								$element.eq(idx).animate({'top': '0px'},'normal',function(){
+									lastChild = $(this).children().eq(-1).clone(true);
+									lastChild.prependTo($element.eq(idx));
+									$(this).children().eq(-1).remove();
+									$(this).css('top','-'+move+'px');
+								});
+								first = true;
+								return false;
+							}
+
+							$element.eq(idx).animate({'top': '0px'},'normal',function(){
+								lastChild = $(this).children().filter(':last-child').clone(true);
+								lastChild.prependTo($element.eq(idx));
+								$(this).children().filter(':last-child').remove();
+								$(this).css('top','-'+move+'px');
+							});
+						});
+					}
+
+					function moveNextSlide(){
+						$element.each(function(idx){
+
+							var firstChild = $element.children().filter(':first-child').clone(true);
+							firstChild.appendTo($element.eq(idx));
+							$element.children().filter(':first-child').remove();
+							$element.css('top','0px');
+
+							$element.eq(idx).animate({'top':'-'+move+'px'},'normal');
+
+						});
+					}
+				}  
+				jQuery(function(){
+					var $ = jQuery;
+				  jQuery('.btn').addClass('pointer').click(function () {
+				   var ih = $(this).index() == 0 ? -18 : 18; //위아래로 움직이는 px 숫자
+				   var obj = $('.recommend_list');
+				   obj.animate({ scrollTop:obj.scrollTop() + ih }, 100);
+				  });
+				});
+				jQuery(function(){
+				  function fn_article(container,btn, auto){}
+				});
+				fn_article3('notice5','bt5',true);
+
 			}
 		})
 	})
 	$(function(){
 		$("#show").on('click', $('li'), function(e){
-			let td = e.target.parentNode.childNodes[0].value;
+			let td = $(e.target).parentsUntil('div').find("[type='hidden']").eq(1).val();//.parentNode.childNodes[0].value;
 			console.log(td);
 		 	location.href = "noticeView.do?nNumber=" + td;
 		})		
@@ -65,105 +158,10 @@
 	</div>
 	<div class="open-event fl">
 		<ul class="notice-list" id="show">
-		<li style="display:none;"> 
-			<div class="notice_contents">공지사항 내용</div>
-			<div class="notice_date">2021 - 02 - 07</div>
-		</li>
 		</ul>
 	</div>
 </div>
 <script>
-function fn_article3(containerID, buttonID, autoStart){
-	var $element = $('#'+containerID).find('.notice-list');
-	var autoPlay = autoStart;
-	var auto = null;
-	var speed = 3000;
-	var timer = null;
-
-	var move = $element.children().outerHeight();
-	var first = false;
-	var lastChild;
-
-	lastChild = $element.children().eq(-1).clone(true);
-	lastChild.prependTo($element);
-	$element.children().eq(-1).remove();
-
-	if($element.children().length==1){
-		$element.css('top','0px');
-	}else{
-		$element.css('top','-'+move+'px');
-	}
-
-	if(autoPlay){
-		timer = setInterval(moveNextSlide, speed);
-		$play.addClass('on').text('▶');
-		auto = true;
-	}else{
-		$play.hide();
-		$stop.hide();
-	}
-
-	$element.find('>li').bind({
-		'mouseenter': function(){
-			if(auto){
-				clearInterval(timer);
-			}
-		},
-		'mouseleave': function(){
-			if(auto){
-				timer = setInterval(moveNextSlide, speed);
-			}
-		}
-	});
-
-	function movePrevSlide(){
-		$element.each(function(idx){
-			if(!first){
-				$element.eq(idx).animate({'top': '0px'},'normal',function(){
-					lastChild = $(this).children().eq(-1).clone(true);
-					lastChild.prependTo($element.eq(idx));
-					$(this).children().eq(-1).remove();
-					$(this).css('top','-'+move+'px');
-				});
-				first = true;
-				return false;
-			}
-
-			$element.eq(idx).animate({'top': '0px'},'normal',function(){
-				lastChild = $(this).children().filter(':last-child').clone(true);
-				lastChild.prependTo($element.eq(idx));
-				$(this).children().filter(':last-child').remove();
-				$(this).css('top','-'+move+'px');
-			});
-		});
-	}
-
-	function moveNextSlide(){
-		$element.each(function(idx){
-
-			var firstChild = $element.children().filter(':first-child').clone(true);
-			firstChild.appendTo($element.eq(idx));
-			$element.children().filter(':first-child').remove();
-			$element.css('top','0px');
-
-			$element.eq(idx).animate({'top':'-'+move+'px'},'normal');
-
-		});
-	}
-}  
-jQuery(function(){
-	var $ = jQuery;
-  jQuery('.btn').addClass('pointer').click(function () {
-   var ih = $(this).index() == 0 ? -18 : 18; //위아래로 움직이는 px 숫자
-   var obj = $('.recommend_list');
-   obj.animate({ scrollTop:obj.scrollTop() + ih }, 100);
-  });
-});
-jQuery(function(){
-  function fn_article(container,btn, auto){}
-});
-fn_article3('notice5','bt5',true);
-
 </script>
 
 <!-- include -->

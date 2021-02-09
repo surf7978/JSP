@@ -15,16 +15,16 @@ public class BoardDelete implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		boardDAO dao = new boardDAO();
-		boardVO vo = new boardVO();
-		vo.setBoardDate(request.getParameter("boardDate"));
-		dao.selectBoard(vo);
+		boardDAO rdao = new boardDAO();
+		boardVO rvo = new boardVO();
+		rvo.setBoardDate(request.getParameter("boardDate"));
+		rdao.deleteBoard(rvo);
 				
-		commentDAO dao1 = new commentDAO();
-		commentVO vo1 = new commentVO();
-		vo1.setBoardDate(request.getParameter("boardDate"));
+		commentDAO dao = new commentDAO();
+		commentVO vo = new commentVO();
+		vo.setBoardDate(request.getParameter("boardDate"));
 		
-		int n = dao.deleteBoard(vo);
+		int n = dao.delete(vo);
 		String viewPage = null;
 		
 		if(n != 0) {

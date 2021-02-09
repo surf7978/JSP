@@ -5,8 +5,10 @@
 <jsp:include page="../main/main.jsp" />
 <!-- ------------------------------------------------------------------- -->
 <div class="container">
+<form id="frm" name="frm" action="updateBoard.do" method="post">
         <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
+            
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                      <div class="col-lg-5 d-none d-lg-block">
@@ -16,6 +18,11 @@
 									name="boardTitle" value="${vos.boardTitle }">
 							</div>
 						</div>
+						<div class="card o-hidden border-0 shadow-lg my-5">
+								<div class="card-body p-0">
+									<img src="image/${vo.productImage }" width=60% height=40%>
+								</div>
+							</div>
 						<div class="form-group row">
 							<div class="col-sm-12 mb-3 mb-sm-0">
 								<textarea class="form-control"
@@ -119,16 +126,30 @@
                                 <hr>
                                 
 								<div class="form-group row">
-									<div class="col-sm-12">
+									<div class="col-sm-2">
+                                        <input readonly style="text-align:center; background-color:white; color:#9400d3;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="기종">
+                                    </div>
+									<div class="col-sm-9">
 										<input type="text" class="form-control form-control-user"
 											name="productName" value="${vos.productName}">
 									</div>
 								</div>
 								<div class="form-group row">
+									<div class="col-sm-2">
+                                        <input readonly style="text-align:center; background-color:white; color:#9400d3;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="색상">
+                                    </div>
 									<div class="col-sm-6">
 										<input type="text" class="form-control form-control-user"
 											name="productColor" value="${vos.productColor}">
 									</div>
+								</div>
+								<div class="form-group row">
+								<div class="col-sm-2">
+                                        <input readonly style="text-align:center; background-color:white; color:#9400d3;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="용량">
+                                    </div>
 									<div class="col-sm-6">
 										<input type="text" class="form-control form-control-user"
 											name="productVolume" list="volume" value="${vos.productVolume}">
@@ -145,6 +166,10 @@
                                 <hr>
 
 								<div class="form-group row">
+								<div class="col-sm-2">
+                                        <input readonly style="text-align:center; background-color:white; color:#9400d3;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="가격">
+                                    </div>
 									<div class="col-sm-9">
 										<input type="text" class="form-control form-control-user"
 											name="price" value="${vos.price }">
@@ -153,12 +178,20 @@
                                 <hr>
                                 <br /> <br />
 								<div>
-									<form action="FileUpload" method="post" enctype="multipart/form-data">
-										<!-- FileUpLoad 서블릿 실행 -->
 
-										<input type="file" class="form-control" name="productImage"><br> 
-										<p>
-									</form>
+								<div class="form-group row">
+									<div class="col-sm-3">
+                                        <input readonly style="text-align:center; background-color:white; color:#9400d3;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="첨부파일">
+                                    </div>
+									<div class="col-sm-6">
+										<input type="text" class="form-control form-control-user" name="productImage" value="${vo.productImage }">											
+									</div>
+									<div class="col-sm-3">
+											<input type="button" class="btn btn-primary btn-user btn-block" 
+													onClick="window.open('fileUpload.do','파일업로드','width=400,height=400,location=no,status=no,scrollbars=no')" value="파일업로드">
+									</div>
+								</div>
 								</div>
                                 <hr>
                                 <div class="form-group row">
@@ -167,10 +200,8 @@
                                 </div>
                                 <c:if test="${vos.memberId eq memberId }">
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <button type="button" class="btn btn-primary btn-user btn-block"
-                                    onclick="location.href='boardUpdateForm.do'">
-                                        수정하기
-                                    </button>
+                                    <input type="submit" class="btn btn-primary btn-user btn-block" value="수정완료">
+
                                 </div>
                                 </c:if>
                                 <div class="col-sm-1 mb-3 mb-sm-0">
@@ -199,6 +230,7 @@
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
 
            <!-- Footer -->
