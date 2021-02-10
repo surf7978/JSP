@@ -17,6 +17,7 @@ import co.micol.board.SearchCategory1;
 import co.micol.board.SearchCategory2;
 import co.micol.board.UpdateBoard;
 import co.micol.board.UpdateTradeProcess;
+import co.micol.cart.InsertCart;
 import co.micol.comment.InsertComment;
 import co.micol.board.BoardList;
 import co.micol.board.BoardUpdateForm;
@@ -60,7 +61,7 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
-		//공통
+		//공용
 		map.put("/loading1.do", new Loading1());
 		map.put("/loading2.do", new Loading2());
 		map.put("/loginForm.do", new LoginForm());
@@ -95,6 +96,8 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/noticeList.do", new NoticeList());
 		
+		map.put("/insertCart.do", new InsertCart());
+		
 		//유진이꺼
 		map.put("/main.do", new MainForm());
 		map.put("/notice.do", new notice());
@@ -109,14 +112,17 @@ public class FrontController extends HttpServlet {
 		map.put("/boardUpdateForm.do", new BoardUpdateForm());
 		map.put("/fileUpload.do", new FileUpload());
 		
+		map.put("/cartList.do", new CartList());
+		
+		//세민이꺼
+		map.put("/idCheck.do", new IdCheck());
+		
 		
 		//버린 거
-		map.put("/idCheck.do", new IdCheck());
 		
 		map.put("/BoardList.do", new BoardList());
 		map.put("/BoardView.do", new BoardView());
 			
-		map.put("/cartList.do", new CartList());
 		map.put("/noteList.do", new NoteList());
 		
 		map.put("/frequentlyQuestion.do", new FrequentlyQuestion());

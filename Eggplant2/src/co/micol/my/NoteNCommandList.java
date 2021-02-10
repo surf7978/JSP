@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.micol.DAO.boardDAO;
 import co.micol.DAO.buyDAO;
@@ -52,6 +53,19 @@ public class NoteNCommandList implements Command {
 		list3 = dao3.selectSellList();
 		
 		request.setAttribute("list3", list3);
+		
+		sellVO vo1 = new sellVO();
+		vo1.setMemberId(request.getParameter("memberId"));
+		System.out.println(request.getParameter("memberId"));
+		
+		int n = 0;
+		
+		n = dao3.alertTrade(vo1);
+		
+		
+		HttpSession session = request.getSession();
+		session = request.getSession();
+		session.setAttribute("alertTrade", n);
 		
 		return "my/noteNcommandList";
 	}

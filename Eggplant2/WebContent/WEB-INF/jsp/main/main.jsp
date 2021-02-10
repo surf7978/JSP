@@ -41,7 +41,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="main.do">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="mainPage.do?memberId=${memberId }">
                 <div class="sidebar-brand-icon rotate-n-19">
                     <img src="image/logoimg.png" style="width:50px;">
                 </div>
@@ -61,7 +61,7 @@
  		<c:if test="${memberAuth ne null }">
             <!-- Nav Item - Dashboard -->
 			<li class="nav-item active">
-                <a class="nav-link" href="main.do">
+                <a class="nav-link" href="mainPage.do?memberId=${memberId }">
                     <i class="fas fa-home"></i>
                     <span>&nbsp;&nbsp;홈</span></a>
             </li>
@@ -191,9 +191,7 @@
 
                     <!-- Topbar Search -->
                     <c:if test="${memberAuth ne null }">
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-					<jsp:include page="menu.jsp" />
+                    <form>
                         <div class="input-group">
                             <!-- <input type="text" name="search" class="form-control bg-light border-0 small" placeholder="검색할 제품 입력"
                                 aria-label="Search" aria-describedby="basic-addon2"> -->
@@ -205,13 +203,15 @@
                         </div>
                     </form>
                     
-                    <form action="search.do" method="post">
+                    <form action="search.do" method="post"">
                     <button class="btn btn-primary" onclick="submit">
-                    	<i class="fas fa-search fa-sm"></i>
+                    	<i class="fas fa-search fa-sm" ></i>
                     </button>
-                    <input name="searchProductName" class="bg-light border-0 small" placeholder="검색할 제품 입력">
+                    <input name="searchProductName" 
+                     style="font-size:20px; height:35px; padding-bottom:10px;">
 					</form>
 					
+					<jsp:include page="menu.jsp" />
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                     
@@ -246,7 +246,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">${memberName }</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"  style="font-size:25px;">${memberName }</span>
                                  &nbsp;&nbsp;
                                 <img class="img-profile rounded-circle"
                                     src="startbootstrap-sb-admin-2-gh-pages/img/undraw_profile.svg">
@@ -255,10 +255,12 @@
 
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
+                                <c:if test="${membetAuth eq 'USER' }">
                                 <a class="dropdown-item" href="cartList.do">
                                     <i class="fas fa-shopping-cart fa-sm fa-fw text-gray-400"></i>
                                     &nbsp;&nbsp;장바구니
                                 </a>
+                                </c:if>
                                 <a class="dropdown-item" href="profile.do">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     프로필
@@ -275,58 +277,49 @@
                             </div>
                         </li>
                         
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        
+                        
                         
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        	<c:if test="${memberAuth eq 'USER' }">
+                            <a class="nav-link dropdown-toggle" href="noticeList.do" >
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">${alertTrade }</span>
+                                <span class="badge badge-danger badge-counter"  style="font-size:15px;">${alertTrade }</span>
                             </a>
-                            <!-- Dropdown - Alerts -->
+                        	</c:if>
+                        	<c:if test="${memberAuth eq 'ADMIN' }">
+                            <a class="nav-link dropdown-toggle" href="noteNcommandList.do" >
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter" style="font-size:15px;">${alertTrade }</span>
+                            </a>
+                        	</c:if>
+                            <!-- 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
                                     알림 센터
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <c:forEach var="vo" items="${alertVO2 }">
+                                    </c:forEach>
                                     <div class="mr-3">
                                         <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                            <img class="rounded-circle" src="startbootstrap-sb-admin-2-gh-pages/img/undraw_profile_2.svg"
+                                            alt="">
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
+	                                    <div class="small text-gray-500">${alertVO2 }</div>
+    	                                Spending Alert: We've noticed unusually high spending for your account.
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="noticeList.do">모든 알림 내역</a>
                             </div>
                         </li>
+                             -->
 
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
@@ -334,7 +327,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">999</span>
+                                <span class="badge badge-danger badge-counter"  style="font-size:15px;">999</span>
                             </a>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -356,7 +349,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="startbootstrap-sb-admin-2-gh-pages/img/undraw_profile_2.svg"
                                             alt="">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -368,7 +361,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="startbootstrap-sb-admin-2-gh-pages/img/undraw_profile_3.svg"
                                             alt="">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>

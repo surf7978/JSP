@@ -28,10 +28,10 @@
                                             placeholder="아이디 입력">
                                     </div>
                                     <div class="col-sm-3 mb-3 mb-sm-0">
-                                        <a href="idCheck.do" class="btn btn-facebook btn-user btn-block" style="font-size:15px;">
-                                            중   복   체   크
-                                        </a>
-                                    </div>
+									<a target="_blank" onClick="window.open(this.href, '', 'width=500, height=100'); return false;"style="font-size:15px;"
+									class="btn btn-facebook btn-user btn-block"  
+									href="idCheck.do">중 복 체 크</a>
+								</div>
                                 </div>
                                 <div class="form-group row">
                                 	<div class="col-sm-2 mb-3 mb-sm-0">

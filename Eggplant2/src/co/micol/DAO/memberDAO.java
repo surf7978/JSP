@@ -58,7 +58,8 @@ public class memberDAO extends DAO {
 				+ ", MemberSiAddress varchar2(100) not null"//
 				+ ", MemberGuAddress varchar2(100) not null"//
 				+ ", tradeProcess varchar2(20) default 'NotComplete' not null"//
-				+ ", MemberPhoneNumber varchar2(20) not null )";
+				+ ", MemberPhoneNumber varchar2(20) not null"
+				+ " )";
 		
 		String sql8 = "create table product99"//
 				+ "("//
@@ -106,6 +107,20 @@ public class memberDAO extends DAO {
 				+ " VALUES ('kim', to_char(sysdate,'yyyy/mm/dd hh24:mi:ss'), 100, '갤럭시s9'"
 				+ ", 'park', '대구시', '서구', '010-2222-2222')";
 		
+		String sql17 = "create table cart99"//
+				+ "("//
+				+ "CartMemberId varchar2(20) not null"//
+				+ ", CartDate varchar2(20) default to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') not null"//
+				+ ", BoardDate varchar2(20) not null"// 
+				+ ", price number default 100 not null"//
+				+ ", MemberId varchar2(10) not null"//
+				+ ", MemberSiAddress varchar2(100) not null"//
+				+ ", MemberGuAddress varchar2(100) not null"//
+				+ ", tradeProcess varchar2(20) default 'NotComplete' not null"//
+				+ ", ProductName varchar2(100) not null"//
+				+ ", MemberPhoneNumber varchar2(20) not null"
+				+ " )";
+		
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.executeQuery();
@@ -139,6 +154,8 @@ public class memberDAO extends DAO {
 			psmt.executeQuery();
 			psmt = conn.prepareStatement(sql16);
 			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql17);
+			psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -153,6 +170,7 @@ public class memberDAO extends DAO {
 		String sql4 ="drop table product99";
 		String sql5 ="drop table comment99";
 		String sql6 ="drop table sell99";
+		String sql7 ="drop table cart99";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.executeQuery();
@@ -165,6 +183,8 @@ public class memberDAO extends DAO {
 			psmt = conn.prepareStatement(sql5);
 			psmt.executeQuery();
 			psmt = conn.prepareStatement(sql6);
+			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql7);
 			psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -335,26 +355,27 @@ public class memberDAO extends DAO {
 		}
 	}
 
-////아이디채크
-//	public int isIdCheck(String id) {
-//		int cnt = 0;
-//		String sql = "SELECT MID FROM MEMBER WHERE MID = ?";
-//
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, id);
-//			rs = psmt.executeQuery();
-//			if (rs.next()) {
-//				cnt = 1;// 아이디 있으면 1
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			System.out.println("아이디 중복확인 실패");
-//		} finally {
-//			close();
-//		}
-//		return cnt;
-//	}
+	//아이디채크
+		public int isIdCheck(String id) {
+			int cnt = 0;
+			String sql = "SELECT memberId FROM MEMBER99 WHERE lower(memberId) = ?";
+
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, id);
+				rs = psmt.executeQuery();
+				if (rs.next()) {
+					cnt = 1;// 아이디 있으면 1
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("아이디 중복확인 실패");
+			} finally {
+				close();
+			}
+			return cnt;
+		}
+
 
 	private void close() {
 		try {

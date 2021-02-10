@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <jsp:include page="../main/main.jsp" />
 
 <div id="wrapper">
@@ -26,15 +28,43 @@
 						cellspacing="0">
 						<thead>
 							<tr>
-								<th>번호</th>
-								<th>제목</th>
+								<th>찜한 날짜</th>
 								<th>품명</th>
-								<th>용량</th>
-								<th>색상</th>
-								<th>통신사</th>
 								<th>판매가격</th>
+								<th>판매자</th>
+								<th>판매자 연락처</th>
 								<th>판매지역</th>
+								<th>판매날짜</th>
+								<th>판매상태</th>
 							</tr>
+							<c:choose>
+					<c:when test="${empty list }">
+						<tr>
+							<td colspan="9">찜한 제품이 없습니다.</td>
+						</tr>
+					</c:when>
+					<c:when test="${not empty list }">
+						<c:forEach var="vo" items="${list }">
+							<c:if test="${vo.cartMemberId eq memberId }">
+							<tr onclick="location.href='boardView.do?boardDate=${vo.boardDate}'">
+								<td align="center">${vo.cartDate }</td>
+								<td align="center">${vo.productName }</td>
+								<td align="center">${vo.price }</td>
+								<td align="center">${vo.memberId }</td>
+								<td align="center">${vo.memberPhoneNumber }</td>
+								<td align="center">${vo.memberSiAddress }&nbsp;&nbsp;${vo.memberGuAddress }</td>
+								<td align="center">${vo.boardDate }</td>
+								<c:if test="${vo.tradeProcess eq 'NotComplete' }">
+									<td style="text-align:center; color:red;">${vo.tradeProcess }</td>
+								</c:if>
+								<c:if test="${vo.tradeProcess eq 'Complete' }">
+									<td style="text-align:center; color:green;">${vo.tradeProcess }</td>
+								</c:if>
+							</tr>
+							</c:if>
+						</c:forEach>
+					</c:when>
+				</c:choose>
 						</thead>
 						<tbody id="show">
 						</tbody>
@@ -90,33 +120,6 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
-    <script type="text/javascript">
-	$(function(){
-		$.ajax({		
-			type:'post',
-			url:'<%=request.getContextPath()%>/memberList',
-			dataType : "json",
-			success : function(result) {
-				console.log(result);
-				console.log('ajax GET 통신 성공');
-				for (let i = 0; i < result.length; i++) {
-	                let tr = document.createElement('tr');
-	                console.log(result[i]);
-	                tr.setAttribute("id", result[i].mId);
-	                tr.setAttribute("name", result[i].mId);
-	                tr.setAttribute("onclick", "myPage.do");
-	                let tbody = document.getElementById("show").append(tr);
-	                console.log(result[i]);
-	                for(filed in result[i]){	    
-	                	let td = document.createElement('td');
-	                	td.innerHTML = result[i][filed];
-                        tr.appendChild(td);	                	
-	                }
-                }
-			}
-		})
-	})
-</script>
 
 </body>
 

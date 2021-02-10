@@ -57,22 +57,18 @@ public class FileUploadServlet extends HttpServlet {
 	 
 	 
 	            for (Part part : parts) {
-	                System.out.printf("파라미터 명 : %s, contentType :  %s,  size : %d bytes \n", part.getName(),
-	                        part.getContentType(), part.getSize());
 	 
 	 
 	                if  (part.getHeader("Content-Disposition").contains("filename=")) {
 	                    String fileName =  extractFileName(part.getHeader("Content-Disposition"));
 	                    
 	                    if (part.getSize() > 0) {
-	                        System.out.printf("업로드 파일 명 : %s  \n", fileName);
 	                        part.write(ATTACHES_DIR + File.separator  + fileName);
 	                        part.delete();
 	                        fname = fileName;
 	                    }
 	                } else {
 	                    String formValue =  request.getParameter(part.getName());
-	                    System.out.printf("name : %s, value : %s  \n", part.getName(), formValue);
 	                }
 	            }
 				out.println("<script>");

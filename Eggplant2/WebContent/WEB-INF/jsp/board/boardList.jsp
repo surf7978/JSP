@@ -13,6 +13,11 @@
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+setInterval(function(){
+	  $(".blinkEle").toggle();
+	}, 250);
+</script>
 <body>
 	<div class="card-body p-0">
 		<div align="center">
@@ -32,15 +37,17 @@
 									<li class="w3-purple w3-xlarge w3-padding-32"><img src="image/${vo.productImage }"></li>
 									<li class="w3-padding-16">${vo.boardTitle }</li>
 									<li class="w3-padding-16">${vo.category1 } > ${vo.category2 } > ${vo.productName }</li>
-									<li class="w3-padding-16">용량: ${vo.productVolume } / 
+									<li class="w3-padding-16">용량: ${vo.productVolume } GB / 
 															  색상: ${vo.productColor }</li>
 									<li class="w3-padding-16">가격: ${vo.price }</li>
 									<li class="w3-padding-16">조회수: ${vo.boardView }</li>
 									<c:if test="${vo.tradeProcess eq 'NotComplete' }">
-										<li style="text-align: center; color: red;">${vo.tradeProcess }</li>
+										<li style="text-align: center; color: red; padding:16px;" id="blinkEle">
+										${vo.tradeProcess }</li>
 									</c:if>
 									<c:if test="${vo.tradeProcess eq 'Complete' }">
-										<li style="text-align: center; color: green;">${vo.tradeProcess }</li>
+										<li style="text-align: center; color: red; padding:16px;" id="blinkEle">
+										${vo.tradeProcess }</li>
 									</c:if>
 								</ul>
 							</div>

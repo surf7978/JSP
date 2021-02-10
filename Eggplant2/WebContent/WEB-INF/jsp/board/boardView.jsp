@@ -12,7 +12,9 @@
 </style>
 <!-- ------------------------------------------------------------------------------ -->
 <div class="container">
+	<c:if test="${vo.memberId eq memberId }">
 		<form id="frm" name="frm" method="post">
+	</c:if>
 		<input type="hidden" class="form-control form-control-user" name="productImage" value="${vo.productImage }">
 			<div class="card o-hidden border-0 shadow-lg my-5">
 				<div class="card-body p-0">
@@ -81,7 +83,7 @@
 										</div>
 										<c:if test="${vo.tradeProcess eq 'NotComplete' }">
 											<div class="col-sm-1" style="text-align: center;">
-												<input name="tradeProcess" style="text-align: left; border:0; color: red; padding-top:7px;"
+												<input name="tradeProcess"  id="blinkEle" style="text-align: left; border:0; color: red; padding-top:7px;"
 													value="${vo.tradeProcess }" readonly>
 
 											</div>
@@ -89,7 +91,7 @@
 										<c:if test="${vo.tradeProcess eq 'Complete' }">
 											<div class="col-sm-3"
 												style="text-align: center;">
-												<input name="tradeProcess" style="text-align: left; border:0; color: green; padding-top:7px;"
+												<input name="tradeProcess"  id="blinkEle" style="text-align: left; border:0; color: green; padding-top:7px;"
 													value="${vo.tradeProcess }" readonly>
 											</div>
 										</c:if>
@@ -192,7 +194,7 @@
 								<div class="col-sm-6">
 									<input type="text" class="form-control form-control-user"
 										readonly="readonly" name="productVolume" list="volume"
-										value="${vo.productVolume}">
+										value="${vo.productVolume} GB">
 									<datalist id="volume">
 										<option value="16">GB</option>
 										<option value="32">GB</option>
@@ -242,28 +244,78 @@
 		<a href="boardList.do" class="btn btn-facebook btn-user btn-block">
 			뒤로가기 </a>
 	</div>
+			
+				<c:if test="${vo.memberId ne memberId }">
+				<div class="col-sm-3 mb-3 mb-sm-0">
+									<form action="insertCart.do" method="post">
+										<button type="submit"
+											class="btn btn-google btn-user btn-block"
+											>찜 하 기</button>
+										<div>
+		<input name="cartMemberId" type="hidden" value="${memberId }">
+		<input name="boardDate" type="hidden" value="${vo.boardDate }">
+		<input name="productName" type="hidden" value="${vo.productName }">
+		<input name="price" type="hidden" value="${vo.price }"> 
+		<input name="memberId" type="hidden" value="${vo.memberId }">
+		<input name="memberSiAddress" type="hidden" value="${vo.memberSiAddress }">
+		<input name="memberGuAddress" type="hidden" value="${vo.memberGuAddress }">
+		<input name="memberPhoneNumber" type="hidden" value="${vo.memberPhoneNumber }">
+		<input name="tradeProcess" type="hidden" value="${vo.tradeProcess }">
+	</div>	
+											
+									</form>
+				</div>
+								<div class="col-sm-3 mb-3 mb-sm-0">
+	<form action="buySend.do" method="post">
+										<button type="submit"
+											class="btn btn-primary btn-user btn-block"
+											>구 매</button>
+										<div>
+		<input name="buyMemberId" type="hidden" value="${memberId }">
+		<input name="boardDate" type="hidden" value="${vo.boardDate }">
+		<input name="productName" type="hidden" value="${vo.productName }">
+		<input name="price" type="hidden" value="${vo.price }"> 
+		<input name="memberId" type="hidden" value="${vo.memberId }">
+		<input name="memberSiAddress" type="hidden" value="${vo.memberSiAddress }">
+		<input name="memberGuAddress" type="hidden" value="${vo.memberGuAddress }">
+		<input name="memberPhoneNumber" type="hidden" value="${vo.memberPhoneNumber }">
+		<input name="tradeProcess" type="hidden" value="${vo.tradeProcess }">
+	</div>	
+											
+									</form>
+								</div>
+								</c:if>
+			
+			
+	</div>
 							</div>
 								</div>
 	</div>
-	</div>
+	
+	
+	
 	</div>
 		<div>
 		<input name="buyMemberId" type="hidden" value="${memberId }">
 		<input name="boardDate" type="hidden" value="${vo.boardDate }">
 		<input name="productName" type="hidden" value="${vo.productName }">
-		<input name="price" type="hidden" value="${vo.price }"> <input
-			name="memberId" type="hidden" value="${vo.memberId }"> <input
-			name="memberSiAddress" type="hidden" value="${vo.memberSiAddress }">
-		<input name="memberGuAddress" type="hidden"
-			value="${vo.memberGuAddress }"> <input
-			name="memberPhoneNumber" type="hidden"
-			value="${vo.memberPhoneNumber }">
+		<input name="price" type="hidden" value="${vo.price }"> 
+		<input name="memberId" type="hidden" value="${vo.memberId }">
+		<input name="memberSiAddress" type="hidden" value="${vo.memberSiAddress }">
+		<input name="memberGuAddress" type="hidden" value="${vo.memberGuAddress }">
+		<input name="memberPhoneNumber" type="hidden" value="${vo.memberPhoneNumber }">
 	</div>
+	<c:if test="${vo.memberId eq memberId }">
 	</form>
+	</c:if>
+
+	
+	</div>
+	
+	
+	
+								
 </div>
-
-
-
 
 <div class="container">
 <!--댓글영역-->
@@ -384,11 +436,32 @@
 	function deleteAlert(str) {
 		var yn = confirm("정말 삭제할까요?");
 		if (yn) {
-				location.href="boardDelete.do?boardDate=" + str;
+			location.href = "boardDelete.do?boardDate="+str;
 		} else {
 			alert("삭제하지 못하였습니다.  ");
 		}
 	}
+	
+	function buyAlert(str, str1) {
+		var yn = confirm("정말 구매할까요?");
+		if (yn) {
+			location.href = "buySend.do?boardDate="+str+"&buyMemberId="+str1;
+		} else {
+			alert("구매하지 못하였습니다.  ");
+		}
+	}
+	
+	function cartAlert(str, str1) {
+		var yn = confirm("장바구니에 추가할까요?");
+		if (yn) {
+			location.href = "insertCart.do?boardDate="+str+"&cartMemberId="+str1;
+		} else {
+			alert("추가하지 못하였습니다.  ");
+		}
+	}
+	setInterval(function() {
+		$(".blinkEle").toggle();
+	}, 250);
 </script>
 </body>
 

@@ -16,7 +16,6 @@ public class NoticeUpdate implements Command {
 		vo.setnTitle(request.getParameter("nTitle"));
 		vo.setnContent(request.getParameter("nContent"));
 		vo.setnNumber(Integer.parseInt(request.getParameter("nNumber")));
-		System.out.println(vo);
 		int n= dao.noticeUpdate(vo);
 		String viewPage = null;
 		

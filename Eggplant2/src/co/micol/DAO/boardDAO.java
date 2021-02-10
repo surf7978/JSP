@@ -34,6 +34,8 @@ public class boardDAO extends DAO {
 				vo.setCategory1(rs.getString("category1"));
 				vo.setCategory2(rs.getString("category2"));
 				vo.setProductImage(rs.getString("productImage"));
+				vo.setProductColor(rs.getString("productColor"));
+				vo.setProductVolume(rs.getInt("productVolume"));
 				list.add(vo);				
 			}			
 		} catch (Exception e) {
@@ -66,6 +68,8 @@ public class boardDAO extends DAO {
 				vo.setCategory1(rs.getString("category1"));
 				vo.setCategory2(rs.getString("category2"));
 				vo.setProductImage(rs.getString("productImage"));
+				vo.setProductColor(rs.getString("productColor"));
+				vo.setProductVolume(rs.getInt("productVolume"));
 				updateView(vo);
 			}
 		} catch (Exception e) {
@@ -82,9 +86,12 @@ public class boardDAO extends DAO {
 	public int insertBoard(boardVO vo) {
 		String sql1="INSERT INTO board99"//
 				+ " (boardTitle, boardContent, price, productName"//
-				+ ", memberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber, ProductImage)"//
+				+ ", memberId, MemberSiAddress, MemberGuAddress, MemberPhoneNumber, ProductImage"//
+				+ ", ProductVolume, ProductColor, Category1, Category2"//
+				+ " )"//
 				+ " VALUES (?,?,?,?"
-				+ ",?,?,?,?,?)";
+				+ ",?,?,?,?,?"
+				+ ",?,?,?,?)";
 		
 		String sql2="INSERT INTO product99"//
 				+ " (productName, category1, category2)"//
@@ -102,6 +109,11 @@ public class boardDAO extends DAO {
 			psmt.setString(7, vo.getMemberGuAddress());
 			psmt.setString(8, vo.getMemberPhoneNumber());
 			psmt.setString(9, vo.getProductImage());
+			
+			psmt.setInt(10, vo.getProductVolume());
+			psmt.setString(11, vo.getProductColor());
+			psmt.setString(12, vo.getCategory1());
+			psmt.setString(13, vo.getCategory2());
 			n = psmt.executeUpdate();
 			
 			
@@ -139,8 +151,12 @@ public class boardDAO extends DAO {
 				+ ", tradeProcess =?, ProductImage =?"//
 				+ ",memberSiAddress =?, memberGuAddress =?"//
 				+ ", category1 =?, category2 =?"//
+				+ ", productColor =?, productVolume =?"//
 				+ " WHERE BoardDate =?";
 	
+		String sql2 = "UPDATE cart99 SET"//
+				+ " tradeProcess =?"//
+				+ " WHERE BoardDate =?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1,vo.getBoardTitle());
@@ -152,7 +168,14 @@ public class boardDAO extends DAO {
 			psmt.setString(7, vo.getMemberGuAddress());
 			psmt.setString(8, vo.getCategory1());
 			psmt.setString(9, vo.getCategory2());
-			psmt.setString(10, vo.getBoardDate());
+			psmt.setString(10, vo.getProductColor());
+			psmt.setInt(11, vo.getProductVolume());
+			psmt.setString(12, vo.getBoardDate());
+			n = psmt.executeUpdate();
+			
+			psmt = conn.prepareStatement(sql2);
+			psmt.setString(1, vo.getTradeProcess());
+			psmt.setString(2, vo.getBoardDate());
 			n = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -199,6 +222,8 @@ public class boardDAO extends DAO {
 				vo.setCategory1(rs.getString("category1"));
 				vo.setCategory2(rs.getString("category2"));
 				vo.setProductImage(rs.getString("productImage"));
+				vo.setProductColor(rs.getString("productColor"));
+				vo.setProductVolume(rs.getInt("productVolume"));
 				list.add(vo);
 			}	
 		} catch (SQLException e) {
@@ -227,6 +252,9 @@ public class boardDAO extends DAO {
 				vo.setTradeProcess(rs.getString("tradeProcess"));
 				vo.setCategory1(rs.getString("category1"));
 				vo.setCategory2(rs.getString("category2"));
+				vo.setProductImage(rs.getString("productImage"));
+				vo.setProductColor(rs.getString("productColor"));
+				vo.setProductVolume(rs.getInt("productVolume"));
 				list.add(vo);
 			}	
 		} catch (SQLException e) {
@@ -255,6 +283,9 @@ public class boardDAO extends DAO {
 				vo.setTradeProcess(rs.getString("tradeProcess"));
 				vo.setCategory1(rs.getString("category1"));
 				vo.setCategory2(rs.getString("category2"));
+				vo.setProductImage(rs.getString("productImage"));
+				vo.setProductColor(rs.getString("productColor"));
+				vo.setProductVolume(rs.getInt("productVolume"));
 				list.add(vo);
 			}	
 		} catch (SQLException e) {

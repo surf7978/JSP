@@ -79,7 +79,7 @@
 										<c:if test="${vos.tradeProcess eq 'NotComplete' }">
 											<label>
 										<input type="text" class="form-control form-control-user"
-											list="tradeProcess" name="tradeProcess" value="${vos.tradeProcess}" style="text-align:center;">
+											list="tradeProcess" name="tradeProcess"  style="text-align:center;">
 											<datalist id="tradeProcess">
 												<option value="Complete"></option>
 												<option value="NotComplete"></option>
@@ -89,7 +89,7 @@
 										<c:if test="${vos.tradeProcess eq 'Complete' }">
 											<label>
 										<input type="text" class="form-control form-control-user"
-											list="tradeProcess" name="tradeProcess" value="${vos.tradeProcess}" style="text-align:center;">
+											list="tradeProcess" name="tradeProcess"  style="text-align:center;">
 											<datalist id="tradeProcess">
 												<option value="Complete"></option>
 												<option value="NotComplete"></option>
@@ -202,16 +202,18 @@
                                             value="용 량">
                                     </div>
 									<div class="col-sm-6">
-										<input type="text" class="form-control form-control-user"
-											name="productVolume" list="volume" value="${vos.productVolume}">
+									<label>
+										<input type="text" class="form-control form-control-user" style="text-align:center;"
+											list="volume" name="productVolume" value="${vos.productVolume }">
 											<datalist id="volume">
-											<option value="16">GB</option>
-											<option value="32">GB</option>
-											<option value="64">GB</option>
-											<option value="128">GB</option>
-											<option value="256">GB</option>
-											<option value="512">GB</option>
+												<option value="16">GB</option>
+												<option value="32">GB</option>
+												<option value="64">GB</option>
+												<option value="128">GB</option>
+												<option value="256">GB</option>
+												<option value="512">GB</option>											
 											</datalist>
+											</label>
 									</div>
 								</div>
                                 <hr>

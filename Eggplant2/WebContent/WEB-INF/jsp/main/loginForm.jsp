@@ -30,12 +30,14 @@
                                             <input type="password" class="form-control form-control-user"
                                                 name="exampleInputPassword" placeholder="패스워드 입력">
                                         </div>
+                                        <!-- 
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
                                                 <label class="custom-control-label" for="customCheck">아이디 저장</label>
                                             </div>
                                         </div>
+                                         -->
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             로그인
                                         </button>
