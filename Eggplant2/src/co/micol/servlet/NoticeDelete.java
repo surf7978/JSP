@@ -13,12 +13,12 @@ public class NoticeDelete implements Command {
 		noticeDAO dao = new noticeDAO();
 		noticeVO vo = new noticeVO();
 		
-		vo.setnNumber(Integer.parseInt(request.getParameter("nNumber")));
+		vo.setnDate(request.getParameter("nDate"));
 		int n = dao.noticeDelete(vo);		
 		String viewPage=null;
 		
 		if(n != 0) {
-			viewPage = "notice.do";
+			viewPage = "mainPage.do";
 		}
 		
 		

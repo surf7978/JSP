@@ -14,10 +14,12 @@ public class NoticeInsert implements Command {
 		noticeVO vo = new noticeVO();
 		vo.setnTitle(request.getParameter("nTitle"));
 		vo.setnContent(request.getParameter("nContent"));
+		vo.setnWriter(request.getParameter("nWriter"));
+		vo.setMemberId(request.getParameter("memberId"));
 		int n = dao.noticeInsert(vo);
 		String viewPage = null;
 		if(n != 0) {
-			viewPage = "notice.do";
+			viewPage = "main/mainPage";
 		}
 		return viewPage;
 	}

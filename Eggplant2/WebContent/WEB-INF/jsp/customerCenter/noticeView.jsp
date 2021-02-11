@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../main/main.jsp" />
 
 <script>
@@ -23,10 +24,7 @@
 	<div class="container-fluid">
 
 		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800">Notice</h1>
-		<p class="mb-4">
-			공지사항
-		</p>
+		
 		<!-- DataTales Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
@@ -45,7 +43,7 @@
 						<th>NAME </th>
 						<td>${vo.nWriter }</td>
 						<th>DATE </th>
-						<td>${vo.nDate }</td>
+						<td><input readonly style="border:0; color:gray;" name="nDate" type="text" value="${vo.nDate }"></td>
 					</tr>
 					<tr>
 						<th>TITLE</th>
@@ -53,13 +51,15 @@
 					</tr>
 					<tr>
 						<th>CONTENT</th>
-						<td colspan="5"><textarea rows="20" cols="100" style="border:none;" readonly="readonly">${vo.nContent }</textarea></td>
+						<td colspan="5"><textarea style="resize:none; border:0; color:gray;" rows="20" cols="100" style="border:none;" readonly="readonly">${vo.nContent }</textarea></td>
 					</tr>
 				</table>
 				</div></div>
 				<div align="center" id="noticebtn">
-					<button type="button" onclick="update()" class="btn btn-primary btn-user btn-block">수정하기</button>
-					<button type="button" onclick="noticeDelete()"  class="btn btn-google btn-user btn-block">삭제하기</button>
+					<c:if test="${memberAuth eq 'ADMIN' }">
+						<button type="button" onclick="update()" class="btn btn-primary btn-user btn-block">수정하기</button>
+						<button type="button" onclick="noticeDelete()"  class="btn btn-google btn-user btn-block">삭제하기</button>
+					</c:if>
 				</div>
 			</form>
 		

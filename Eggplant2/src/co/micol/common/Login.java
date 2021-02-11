@@ -5,8 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.micol.DAO.memberDAO;
+import co.micol.DAO.noticeDAO;
 import co.micol.DAO.sellDAO;
 import co.micol.VO.memberVO;
+import co.micol.VO.noticeVO;
 import co.micol.VO.sellVO;
 
 public class Login implements Command {
@@ -53,6 +55,15 @@ public class Login implements Command {
 		session = request.getSession();
 		session.setAttribute("alertTrade", n);
 		
+		noticeDAO dao3 = new noticeDAO();
+		noticeVO vo3 = new noticeVO();
+		vo3.setMemberId(vo.getMemberId());
+		
+		int m = 0;
+		
+		m = dao3.alertNote(vo3);
+		
+		session.setAttribute("alertNote", m);
 		
 		// 유저 or 관리자로그인 실패 순서 설정하기 
 		//비교연산자로 null대신에 == 하고 getmAuth값이 USER,ADMIN인 것만으로 바꾸고 싶음

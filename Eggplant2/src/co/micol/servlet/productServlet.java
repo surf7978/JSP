@@ -32,12 +32,10 @@ public class productServlet extends HttpServlet {
         int i=1;
         for(productVO pro:list) {
         	jsonFile +="{";
-        	jsonFile += "\"pName\":\""+ pro.getpName()+"\"";
-			jsonFile +=",\"pModel\":\""+pro.getpModel()+"\"";
-			jsonFile +=",\"pImage\":\""+pro.getpImage()+"\"";
-			jsonFile +=",\"pAgency\":\""+pro.getpAgency()+"\"";
-			jsonFile +=",\"pColor\":\""+pro.getpColor()+"\"";
-			jsonFile +=",\"pVolume\":\""+pro.getpVolume()+"\"";
+        	jsonFile += "\"productName\":\""+ pro.getProductName()+"\"";
+			jsonFile +=",\"productImage\":\""+pro.getProductImage()+"\"";
+			jsonFile +=",\"category1\":\""+pro.getCategory1()+"\"";
+			jsonFile +=",\"category2\":\""+pro.getCategory2()+"\"";
 			jsonFile += "}";
 			if(list.size() != i++) {
 				jsonFile += ",";

@@ -1,13 +1,13 @@
 package co.micol.VO;
 
-import java.sql.Date;
 
 public class noticeVO {
 	private int nNumber;
 	private String nTitle;
 	private String nContent;
 	private String nWriter;
-	private Date nDate; 
+	private String memberId;
+	private String nDate; 
 	
 	public noticeVO() {
 		// TODO Auto-generated constructor stub
@@ -45,19 +45,26 @@ public class noticeVO {
 		this.nWriter = nWriter;
 	}
 
-	public Date getnDate() {
+	public String getnDate() {
 		return nDate;
 	}
 
-	public void setnDate(Date nDate) {
+	public void setnDate(String nDate) {
 		this.nDate = nDate;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 	@Override
 	public String toString() {
 		return "noticeVO [nNumber=" + nNumber + ", nTitle=" + nTitle + ", nContent=" + nContent + ", nWriter=" + nWriter
-				+ ", nDate=" + nDate + "]";
+				+ ", memberId=" + memberId + ", nDate=" + nDate + "]";
 	}
-
 
 }

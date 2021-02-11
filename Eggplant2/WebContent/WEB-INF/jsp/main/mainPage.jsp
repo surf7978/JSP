@@ -140,15 +140,16 @@
 	$(function(){
 		$("#show").on('click', $('li'), function(e){
 			let td = $(e.target).parentsUntil('div').find("[type='hidden']").eq(1).val();//.parentNode.childNodes[0].value;
-			console.log(td);
-		 	location.href = "noticeView.do?nNumber=" + td;
+			let nDate = $(e.target).parentsUntil('div').find("span").eq(1)[0].innerHTML;//val();//.parentNode.childNodes[0].value;
+			console.log(nDate);
+		 	location.href = "noticeView.do?nDate=" + nDate;
 		})		
 	})
 </script>
 <div id="main">
         	<div id="main_text" data-aos="fade-up" data-aos-delay="00" data-aos-duration="900"><img src="image/text.png"></div>
 			<div data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
-				<button id="button"><span>MORE </span></button>
+				<button id="button" onclick="location.href='boardList.do'"><span>MORE </span></button>
 			</div>
 </div>
 

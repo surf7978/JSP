@@ -36,6 +36,7 @@ import co.micol.member.InsertMemberForm;
 import co.micol.member.MemberList;
 import co.micol.member.UpdateProfile;
 import co.micol.my.CartList;
+import co.micol.my.Note;
 import co.micol.my.Profile;
 import co.micol.servlet.MainForm;
 import co.micol.servlet.NoticeDelete;
@@ -100,7 +101,8 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/insertCart.do", new InsertCart());
 		
-		//유진이꺼
+		map.put("/note.do", new Note());
+		
 		map.put("/main.do", new MainForm());
 		map.put("/notice.do", new notice());
 		map.put("/noticeView.do", new NoticeView());
@@ -110,13 +112,21 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
 		map.put("/noticeUpdate.do", new NoticeUpdate());
 		
-		//현정이꺼
+		
+		
+		
+		
+		
 		map.put("/boardUpdateForm.do", new BoardUpdateForm());
 		map.put("/fileUpload.do", new FileUpload());
 		
 		map.put("/cartList.do", new CartList());
 		
-		//세민이꺼
+		
+		
+		
+		
+		
 		map.put("/idCheck.do", new IdCheck());
 		
 		

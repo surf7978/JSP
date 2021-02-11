@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../main/main.jsp" />
  <script type="text/javascript">
 	$(function(){
@@ -17,6 +18,8 @@
 	                console.log(result[i]);
 	                for(field in result[i]){	
 	                	if(field != "nContent"){
+				console.log("콘솔확인:"+result[i].memberId);
+				if(result[i].memberId == 'notice'){
 	                		let td = document.createElement('td');
 	                		td.setAttribute("name", field);
 	                		td.setAttribute("id", field);
@@ -25,17 +28,23 @@
 	                	}	                	                	
 	                }
                 }
+				                                  }
 			}
 		})
 	});
 	$(function(){
 		$("#show").on('click', $('tr'), function(e){
-			let td = e.target.parentNode.childNodes[0].innerHTML;
+			let td = e.target.parentNode.childNodes[4].innerHTML;
 			console.log(e)
-		 	location.href = "noticeView.do?nNumber=" + td;
+		 	location.href = "noticeView.do?nDate=" + td;
 		})		
 	})
 </script>
+<style>
+	td, th{
+		text-align:center;
+	}
+</style>
 <div id="wrapper">
 
 	<!-- Begin Page Content -->
@@ -60,17 +69,20 @@
 						<thead>
 							<tr>
 								<th width="70">NO</th>
-								<th>TITLE</th>
-								<th width="200">NAME</th>
-								<th width="400">DATE</th>
+								<th>제목</th>
+								<th width="200">작성자</th>
+								<th width="200">분류</th>
+								<th width="400">작성날짜</th>
 							</tr>
 						</thead>
 						<tbody id="show">
 						</tbody>
 					</table>
+					<c:if test="${memberAuth eq 'ADMIN' }">
 					<div align="center" id="mybtn">
 						<button class="btn btn-primary btn-user btn-block" type="button" onclick="location.href='noticeInsertForm.do'">글작성</button>
 					</div>
+					</c:if>
 				</div>
 			</div>
 		</div>

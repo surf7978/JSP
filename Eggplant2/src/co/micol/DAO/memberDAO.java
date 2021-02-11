@@ -121,6 +121,20 @@ public class memberDAO extends DAO {
 				+ ", MemberPhoneNumber varchar2(20) not null"
 				+ " )";
 		
+		String sql18 = "create table notice99"//
+				+ "("//
+				+ "nContent varchar2(100) not null"//
+				+ ", nTitle varchar2(100) not null"//
+				+ ", nNumber varchar2(10)"//
+				+ ", nWriter varchar2(10) not null"//
+				+ ", MemberId varchar2(10) default 'notice'"//
+				+ ", nDate varchar2(20) default to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') not null"//
+				+ " )";
+		String sql19 = "insert into notice99(nNumber, nTITLE, nCONTENT, nWriter)"
+				+ " values('1', '1번공지 제목입니다.', '1번공지 내용입니다.', 'admin')";
+		String sql20 = "insert into notice99(nNumber, nTITLE, nCONTENT, nWriter)"
+				+ " values('2', '2번공지 제목입니다.', '2번공지 내용입니다.', 'admin')";
+		
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.executeQuery();
@@ -156,6 +170,12 @@ public class memberDAO extends DAO {
 			psmt.executeQuery();
 			psmt = conn.prepareStatement(sql17);
 			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql18);
+			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql19);
+			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql20);
+			psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -171,6 +191,7 @@ public class memberDAO extends DAO {
 		String sql5 ="drop table comment99";
 		String sql6 ="drop table sell99";
 		String sql7 ="drop table cart99";
+		String sql8 ="drop table notice99";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.executeQuery();
@@ -185,6 +206,8 @@ public class memberDAO extends DAO {
 			psmt = conn.prepareStatement(sql6);
 			psmt.executeQuery();
 			psmt = conn.prepareStatement(sql7);
+			psmt.executeQuery();
+			psmt = conn.prepareStatement(sql8);
 			psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();

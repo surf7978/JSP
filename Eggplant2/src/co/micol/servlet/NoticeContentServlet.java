@@ -35,6 +35,7 @@ public class NoticeContentServlet extends HttpServlet {
 			jsonFile +=",\"nTitle\":\""+notice.getnTitle()+"\"";
 			jsonFile +=",\"nContent\":\""+notice.getnContent()+"\"";
 			jsonFile +=",\"nWriter\":\""+notice.getnWriter()+"\"";
+			jsonFile +=",\"memberId\":\""+notice.getMemberId()+"\"";
 			jsonFile +=",\"nDate\":\""+notice.getnDate()+"\"";
 			jsonFile += "}";
 			if(list.size() != i++) {

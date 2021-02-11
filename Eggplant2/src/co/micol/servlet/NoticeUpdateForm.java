@@ -14,7 +14,7 @@ public class NoticeUpdateForm implements Command {
 		noticeDAO dao = new noticeDAO();
 		noticeVO vo = new noticeVO();
 		
-		vo.setnNumber(Integer.parseInt(request.getParameter("nNumber")));
+		vo.setnDate(request.getParameter("nDate"));
 		vo = dao.noticeSelect(vo);
 		
 		String viewPage = "customerCenter/noticeUpdateForm";

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../main/main.jsp" />
 <script>
 function insert(){
@@ -18,15 +19,23 @@ function insert(){
 	<div class="container-fluid">
 
 		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800">Notice</h1>
+		<c:if test="${memberAuth eq 'ADMIN' }">
+			<h1 class="h3 mb-2 text-gray-800">Notice</h1>
 		<p class="mb-4">
 			공지사항
 		</p>
+		</c:if>
+		<c:if test="${memberAuth eq 'USER' }">
+			<h1 class="h3 mb-2 text-gray-800">Note</h1>
+		<p class="mb-4">
+			쪽지
+		</p>
+		</c:if>
+		
 		<!-- DataTales Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">DataTables
-					Example</h6>
+				<h6 class="m-0 font-weight-bold text-primary"></h6>
 			</div>
 			<form id="frm" name="frm" method="post">
 			<div class="card-body">
@@ -44,8 +53,22 @@ function insert(){
 				</table>
 				</div></div>
 				<div align="center" id="noticebtn">
-					<button type="button" onclick="insert()" class="btn btn-primary btn-user btn-block">확인</button>
+					<c:if test="${memberAuth eq 'ADMIN' }">
+						<button type="button" onclick="insert()" class="btn btn-primary btn-user btn-block">등록</button>
+					</c:if>
+					<c:if test="${memberAuth eq 'USER' }">
+						<button type="button" onclick="insert()" class="btn btn-primary btn-user btn-block">전달</button>
+					</c:if>
 					<button type="reset" class="btn btn-google btn-user btn-block">취소</button>
+				</div>
+				<div>
+					<c:if test="${memberAuth eq 'ADMIN' }">
+						<input type="hidden" name="memberId" value="notice">
+					</c:if>
+					<c:if test="${memberAuth eq 'USER' }">
+						<input type="hidden" name="memberId" value="${nMemberId }">
+					</c:if>
+					<input type="hidden" name="nWriter" value="${memberId }">
 				</div>
 			</form>
 		

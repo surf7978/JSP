@@ -323,13 +323,14 @@
 
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <c:if test="${memberAuth eq 'USER' }">
+                            <a class="nav-link dropdown-toggle" href="noteList.do" >
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter"  style="font-size:15px;">999</span>
+                                <span class="badge badge-danger badge-counter"  style="font-size:15px;">${alertNote }</span>
                             </a>
-                            <!-- Dropdown - Messages -->
+                        </c:if>
+						<!-- 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -385,6 +386,7 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="noteList.do">모든 메세지 내역</a>
                             </div>
+						 -->                            
                         </li>
 
                         

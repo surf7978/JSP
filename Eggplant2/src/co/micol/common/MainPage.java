@@ -1,12 +1,12 @@
 package co.micol.common;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import co.micol.DAO.noticeDAO;
 import co.micol.DAO.sellDAO;
+import co.micol.VO.noticeVO;
 import co.micol.VO.sellVO;
 
 public class MainPage implements Command {
@@ -33,6 +33,15 @@ public class MainPage implements Command {
 //		vo2 = dao1.alertTrade2(vo1);
 //		request.setAttribute("alertVO2", vo2);
 		
+		noticeDAO dao = new noticeDAO();
+		noticeVO vo = new noticeVO();
+		vo.setMemberId(request.getParameter("memberId"));
+		
+		int m = 0;
+		
+		m = dao.alertNote(vo);
+		
+		session.setAttribute("alertNote", m);
 		
 		return "main/mainPage";
 	}

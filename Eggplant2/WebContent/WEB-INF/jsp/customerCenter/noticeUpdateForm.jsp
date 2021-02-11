@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../main/main.jsp" />
 <script>
 function update(){
@@ -19,10 +20,6 @@ function update(){
 	<div class="container-fluid">
 
 		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800">Notice</h1>
-		<p class="mb-4">
-			공지사항
-		</p>
 		<!-- DataTales Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
@@ -41,7 +38,7 @@ function update(){
 						<th>NAME </th>
 						<td>${vo.nWriter }</td>
 						<th>DATE </th>
-						<td>${vo.nDate }</td>
+						<td><input readonly="readonly" name="nDate" style="border:0; color:gray;" value="${vo.nDate }"></td>
 					</tr>
 					<tr>
 						<th>TITLE</th>
@@ -49,12 +46,17 @@ function update(){
 					</tr>
 					<tr>
 						<th>CONTENT</th>
-						<td colspan="5"><textarea  name="nContent" rows="20" cols="100" style="border:none;">${vo.nContent }</textarea></td>
+						<td colspan="5"><textarea style="resize:none; border:0;" rows="20" cols="100" style="border:none;" name="nContent">${vo.nContent }</textarea></td>
 					</tr>
 				</table>
 				</div></div>
 				<div align="center" id="noticebtn">
-					<button type="button" onclick="update()" class="btn btn-primary btn-user btn-block">수정하기</button>
+					<c:if test="${memberAuth eq 'ADMIN' }">
+						<button type="button" onclick="update()" class="btn btn-primary btn-user btn-block">수정하기</button>
+					</c:if>
+					<c:if test="${memberAuth eq 'USER' }">
+						<button type="button" onclick="update()" class="btn btn-primary btn-user btn-block">답장하기</button>
+					</c:if>
 					<button type="button" onclick="location.href='notice.do'"  class="btn btn-google btn-user btn-block">목록으로</button>
 				</div>
 			</form>

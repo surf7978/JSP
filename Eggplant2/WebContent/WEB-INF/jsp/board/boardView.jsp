@@ -298,7 +298,7 @@
 									</form>
 								</div>
 								<div class="col-sm-3 mb-3 mb-sm-0">
-	<form action="buySend.do" method="post">
+	<form action="note.do" method="post">
 										<button type="submit"
 											class="btn btn-facebook btn-user btn-block"
 											>문의하기</button>
@@ -312,6 +312,7 @@
 		<input name="memberGuAddress" type="hidden" value="${vo.memberGuAddress }">
 		<input name="memberPhoneNumber" type="hidden" value="${vo.memberPhoneNumber }">
 		<input name="tradeProcess" type="hidden" value="${vo.tradeProcess }">
+		<input name="nMemberId" type="hidden" value="${vo.memberId }">
 	</div>	
 											
 									</form>
