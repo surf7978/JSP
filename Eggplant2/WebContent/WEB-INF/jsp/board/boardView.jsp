@@ -224,10 +224,21 @@
 							<br /> <br />
 							<hr>
 							<div class="form-group row">
+							<c:if test="${vo.memberId eq memberId }">
 								<div class="col-sm-2 mb-3 mb-sm-0">
 									<input type="hidden">
 								</div>
-								<c:if test="${vo.memberId eq memberId }">
+							</c:if>
+							<c:if test="${vo.memberId ne memberId }">
+								<div class="col-sm-1 mb-3 mb-sm-0">
+									<input type="hidden">
+								</div>
+							</c:if>								
+	<div class="col-sm-3 mb-3 mb-sm-0">
+		<a href="boardList.do" class="btn btn-facebook btn-user btn-block">
+			뒤로가기 </a>
+	</div>
+								<c:if test="${vo.memberId eq memberId || memberAuth eq 'ADMIN'}">
 									<div class="col-sm-3 mb-3 mb-sm-0">
 										<button type="button"
 											class="btn btn-primary btn-user btn-block"
@@ -235,22 +246,24 @@
 									</div>
 									<div class="col-sm-3 mb-3 mb-sm-0">
 										<button type="button"
-											class="btn btn-primary btn-user btn-block"
+											class="btn btn-google btn-user btn-block"
 											onclick="deleteAlert('${vo.boardDate }')">삭 제</button>
 									</div>
 								</c:if>
-	
-	<div class="col-sm-3 mb-3 mb-sm-0">
-		<a href="boardList.do" class="btn btn-facebook btn-user btn-block">
-			뒤로가기 </a>
-	</div>
-			
+							<c:if test="${memberAuth eq 'ADMIN'}">
+								<div class="col-sm-2 mb-3 mb-sm-0">
+									<input type="hidden">
+								</div>
+								<div class="col-sm-2 mb-3 mb-sm-0">
+									<input type="hidden">
+								</div>
+							</c:if>
 				<c:if test="${vo.memberId ne memberId }">
-				<div class="col-sm-3 mb-3 mb-sm-0">
+				<div class="col-sm-2 mb-3 mb-sm-0">
 									<form action="insertCart.do" method="post">
 										<button type="submit"
 											class="btn btn-google btn-user btn-block"
-											>찜 하 기</button>
+											>찜하기</button>
 										<div>
 		<input name="cartMemberId" type="hidden" value="${memberId }">
 		<input name="boardDate" type="hidden" value="${vo.boardDate }">
@@ -265,11 +278,30 @@
 											
 									</form>
 				</div>
-								<div class="col-sm-3 mb-3 mb-sm-0">
+								<div class="col-sm-2 mb-3 mb-sm-0">
 	<form action="buySend.do" method="post">
 										<button type="submit"
 											class="btn btn-primary btn-user btn-block"
-											>구 매</button>
+											>구매</button>
+										<div>
+		<input name="buyMemberId" type="hidden" value="${memberId }">
+		<input name="boardDate" type="hidden" value="${vo.boardDate }">
+		<input name="productName" type="hidden" value="${vo.productName }">
+		<input name="price" type="hidden" value="${vo.price }"> 
+		<input name="memberId" type="hidden" value="${vo.memberId }">
+		<input name="memberSiAddress" type="hidden" value="${vo.memberSiAddress }">
+		<input name="memberGuAddress" type="hidden" value="${vo.memberGuAddress }">
+		<input name="memberPhoneNumber" type="hidden" value="${vo.memberPhoneNumber }">
+		<input name="tradeProcess" type="hidden" value="${vo.tradeProcess }">
+	</div>	
+											
+									</form>
+								</div>
+								<div class="col-sm-3 mb-3 mb-sm-0">
+	<form action="buySend.do" method="post">
+										<button type="submit"
+											class="btn btn-facebook btn-user btn-block"
+											>문의하기</button>
 										<div>
 		<input name="buyMemberId" type="hidden" value="${memberId }">
 		<input name="boardDate" type="hidden" value="${vo.boardDate }">
@@ -442,23 +474,6 @@
 		}
 	}
 	
-	function buyAlert(str, str1) {
-		var yn = confirm("정말 구매할까요?");
-		if (yn) {
-			location.href = "buySend.do?boardDate="+str+"&buyMemberId="+str1;
-		} else {
-			alert("구매하지 못하였습니다.  ");
-		}
-	}
-	
-	function cartAlert(str, str1) {
-		var yn = confirm("장바구니에 추가할까요?");
-		if (yn) {
-			location.href = "insertCart.do?boardDate="+str+"&cartMemberId="+str1;
-		} else {
-			alert("추가하지 못하였습니다.  ");
-		}
-	}
 	setInterval(function() {
 		$(".blinkEle").toggle();
 	}, 250);

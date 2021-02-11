@@ -19,6 +19,7 @@ import co.micol.board.UpdateBoard;
 import co.micol.board.UpdateTradeProcess;
 import co.micol.cart.InsertCart;
 import co.micol.comment.InsertComment;
+import co.micol.board.BoardDelete;
 import co.micol.board.BoardList;
 import co.micol.board.BoardUpdateForm;
 import co.micol.board.BoardView;
@@ -82,6 +83,7 @@ public class FrontController extends HttpServlet {
 		map.put("/search.do", new Search());
 		map.put("/searchCategory2.do", new SearchCategory2());
 		map.put("/searchCategory1.do", new SearchCategory1());
+		map.put("/boardDelete.do", new BoardDelete());
 		
 		map.put("/insertComment.do", new InsertComment());
 		

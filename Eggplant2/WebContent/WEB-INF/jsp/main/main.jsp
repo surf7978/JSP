@@ -255,7 +255,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <c:if test="${membetAuth eq 'USER' }">
+                                <c:if test="${memberAuth eq 'USER' }">
                                 <a class="dropdown-item" href="cartList.do">
                                     <i class="fas fa-shopping-cart fa-sm fa-fw text-gray-400"></i>
                                     &nbsp;&nbsp;장바구니

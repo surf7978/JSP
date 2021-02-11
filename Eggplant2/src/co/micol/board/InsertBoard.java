@@ -27,6 +27,8 @@ public class InsertBoard implements Command {
 		vo.setCategory2(request.getParameter("category2"));
 		
 		vo.setProductImage(request.getParameter("productImage"));
+		vo.setProductColor(request.getParameter("productColor"));
+		vo.setProductVolume(Integer.parseInt(request.getParameter("productVolume")));
 		
 		System.out.println(vo.toString());
 		

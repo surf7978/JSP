@@ -20,7 +20,7 @@ import javax.servlet.http.Part;
  */
 @WebServlet("/FileUpload")
 @MultipartConfig(
-location = "C:/Dev",
+location = "C:/Users/admin/git/JSP/Eggplant2/WebContent/image",
 maxFileSize = -1,
 maxRequestSize = -1,
 fileSizeThreshold = 1024)

@@ -137,7 +137,6 @@
 								<div>
 									<form action="FileUpload" method="post" enctype="multipart/form-data">
 										<!-- FileUpLoad 서블릿 실행 -->
-
 										<input type="file" class="form-control" style="padding-bottom:35px;"
 											id="productImage" name="productImage"><br> 
 										<p>
