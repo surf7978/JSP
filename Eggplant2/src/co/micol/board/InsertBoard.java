@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.micol.DAO.boardDAO;
 import co.micol.VO.boardVO;
+import co.micol.VO.productVO;
 import co.micol.common.Command;
 
 public class InsertBoard implements Command {
@@ -31,6 +32,11 @@ public class InsertBoard implements Command {
 		vo.setProductVolume(Integer.parseInt(request.getParameter("productVolume")));
 		
 		System.out.println(vo.toString());
+		
+		productVO vo1 = new productVO();
+		vo1.setProductName(request.getParameter("productName"));
+		vo1.setCategory1(request.getParameter("category1"));
+		vo1.setCategory2(request.getParameter("category2"));
 		
 		dao.insertBoard(vo);
 		

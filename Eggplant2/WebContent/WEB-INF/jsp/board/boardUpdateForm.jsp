@@ -204,8 +204,8 @@
 									<div class="col-sm-6">
 									<label>
 										<input type="text" class="form-control form-control-user" style="text-align:center;"
-											list="volume" name="productVolume" value="${vos.productVolume }">
-											<datalist id="volume">
+											list="volume1" name="productVolume" value="${vos.productVolume }">
+											<datalist id="volume1">
 												<option value="16">GB</option>
 												<option value="32">GB</option>
 												<option value="64">GB</option>
@@ -213,7 +213,7 @@
 												<option value="256">GB</option>
 												<option value="512">GB</option>											
 											</datalist>
-											</label>
+									</label>
 									</div>
 								</div>
                                 <hr>
@@ -250,12 +250,10 @@
                                 <div class="col-sm-2 mb-3 mb-sm-0">
                                     <input type="hidden" >
                                 </div>
-                                <c:if test="${vos.memberId eq memberId }">
                                 <div class="col-sm-4 mb-3 mb-sm-0">
                                     <input type="submit" class="btn btn-primary btn-user btn-block" value="수정완료">
 
                                 </div>
-                                </c:if>
                                 <div class="col-sm-1 mb-3 mb-sm-0">
                                     <input type="hidden" >
                                 </div>

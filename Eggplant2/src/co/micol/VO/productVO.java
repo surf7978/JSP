@@ -2,64 +2,51 @@ package co.micol.VO;
 
 public class productVO {
 	
-	private String pName;
-	private String pModel;
-	private String pImage;
-	private String pAgency;
-	private String pColor;
-	private int pVolume;
+	private String productName;
+	private String productImage;
+	private String category1;
+	private String category2;
 	
 	public productVO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getpName() {
-		return pName;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setpName(String pName) {
-		this.pName = pName;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-	public String getpModel() {
-		return pModel;
+	public String getProductImage() {
+		return productImage;
 	}
 
-	public void setpModel(String pModel) {
-		this.pModel = pModel;
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
 	}
 
-	public String getpImage() {
-		return pImage;
+	public String getCategory1() {
+		return category1;
 	}
 
-	public void setpImage(String pImage) {
-		this.pImage = pImage;
+	public void setCategory1(String category1) {
+		this.category1 = category1;
 	}
 
-	public String getpAgency() {
-		return pAgency;
+	public String getCategory2() {
+		return category1;
 	}
 
-	public void setpAgency(String pAgency) {
-		this.pAgency = pAgency;
+	public void setCategory2(String category1) {
+		this.category1 = category1;
 	}
 
-	public String getpColor() {
-		return pColor;
+	@Override
+	public String toString() {
+		return "productVO [productName=" + productName + ", productImage=" + productImage + ", category1=" + category1
+				+ ", category2=" + category2 + "]";
 	}
 
-	public void setpColor(String pColor) {
-		this.pColor = pColor;
-	}
-
-	public int getpVolume() {
-		return pVolume;
-	}
-
-	public void setpVolume(int pVolume) {
-		this.pVolume = pVolume;
-	}
-	
-	
 }

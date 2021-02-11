@@ -460,9 +460,8 @@
 
 
 <script type="text/javascript">
-	function updateAlert() {
-		frm.action = "boardUpdateForm.do";
-		frm.submit();
+	function updateAlert(str) {
+		location.href = "boardUpdateForm.do?boardDate="+str;
 	}
 
 	function deleteAlert(str) {

@@ -64,22 +64,22 @@ public class memberDAO extends DAO {
 		String sql8 = "create table product99"//
 				+ "("//
 				+ "ProductName varchar2(100) not null"
-				+ ", Image varchar2(100)"
+				+ ", productImage varchar2(100)"
 				+ ", Category1 varchar2(100)"
 				+ ", Category2 varchar2(100)"
 				+ " )";
 		
 		String sql9 = "insert into product99"//
-				+ "(ProductName, Image, Category1, Category2 )"//
+				+ "(ProductName, productImage, Category1, Category2 )"//
 				+ " values('갤럭시s9','갤럭시s9.png', '전자기기', '스마트폰')";
 		String sql10 = "insert into product99"//
-				+ "(ProductName, Image, Category1, Category2 )"//
+				+ "(ProductName, productImage, Category1, Category2 )"//
 				+ " values('아이폰12','아이폰12.png', '전자기기', '스마트폰')";
 		String sql11 = "insert into product99"//
-				+ "(ProductName, Image, Category1, Category2 )"//
+				+ "(ProductName, productImage, Category1, Category2 )"//
 				+ " values('상의','상의.png', '의류', '상의')";
 		String sql12 = "insert into product99"//
-				+ "(ProductName, Image, Category1, Category2 )"//
+				+ "(ProductName, productImage, Category1, Category2 )"//
 				+ " values('하의','하의.png', '의류', '하의')";
 		
 		String sql13 = "create table comment99"//
