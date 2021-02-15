@@ -81,8 +81,8 @@ public class noticeDAO extends DAO {
 	}
 	
 	public int noticeInsert(noticeVO vo) {
-		String sql = "insert into notice99( nTITLE, nCONTENT, memberId, nWriter)"
-				+ " values( ?, ?, ?, ?)";
+		String sql = "insert into notice99(nNumber, nTITLE, nCONTENT, memberId, nWriter)"
+				+ " values(notice_seq.NEXTVAL, ?, ?, ?, ?)";
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(sql);

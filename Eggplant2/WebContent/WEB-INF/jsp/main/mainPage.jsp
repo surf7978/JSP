@@ -147,7 +147,10 @@
 	})
 </script>
 <div id="main">
-        	<div id="main_text" data-aos="fade-up" data-aos-delay="00" data-aos-duration="900"><img src="image/text.png"></div>
+        	<div id="main_text" data-aos="fade-up" data-aos-delay="00" data-aos-duration="900"><img src="image/text.png">
+        		<p>당신의 믿을 수 있는 중고거래를 위해 <br>
+					지금 이 순간에도 노력하고 있습니다.</p>
+        	</div>
 			<div data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
 				<button id="button" onclick="location.href='boardList.do'"><span>MORE </span></button>
 			</div>

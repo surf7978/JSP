@@ -156,6 +156,16 @@
 											name="memberPhoneNumber" value="${vos.memberPhoneNumber }">
 									</div>
 								</div>
+								<div class="form-group row">
+                                	 <div class="col-sm-3">
+                                        <input readonly style="text-align:center; background-color:white; color:#9400d3;" type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="판 매 자">
+                                    </div>
+									<div class="col-sm-9">
+										<input type="text" class="form-control form-control-user"
+											name="memberId" value="${vos.memberId }">
+									</div>
+								</div>
                                 <hr>
                                 
                                 <div class="form-group row">
