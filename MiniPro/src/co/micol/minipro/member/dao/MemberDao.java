@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import co.micol.minipro.common.DAO;
 import co.micol.minipro.common.DbInterface;
@@ -46,9 +47,64 @@ public class MemberDao extends DAO implements DbInterface<MemberVo> {
 		}finally {
 			close();
 		}
-		
 		return resultvo;
 	}
+	
+	//210217 paging연습
+	public List<EmployeeVO> getPagingList(int page){
+		List<EmployeeVO> list = new ArrayList<>();
+		String sql = "select b.* from"//
+				+ " (select rownum rn, a.* from"//
+				+ " (select e.* from employees e order by e.employee_id"//
+				+ " ) a) b where b.rn between ? and ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			int startCnt = 1+(page-1)*10;
+			int endCnt = page*10; 
+			psmt.setInt(1, startCnt);
+			psmt.setInt(2, endCnt);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				EmployeeVO vo = new EmployeeVO();
+				vo.setEmail(rs.getString("email"));
+				vo.setEmployeeId(rs.getInt("employee_id"));
+				vo.setFirstName(rs.getString("first_name"));
+				vo.setHireDate(rs.getString("hire_date"));
+				vo.setLastName(rs.getString("last_name"));
+				vo.setSalary(rs.getInt("salary"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list;
+	}
+	
+	public int getTotalCnt() {
+		String sql = "select count(*) from employees";
+		int totalCnt=0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				totalCnt = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return totalCnt;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
