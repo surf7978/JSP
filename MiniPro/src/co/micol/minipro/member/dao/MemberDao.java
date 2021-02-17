@@ -1,5 +1,6 @@
 package co.micol.minipro.member.dao;
 
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,13 +8,53 @@ import java.util.ArrayList;
 
 import co.micol.minipro.common.DAO;
 import co.micol.minipro.common.DbInterface;
+import co.micol.minipro.common.EmployeeVO;
 import co.micol.minipro.member.service.MemberVo;
+import oracle.jdbc.OracleTypes;
 
 public class MemberDao extends DAO implements DbInterface<MemberVo> {
 	
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
+	//210217 프로시져 연습
+	public EmployeeVO getSalaryInfo(int empId, int salary) {
+		EmployeeVO resultvo = null;
+		try {
+			CallableStatement csmt = conn.prepareCall("{ call SAL_HISTORY_PROC(?,?,?) }"); // ?
+			csmt.setInt(1, empId);
+			csmt.setInt(2, salary);
+			csmt.registerOutParameter(3, OracleTypes.CURSOR); //out변수타입 프로시저꺼 받아옴
+			csmt.execute();
+			
+			//프로시저 실행한거 다시 받아오기
+			rs = (ResultSet) csmt.getObject(3);
+			if(rs.next()) {
+				resultvo = new EmployeeVO();
+				resultvo.setEmail(rs.getString("email"));
+				resultvo.setEmployeeId(rs.getInt("employee_id"));
+				resultvo.setFirstName(rs.getString("first_name"));
+				resultvo.setHireDate(rs.getString("hire_date"));
+				resultvo.setLastName(rs.getString("last_name"));
+				resultvo.setSalary(rs.getInt("salary"));
+				System.out.println(rs.getInt(1)); //결과값의 1번째 콜름 = employee_id
+				System.out.println(rs.getString("first_name")); //이렇게 해도됨
+				System.out.println(rs.getInt("salary")); //사실 getInt, getString 아무거나 해도 상관없음(출력타입만 이거로 설정이라)
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return resultvo;
+	}
+	
+	
+	
+	
+	
+	
 	@Override
 	public ArrayList<MemberVo> selectList() {
 		// 회원전체정보 출력
