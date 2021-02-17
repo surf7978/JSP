@@ -17,6 +17,7 @@ import co.micol.minipro.member.service.Logout;
 import co.micol.minipro.member.service.MemberIdCheck;
 import co.micol.minipro.member.service.MemberJoin;
 import co.micol.minipro.member.service.MemberJoinForm;
+import co.micol.proc.CursorType;
 
 
 /**
@@ -46,6 +47,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberJoinForm.do", new MemberJoinForm()); //회원가입폼 호출
 		map.put("/memberJoin.do", new MemberJoin()); //회원가입 처리
 		map.put("/idCheck.do", new MemberIdCheck()); //아이디 중복체크 처리
+		
+		//210217 프로시져 연습
+		map.put("/cursor.do", new CursorType());
 	}
 
 	/**
