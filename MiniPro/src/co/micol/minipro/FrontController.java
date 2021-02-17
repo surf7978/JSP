@@ -17,6 +17,7 @@ import co.micol.minipro.member.service.Logout;
 import co.micol.minipro.member.service.MemberIdCheck;
 import co.micol.minipro.member.service.MemberJoin;
 import co.micol.minipro.member.service.MemberJoinForm;
+import co.micol.paging.PagingTest;
 import co.micol.proc.CursorType;
 
 
@@ -50,6 +51,9 @@ public class FrontController extends HttpServlet {
 		
 		//210217 프로시져 연습
 		map.put("/cursor.do", new CursorType());
+		
+		//210217 페이지화면 연습
+		map.put("/paging.do", new PagingTest());
 	}
 
 	/**
